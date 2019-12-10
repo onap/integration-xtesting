@@ -1,0 +1,29 @@
+---
+tiers:
+    -
+        name: infra-healthcheck
+        order: 1
+        ci_loop: '(daily)|(weekly)!(gating)'
+        description: >-
+            Set of basic k8s Functional tests to validate the ONAP installation.
+        testcases:
+            -
+                case_name: onap-k8s
+                project_name: integration
+                criteria: 100
+                blocking: false
+                description: >-
+                    This test case verifies that the ONAP pods are all Running
+                    and shows the pods, deployments, svc and events
+                run:
+                    name: 'onap_k8s'
+            -
+                case_name: onap-helm
+                project_name: integration
+                criteria: 100
+                blocking: false
+                description: >-
+                    This test case verifies that the ONAP charts are in
+                    DEPLOYED status
+                run:
+                    name: 'onap_helm'
