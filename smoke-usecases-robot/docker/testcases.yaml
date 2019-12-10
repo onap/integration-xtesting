@@ -1,0 +1,44 @@
+---
+tiers:
+    -
+        name: smoke-usecases
+        order: 1
+        description: >-
+            ONAP E2E tests
+        testcases:
+            -
+                case_name: pnf-registrate
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    Registrate PNF
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/pnf-registration.robot
+                        include:
+                            - pnf_registrate
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+            -
+                case_name: vfw-cl
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    vFW closed loop use case
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/vfwcl.robot
+                        include:
+                            - vfwc
+                        variablefile:
+                            - '/share/config/robot_properties.py'

@@ -1,0 +1,52 @@
+---
+tests:
+  - core
+
+healthcheck_deployment:
+  apiVersion: batch/v1
+  kind: Job
+  metadata:
+    name: "functest-onap-{{ run_type }}"
+    namespace: "{{ onap_namespace }}"
+  spec:
+    template:
+      spec:
+        restartPolicy: Never
+        containers:
+          - name: functest-onap
+            image: registry.gitlab.com/orange-opensource/lfn/onap/integration/xtesting/health
+            imagePullPolicy: Always
+            env:
+              - name: INSTALLER_TYPE
+                value: "{{ deployment_name }}"
+              - name: DEPLOY_SCENARIO
+                value: "{{ deploy_scenario }}"
+              - name: NODE_NAME
+                value: "{{ node_name }}"
+              - name: TEST_DB_URL
+                value:
+                  "{{ test_result_url }}"
+              - name: BUILD_TAG
+                value: "{{ build_tag }}"
+              - name: TAG
+                value: "{{ run_type }}"
+            volumeMounts:
+              - name: localtime
+                mountPath: /etc/localtime
+                readOnly: true
+              - name: robot-eteshare
+                mountPath: /share/config
+              - name: robot-save-results
+                mountPath:
+                  /var/lib/xtesting/results/
+        volumes:
+          - name: localtime
+            hostPath:
+              path: /etc/localtime
+          - name: robot-eteshare
+            configMap:
+              name: "{{ onap_namespace }}-robot-robot-eteshare-configmap"
+              defaultMode: 0755
+          - name: robot-save-results
+            hostPath:
+              path: "{{ res_local_path }}/{{ run_type }}"
