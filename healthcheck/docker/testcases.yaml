@@ -1,0 +1,119 @@
+---
+tiers:
+    -
+        name: healthcheck
+        order: 1
+        ci_loop: '(daily)|(weekly)!(gating)'
+        description: >-
+            Set of basic Functional tests to validate the ONAP installation.
+        testcases:
+            -
+                case_name: core
+                project_name: integration
+                criteria: 100
+                blocking: false
+                description: >-
+                    This test case verifies the API of core ONAP components
+                    aai, dmap, portal, sdc, sdnc, so, robot
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/health-check.robot
+                        include:
+                            - core
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+            -
+                case_name: small
+                project_name: integration
+                criteria: 100
+                blocking: false
+                description: >-
+                    This test case verifies the API of the components
+                    aai, dmap, portal, sdc, sdnc, so, robot,
+                    AAF, APPC, CLI, COnsul, ESR, Log, MSB, Multicloud, NBI, VID
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/health-check.robot
+                        include:
+                            - core
+                            - small
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+            -
+                case_name: medium
+                project_name: integration
+                criteria: 100
+                blocking: false
+                description: >-
+                    This test case verifies the API of the components
+                    aai, dmap, portal, sdc, sdnc, so, robot,
+                    AAF, APPC, CLI, COnsul, ESR, Log, MSB, Multicloud, NBI, VID,
+                    CLAMP, DCAE, OOF, POLICY, UUI, SNIRO
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/health-check.robot
+                        include:
+                            - core
+                            - small
+                            - medium
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+            -
+                case_name: full
+                project_name: integration
+                criteria: 100
+                blocking: false
+                description: >-
+                    This test case verifies all the healthcheck Robot tests
+                    based on the default robot tests
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/health-check.robot
+                        include:
+                            - health
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+            -
+                case_name: postinstall
+                project_name: integration
+                criteria: 100
+                blocking: false
+                description: >-
+                    This test runs a set of test to verify some components at
+                    the end of the installation: DMAAP Message Router ACL
+                    Update Test and AAI Service Design Models Size Test
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/post-install-tests.robot
+                        include:
+                            - postinstall
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+            -
+                case_name: healthdist
+                project_name: integration
+                criteria: 100
+                blocking: false
+                description: >-
+                    This test case verifies that the vFW model is properly
+                    distributed. At the end the csar file shall be downloaded
+                    from the sdc
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/health-check.robot
+                        include:
+                            - healthdist
+                        variablefile:
+                            - '/share/config/robot_properties.py'

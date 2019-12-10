@@ -1,0 +1,42 @@
+---
+tiers:
+    -
+        name: smoke-usecases
+        order: 1
+        description: >-
+            ONAP E2E tests
+        testcases:
+            -
+                case_name: basic_vm
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Onboard and instantiate a simple ubuntu16.04 VM VNF
+                dependencies:
+                run:
+                    name: basic_vm
+            -
+                case_name: freeradius_nbi
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    Onboard and instantiate a simple freeradius VM VNF
+                    through NBI
+                dependencies:
+                run:
+                    name: freeradius_nbi
+            -
+                case_name: clearwater_ims
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Onboard and instantiate a clearwater IMS VNF
+                dependencies:
+                run:
+                    name: clearwater_ims

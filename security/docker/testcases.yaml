@@ -1,0 +1,18 @@
+---
+tiers:
+    -
+        name: security
+        order: 1
+        ci_loop: '(daily)|(weekly)'
+        description: >-
+            Set of basic Functional security tests.
+        testcases:
+            -
+                case_name: osji
+                project_name: integration
+                criteria: 100
+                blocking: false
+                description: >-
+                    run osji scan.
+                run:
+                    name: 'onap_osji'
