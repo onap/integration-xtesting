@@ -1,0 +1,9 @@
+Code-Review+2: Morgan Richomme <morgan.richomme@orange.com>
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Bartek Grzybowski <b.grzybowski@partner.samsung.com>
+Code-Review+2: Christophe Closset <christophe.closset@intl.att.com>
+Submitted-by: Morgan Richomme <morgan.richomme@orange.com>
+Submitted-at: Wed, 18 Dec 2019 13:35:32 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/xtesting/+/99753
+Project: integration/xtesting
+Branch: refs/heads/master
