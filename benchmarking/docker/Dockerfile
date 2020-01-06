@@ -2,7 +2,7 @@ FROM opnfv/xtesting
 ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
 ARG ONAP_TAG=master
-ARG PIP_TAG=19.3
+ARG PIP_TAG=19.3.1
 
 ENV PYTHONPATH $PYTHONPATH:/src/testing-utils/robotframework-onap/eteutils
 ENV TAG all
@@ -28,6 +28,6 @@ RUN apk --no-cache add --virtual .build-deps --update \
     cd / && ln -s /var/opt/ONAP/robot/ /robot && \
     apk del .build-deps
 
-COPY docker/testcases.yaml /usr/lib/python3.6/site-packages/xtesting/ci/testcases.yaml
+COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
 COPY scripts/cmd.sh /
 CMD ["/cmd.sh"]

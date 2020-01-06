@@ -27,5 +27,5 @@ RUN set -x && \
         git+https://gitlab.com/Orange-OpenSource/lfn/onap/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=infra-healthcheck && \
     apk del .build-deps
 
-COPY docker/testcases.yaml /usr/lib/python3.7/site-packages/xtesting/ci/testcases.yaml
+COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
 CMD ["run_tests", "-t", "all"]

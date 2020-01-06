@@ -3,7 +3,7 @@ FROM opnfv/xtesting
 ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
 ARG ONAP_TAG=master
-ARG PIP_TAG=18.0
+ARG PIP_TAG=19.3.1
 
 ENV PYTHONPATH $PYTHONPATH:/src/testing-utils/robotframework-onap/eteutils
 ENV TAG all
@@ -28,12 +28,12 @@ RUN apk --no-cache add --update openssl && \
     mkdir -p /var/opt/ONAP/demo/heat && cp -Rf /src/demo/heat/vFW /var/opt/ONAP/demo/heat/ && \
     mkdir -p /demo/service_mapping && cp -Rf /src/demo/service_mapping /demo/ && \
     mkdir -p /var/opt/ONAP/demo/preload_data && cp -Rf /src/demo/preload_data /var/opt/ONAP/demo/ && \
-    ln -s /usr/lib/python3.7/site-packages/vcpeutils /usr/lib/python3.7/site-packages/SoUtils && \
-    ln -s /usr/lib/python3.7/site-packages/heatbridge /usr/lib/python3.7/site-packages/HeatBridge && \
+    ln -s /usr/lib/python3.8/site-packages/vcpeutils /usr/lib/python3.8/site-packages/SoUtils && \
+    ln -s /usr/lib/python3.8/site-packages/heatbridge /usr/lib/python3.8/site-packages/HeatBridge && \
     rm -r requirements.txt /var/opt/ONAP/.git /src/demo && \
     cd / && ln -s /var/opt/ONAP/robot/ /robot && \
     apk del .build-deps
 
-COPY docker/testcases.yaml /usr/lib/python3.7/site-packages/xtesting/ci/testcases.yaml
+COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
 COPY scripts/cmd.sh /
 CMD ["/cmd.sh"]

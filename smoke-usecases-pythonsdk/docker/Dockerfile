@@ -12,5 +12,5 @@ RUN apk add --no-cache python3 git bash && \
         git+https://gitlab.com/Orange-OpenSource/onap-tests.git@$ONAP_TESTS_TAG#egg=onap_tests && \
     apk del .build-deps
 
-COPY docker/testcases.yaml /usr/lib/python3.7/site-packages/xtesting/ci/testcases.yaml
+COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
 CMD ["run_tests", "-t", "all"]
