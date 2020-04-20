@@ -8,11 +8,67 @@ tiers:
             Set of basic Functional security tests.
         testcases:
             -
-                case_name: osji
-                project_name: integration
+                case_name: root_pods
+                project_name: security
                 criteria: 100
                 blocking: false
                 description: >-
-                    run osji scan.
+                    test if pods are run in root.
                 run:
-                    name: 'onap_osji'
+                    name: 'root_pods'
+            -
+                case_name: unlimitted_pods
+                project_name: security
+                criteria: 100
+                blocking: false
+                description: >-
+                    test if pods are run without limit.
+                run:
+                    name: 'unlimitted_pods'
+            -
+                case_name: cis_kubernetes
+                project_name: security
+                criteria: 100
+                blocking: false
+                description: >-
+                    test if kubernetes install is CIS compliant.
+                run:
+                    name: 'cis_kubernetes'
+            -
+                case_name: http_public_endpoints
+                project_name: security
+                criteria: 100
+                blocking: false
+                description: >-
+                    Check all ports exposed outside of kubernetes cluster
+                    looking for plain http endpoint.
+                run:
+                    name: 'http_public_endpoints'
+            -
+                case_name: nonssl_endpoints
+                project_name: security
+                criteria: 100
+                blocking: false
+                description: >-
+                    Check that all ports exposed outside of kubernetes cluster
+                    use SSL tunnels.
+                run:
+                    name: 'nonssl_endpoints'
+            -
+                case_name: jdpw_ports
+                project_name: security
+                criteria: 100
+                blocking: false
+                description: >-
+                    Check that no jdwp ports are exposed
+                run:
+                    name: 'jdpw_ports'
+            -
+                case_name: kube_hunter
+                project_name: security
+                criteria: 100
+                blocking: false
+                description: >-
+                    Check k8s CVE.
+                run:
+                    name: 'kube_hunter'

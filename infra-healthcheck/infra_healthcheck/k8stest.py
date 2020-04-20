@@ -101,16 +101,6 @@ class K8sTesting(testcase.TestCase):
         return res
 
 
-class OnapK8sTest(K8sTesting):
-    """Kubernetes smoke test suite"""
-    def __init__(self, **kwargs):
-        if "case_name" not in kwargs:
-            kwargs.get("case_name", 'onap-k8s')
-        super(OnapK8sTest, self).__init__(**kwargs)
-        self.cmd = ['/check_onap_k8s.sh']
-        self.criteria_string = "Nb Failed Pods"
-
-
 class OnapHelmTest(K8sTesting):
     """Kubernetes conformance test suite"""
     def __init__(self, **kwargs):
@@ -119,3 +109,14 @@ class OnapHelmTest(K8sTesting):
         super(OnapHelmTest, self).__init__(**kwargs)
         self.cmd = ['/check_onap_helm.sh']
         self.criteria_string = "Nb Failed Helm Charts"
+
+
+class OnapSecurityNodePortsIngress(K8sTesting):
+    """Check that there is no NodePort without corresponding Ingress port."""
+    def __init__(self, **kwargs):
+        if "case_name" not in kwargs:
+            kwargs.get("case_name", 'nodeport_ingress')
+        super(OnapSecurityNodePortsIngress, self).__init__(**kwargs)
+        self.cmd = ['python3', '/check_for_ingress_and_nodeports.py',
+                    '--conf', '/root/.kube/config']
+        self.error_string = "NodePort without corresponding Ingress found"

@@ -9,3 +9,6 @@ pylint>=2.1 # GPLv2
 yamllint
 bashate # Apache-2.0
 xtesting
+kubernetes # Apache-2.0
+colorama # BSD
+kubernetes_status

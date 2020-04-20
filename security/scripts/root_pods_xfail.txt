@@ -1,0 +1,33 @@
+# Expected failure list for rooted ports
+# Upstream pods are excluded in Frankfurt
+# We consider only the pods we built
+aaf-cass # cassandra
+aaf-sms-vault # upstream vault and consul docker used by aaf AAF-1102
+aai # aai pods not launched as root even root user still in dockers AAI-2822
+awx # ansible
+cassandra # common cassandra
+consul # nobody remembers who is responsible for consul
+dcae-redis # redis container
+dcae-mongo # mongo container
+dcae-cloudify-manager # DCAEGEN2-2121
+mariadb # common mariadb
+msb-consul # another consul
+multicloud-fcaps # rabbit-mq upstream pod MULTICLOUD-1017
+multicloud-k8s-etcd
+multicloud-k8s-mongo
+music-cassandra # music has itw own cassandra
+nbi-mongo # a mongo db
+netbox # netbox
+pomba-elasticsearch # elasticsearch
+portal-cassandra # portal cassandra
+portal-db # portal mariadb
+portal-zookeeper # portal zookeeper
+zookeeper # common zookeper
+
+# other waivers
+robot # testing
+sniro-emulator # testing
+oof-cmso-service # testing
+vnfsdk # testing VNFSDK-565
+pomba # nobody taking cares of pomba for several releases
+dcaemod # dcae experimental pods for Frankfurt

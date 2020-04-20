@@ -27,3 +27,15 @@ tiers:
                     DEPLOYED status
                 run:
                     name: 'onap_helm'
+            -
+                case_name: nodeport_ingress
+                project_name: security
+                criteria: 100
+                blocking: false
+                description: >-
+                    Check that there is no NodePort without corresponding
+                    Ingress port
+                dependencies:
+                    - DEPLOY_SCENARIO: 'ingress'
+                run:
+                    name: 'nodeport_ingress'

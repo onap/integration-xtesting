@@ -12,6 +12,8 @@ It includes 2 tests:
   are up&running
 * onap-helm: list the helm charts. The success criteria is all the helm charts
   are completed.
+* nodeport_ingress: check that we have a 1:1 corresdpondance between nodeports
+  and ingress (run only when the env variable DEPLOY_SCENARIO includes ingress)
 
 ## Usage
 
@@ -21,7 +23,7 @@ Mandatory:
 
 * The kubernetes configuration: usually hosted on the.kube/config of your
   jumphost. It corresponds the kubernetes credentials and are needed to perform
-  the different operations. This file shall be copied in /config/.kube/config in
+  the different operations. This file shall be copied in /root/.kube/config in
   the docker.
 
 Optional:
@@ -35,9 +37,9 @@ Optional:
 You can run this docker by typing:
 
 ```
-docker run -v <the kube config>:/config/.kube/config -v
+docker run -v <the kube config>:/root/.kube/config -v
 <result directory>:/var/lib/xtesting/results
-registry.gitlab.com/orange-opensource/lfn/onap/integration/xtesting:latest
+registry.gitlab.com/orange-opensource/lfn/onap/integration/xtesting/infra-healthcheck:latest
 ```
 
 Options:
@@ -46,9 +48,9 @@ Options:
   specify the -r option in the command line. Please note that in this case, you
   must precise some env variables.
 
-environement variables:
+environment variables:
 
-* Mandatory:
+* Mandatory (if you want to report the results in the database):
   * TEST_DB_URL: the url of the target Database with the env variable .
   * NODE_NAME: the name of your test environement. It must be declared in the
     test database (e.g. windriver-SB00)
@@ -58,22 +60,26 @@ environement variables:
   * BUILD_TAG: a unique tag of your CI system. It can be usefull to get all the
     tests of one CI run. It uses the regex (dai|week)ly-(.+?)-[0-9]* to find the
     version (e.g. daily-elalto-123456789).
+  * DEPLOY_SCENARIO: your scenario deployment. ingress test run only if the
+    scenario includes 'ingress'
 
 The command becomes:
 
 ```
-docker run -v <the kube config>:/config/.kube/config -v
+docker run -v <the kube config>:/root/.kube/config -v
 <result directory>:/var/lib/xtesting/results registry.gitlab.com/orange-opensour
-ce/lfn/onap/integration/xtesting:latest /bin/bash -c "run_tests -r -t all
+ce/lfn/onap/integration/xtesting/infra-healthcheck:latest:latest /bin/bash -c "
+run_tests -r -t all
 ```
 
 ### Output
 
 ```
-+------------+-------------+-------------------+----------+--------+
-| TEST CASE  | PROJECT     | TIER              | DURATION | RESULT |
-+------------+-------------+-------------------+----------+--------+
-| onap-k8s   | integration | infra-healthcheck | 00:06    | PASS   |
-| onap-helm  | integration | infra-healthcheck | 00:01    | PASS   |
-+------------+-------------+-------------------+----------+--------+
++------------------+-------------+-------------------+----------+--------+
+| TEST CASE        | PROJECT     | TIER              | DURATION | RESULT |
++------------------+-------------+-------------------+----------+--------+
+| onap-k8s         | integration | infra-healthcheck | 00:06    | PASS   |
+| onap-helm        | integration | infra-healthcheck | 00:01    | PASS   |
+| nodeport_ingress |  security  |  security          | 00:01    | FAIL   |
++------------------+-------------+-------------------+----------+--------+
 ```
