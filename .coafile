@@ -1,0 +1,34 @@
+[yaml]
+bears = YAMLLintBear
+yamllint_config = .yamllint
+ignore =
+  .tox/**,
+  # Doesn't look like a valid YAML although it pretends one
+  deployment/heat/onap-rke/parts/onap-oom-2.yaml
+
+[json]
+bears = JSONFormatBear
+json_sort = False
+indent_size = 2
+ignore =
+  .tox/**,
+  # This one is empty
+  test/mocks/datafilecollector-testharness/simulator-group/consul/consul_config.json
+
+[py]
+bears = PyLintBear
+pylint_disable = all
+pylint_enable =
+  bad-indentation, trailing-whitespace, unused-wildcard-import, unused-import,
+  unnecessary-semicolon, unnecessary-semicolon, undefined-variable,
+  syntax-error, unused-variable, using-constant-test,unused-argument,
+  len-as-condition, trailing-newlines, missing-final-newline, reimported,
+  too-many-function-args, singleton-comparison
+ignore =
+  .tox/**
+
+[md]
+bears = MarkdownBear
+ignore =
+  .tox/**
+
