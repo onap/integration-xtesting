@@ -7,12 +7,12 @@ healm charts of an ONAP deployment.
 
 It includes 2 tests:
 
-* onap-k8s: list pods, deployments, events, cm, ... For any faulty pod, it
+- onap-k8s: list pods, deployments, events, cm, ... For any faulty pod, it
   collects the logs and the describe. The success criteria is 100% of the pods
   are up&running
-* onap-helm: list the helm charts. The success criteria is all the helm charts
+- onap-helm: list the helm charts. The success criteria is all the helm charts
   are completed.
-* nodeport_ingress: check that we have a 1:1 corresdpondance between nodeports
+- nodeport_ingress: check that we have a 1:1 corresdpondance between nodeports
   and ingress (run only when the env variable DEPLOY_SCENARIO includes ingress)
 
 ## Usage
@@ -21,14 +21,14 @@ It includes 2 tests:
 
 Mandatory:
 
-* The kubernetes configuration: usually hosted on the.kube/config of your
+- The kubernetes configuration: usually hosted on the.kube/config of your
   jumphost. It corresponds the kubernetes credentials and are needed to perform
   the different operations. This file shall be copied in /root/.kube/config in
   the docker.
 
 Optional:
 
-* The local result directory path: to store the results in your local
+- The local result directory path: to store the results in your local
   environement. It shall corresponds to the internal result docker path
   /var/lib/xtesting/results
 
@@ -44,23 +44,23 @@ registry.gitlab.com/orange-opensource/lfn/onap/integration/xtesting/infra-health
 
 Options:
 
-* -r: by default the reporting to the Database is not enabled. You need to
+- \-r: by default the reporting to the Database is not enabled. You need to
   specify the -r option in the command line. Please note that in this case, you
   must precise some env variables.
 
 environment variables:
 
-* Mandatory (if you want to report the results in the database):
-  * TEST_DB_URL: the url of the target Database with the env variable .
-  * NODE_NAME: the name of your test environement. It must be declared in the
+- Mandatory (if you want to report the results in the database):
+  - TEST_DB_URL: the url of the target Database with the env variable .
+  - NODE_NAME: the name of your test environement. It must be declared in the
     test database (e.g. windriver-SB00)
-* Optionnal
-  * INSTALLER_TYPE: precise how your ONAP has been installed (e.g. kubespray-oom,
+- Optionnal
+  - INSTALLER_TYPE: precise how your ONAP has been installed (e.g. kubespray-oom,
   rke-oom)
-  * BUILD_TAG: a unique tag of your CI system. It can be usefull to get all the
+  - BUILD_TAG: a unique tag of your CI system. It can be usefull to get all the
     tests of one CI run. It uses the regex (dai|week)ly-(.+?)-[0-9]* to find the
     version (e.g. daily-elalto-123456789).
-  * DEPLOY_SCENARIO: your scenario deployment. ingress test run only if the
+  - DEPLOY_SCENARIO: your scenario deployment. ingress test run only if the
     scenario includes 'ingress'
 
 The command becomes:
