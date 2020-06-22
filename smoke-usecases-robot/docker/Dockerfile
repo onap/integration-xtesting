@@ -5,15 +5,23 @@ MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
 ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
 ARG ONAP_TAG=master
-ARG PIP_TAG=19.3.1
+ARG PIP_TAG=20.1
+ARG KUBERNETES_VERSION="v1.15.11"
 
 ENV TAG all
+
+# Install kubectl
+# Note: Latest version may be found on:
+# https://aur.archlinux.org/packages/kubectl-bin/
+
+ADD https://storage.googleapis.com/kubernetes-release/release/${KUBERNETES_VERSION}/bin/linux/amd64/kubectl /usr/local/bin/kubectl
 
 COPY requirements.txt requirements.txt
 RUN apk --no-cache add --update openssl chromium chromium-chromedriver && \
     apk --no-cache add --virtual .build-deps --update \
         python3-dev build-base linux-headers libffi-dev \
         openssl-dev libjpeg-turbo-dev && \
+    chmod +x /usr/local/bin/kubectl && \
     pip3 install --upgrade pip && \
     pip3 install --no-cache-dir \
     git+https://git.onap.org/testsuite/heatbridge.git@$ONAP_TAG#egg=heatbridge\&subdirectory=heatbridge  \
@@ -30,6 +38,8 @@ RUN apk --no-cache add --update openssl chromium chromium-chromedriver && \
     mkdir -p /var/opt/ONAP/demo/tosca && cp -Rf /src/demo/tosca/pNF /var/opt/ONAP/demo/tosca/ && \
     mkdir -p /demo/service_mapping && cp -Rf /src/demo/service_mapping /demo/ && \
     mkdir -p /var/opt/ONAP/demo/preload_data && cp -Rf /src/demo/preload_data /var/opt/ONAP/demo/ && \
+    mkdir -p /app && cp /var/opt/ONAP/setup-hvves.sh /app/setup-hvves.sh && \
+    chmod +x /app/setup-hvves.sh && \
     ln -s /usr/lib/python3.7/site-packages/vcpeutils /usr/lib/python3.7/site-packages/SoUtils && \
     ln -s /usr/lib/python3.7/site-packages/heatbridge /usr/lib/python3.7/site-packages/HeatBridge && \
     rm -r requirements.txt /var/opt/ONAP/.git /src/demo && \
