@@ -42,3 +42,52 @@ tiers:
                             - vfwc
                         variablefile:
                             - '/share/config/robot_properties.py'
+            -
+                case_name: 5gbulkpm
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    Test 5G Bulk PM Usecase functionality (inventory and
+                    deployment api from DCAEGEN, data router and bus
+                    controller)
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/usecases/5gbulkpm.robot
+                        include:
+                            - 5gbulkpm
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+            -
+                case_name: hv-ves
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    HV VES (High Volume) VES collector has been proposed, based
+                    on a need to process high-volumes of data generated
+                    frequently by a large number of NFs. The driving use-case
+                    is the 5G RAN, where it is expected that up to 10k NF
+                    instances report the data, per DCAE platform deployment.
+                    The network traffic generated in simulations - based on
+                    4G BTS Real-Time PM data has shown, that GPB serialization
+                    is 2-3 times more effective, than JSON serialization
+                    utilized in VES collector. HV-VES 'Sunny Scenario' Robot
+                    Framework test - message is sent to the collector and Kafka
+                    topic is checked if the message has been published. Content
+                    is decoded and checked.
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/hvves-ci.robot
+                        include:
+                            - hvves
+                        variablefile:
+                            - '/share/config/robot_properties.py'

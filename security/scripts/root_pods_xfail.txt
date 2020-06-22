@@ -10,6 +10,7 @@ consul # nobody remembers who is responsible for consul
 dcae-redis # redis container
 dcae-mongo # mongo container
 dcae-cloudify-manager # DCAEGEN2-2121
+dcae-tca-analytics # tmp tca will be replaced by secured tca2 in G
 mariadb # common mariadb
 msb-consul # another consul
 multicloud-fcaps # rabbit-mq upstream pod MULTICLOUD-1017

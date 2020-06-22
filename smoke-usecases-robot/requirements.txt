@@ -9,6 +9,7 @@ robotframework-selenium2library
 robotframework-databaselibrary
 robotframework-extendedselenium2library
 robotframework-requests
+robotframework-jsonlibrary
 deepdiff
 dnspython
 pyyaml>=4.2b1
