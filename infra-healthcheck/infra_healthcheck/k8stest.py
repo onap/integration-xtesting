@@ -57,10 +57,13 @@ class K8sTesting(testcase.TestCase):
         details = {}
         lines = output.split('\n')
         success = False
+        str_remarks = ""
 
         for log in lines:
             if log.startswith(">>>"):
                 remarks.append(log.replace('>', ''))
+            else:
+                remarks.append(log)
         for remark in remarks:
             if ':' in remark:
                 # 2 possible Results
@@ -77,6 +80,8 @@ class K8sTesting(testcase.TestCase):
 
         # if 1 pod/helm chart if Failed, the testcase is failed
         if int(details[self.criteria_string]) < 1:
+            success = True
+        elif("failed" not in str_remarks.join(remarks).lower()):
             success = True
 
         self.details = details
@@ -119,4 +124,4 @@ class OnapSecurityNodePortsIngress(K8sTesting):
         super(OnapSecurityNodePortsIngress, self).__init__(**kwargs)
         self.cmd = ['python3', '/check_for_ingress_and_nodeports.py',
                     '--conf', '/root/.kube/config']
-        self.error_string = "NodePort without corresponding Ingress found"
+        self.criteria_string = "NodePort without corresponding Ingress found"
