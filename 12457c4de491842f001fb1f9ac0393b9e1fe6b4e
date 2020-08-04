@@ -1,0 +1,8 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Stephen Winslow <swinslow@linuxfoundation.org>
+Code-Review+2: Paweł Wieczorek <p.wieczorek2@samsung.com>
+Submitted-by: Paweł Wieczorek <p.wieczorek2@samsung.com>
+Submitted-at: Tue, 04 Aug 2020 10:20:11 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/xtesting/+/110856
+Project: integration/xtesting
+Branch: refs/heads/master
