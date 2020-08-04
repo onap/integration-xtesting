@@ -39,7 +39,7 @@ You can run this docker by typing:
 ```
 docker run -v <the kube config>:/root/.kube/config -v
 <result directory>:/var/lib/xtesting/results
-registry.gitlab.com/orange-opensource/lfn/onap/integration/xtesting/infra-healthcheck:latest
+nexus3.onap.org:10001/onap/xtesting-infra-healthcheck:latest
 ```
 
 Options:
@@ -67,9 +67,9 @@ The command becomes:
 
 ```
 docker run -v <the kube config>:/root/.kube/config -v
-<result directory>:/var/lib/xtesting/results registry.gitlab.com/orange-opensour
-ce/lfn/onap/integration/xtesting/infra-healthcheck:latest:latest /bin/bash -c "
-run_tests -r -t all
+<result directory>:/var/lib/xtesting/results
+nexus3.onap.org:10001/onap/xtesting-infra-healthcheck:latest:latest
+/bin/bash -c "run_tests -r -t all"
 ```
 
 ### Output

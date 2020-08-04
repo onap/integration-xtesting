@@ -42,7 +42,7 @@ You can run this docker by typing:
 ```
 docker run -v <the kube config>:/root/.kube/config -v
 <result directory>:/var/lib/xtesting/results
-registry.gitlab.com/orange-opensource/lfn/onap/integration/xtesting/security:latest
+nexus3.onap.org:10001/onap/xtesting-security:latest
 ```
 
 Options:
@@ -68,8 +68,9 @@ The command becomes:
 
 ```
 docker run -v <the kube config>:/root/.kube/config -v
-<result directory>:/var/lib/xtesting/results registry.gitlab.com/orange-opensour
-ce/lfn/onap/integration/xtesting/security:latest /bin/bash -c "run_tests -r -t all
+<result directory>:/var/lib/xtesting/results
+nexus3.onap.org:10001/onap/xtesting-security:latest
+/bin/bash -c "run_tests -r -t all
 ```
 
 ### Output
@@ -78,10 +79,10 @@ ce/lfn/onap/integration/xtesting/security:latest /bin/bash -c "run_tests -r -t a
 +-----------------------+------------+------------+------------+-----------+
 |       TEST CASE       |  PROJECT   |    TIER    |  DURATION  |  RESULT   |
 +-----------------------+------------+------------+------------+-----------+
-|       root_pods       |  security  |  security  |   03:48    |   FAIL    |
+|       root_pods       |  security  |  security  |   03:48    |   PASS    |
 |    unlimitted_pods    |  security  |  security  |   00:37    |   FAIL    |
-|     cis_kubernetes    |  security  |  security  |   00:01    |   FAIL    |
-| http_public_endpoints |  security  |  security  |   00:01    |   FAIL    |
-|       jdpw_ports      |  security  |  security  |   05:39    |   FAIL    |
+|     cis_kubernetes    |  security  |  security  |   00:01    |   PASS    |
+| http_public_endpoints |  security  |  security  |   00:01    |   PASS    |
+|       jdpw_ports      |  security  |  security  |   05:39    |   PASS    |
 +-----------------------+------------+------------+------------+-----------+
 ```
