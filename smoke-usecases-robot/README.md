@@ -43,7 +43,7 @@ spec:
                     value: gitlab_ci-functest-kubespray-baremetal-daily-master-559950989
                 -   name: TAG
                     value: 5gbulkpm
-                image: registry.gitlab.com/orange-opensource/lfn/onap/integration/xtesting/smoke-usecases-robot:latest
+                image: nexus3.onap.org:10001/onap/xtesting-smoke-usecases-robot:latest
                 imagePullPolicy: Always
                 name: functest-onap
                 volumeMounts:
