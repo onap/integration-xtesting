@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6468c9b8_9f651636",
+        "filename": "smoke-usecases-pythonsdk/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5047
+      },
+      "writtenOn": "2020-08-05T07:26:55Z",
+      "side": 1,
+      "message": "typo: through?",
+      "range": {
+        "startLine": 23,
+        "startChar": 34,
+        "endLine": 23,
+        "endChar": 40
+      },
+      "revId": "82be73cece40f529c442ea68f56871e089ce31e8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f948d758_59af82d2",
+        "filename": "smoke-usecases-pythonsdk/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5047
+      },
+      "writtenOn": "2020-08-05T07:26:55Z",
+      "side": 1,
+      "message": "minor: trailing whitespace",
+      "range": {
+        "startLine": 24,
+        "startChar": 11,
+        "endLine": 24,
+        "endChar": 14
+      },
+      "revId": "82be73cece40f529c442ea68f56871e089ce31e8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb852360_43ed4036",
+        "filename": "smoke-usecases-pythonsdk/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5047
+      },
+      "writtenOn": "2020-08-05T07:26:55Z",
+      "side": 1,
+      "message": "minor: trailing whitespace",
+      "range": {
+        "startLine": 37,
+        "startChar": 48,
+        "endLine": 37,
+        "endChar": 51
+      },
+      "revId": "82be73cece40f529c442ea68f56871e089ce31e8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
