@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "143d1439_66f69b6d",
+        "filename": "smoke-usecases-pythonsdk/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2020-08-05T08:29:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6468c9b8_9f651636",
+      "range": {
+        "startLine": 23,
+        "startChar": 34,
+        "endLine": 23,
+        "endChar": 40
+      },
+      "revId": "82be73cece40f529c442ea68f56871e089ce31e8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f948d758_59af82d2",
         "filename": "smoke-usecases-pythonsdk/README.md",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-08-05T07:26:55Z",
       "side": 1,
       "message": "minor: trailing whitespace",
+      "range": {
+        "startLine": 24,
+        "startChar": 11,
+        "endLine": 24,
+        "endChar": 14
+      },
+      "revId": "82be73cece40f529c442ea68f56871e089ce31e8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd95c6c9_84942097",
+        "filename": "smoke-usecases-pythonsdk/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2020-08-05T08:29:01Z",
+      "side": 1,
+      "message": "strange than the md linter did not detect it",
+      "parentUuid": "f948d758_59af82d2",
       "range": {
         "startLine": 24,
         "startChar": 11,
@@ -68,6 +116,30 @@
       "revId": "82be73cece40f529c442ea68f56871e089ce31e8",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07b966cd_80f9231c",
+        "filename": "smoke-usecases-pythonsdk/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2020-08-05T08:29:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb852360_43ed4036",
+      "range": {
+        "startLine": 37,
+        "startChar": 48,
+        "endLine": 37,
+        "endChar": 51
+      },
+      "revId": "82be73cece40f529c442ea68f56871e089ce31e8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
