@@ -17,6 +17,8 @@ It includes 6 tests:
 - jdpw_ports: check that there are no internal java ports
 - kube_hunter: security suite to search k8s vulnerabilities (upstream src
   aquasecurity)
+- versions: check that Java and Python are available only in versions
+  recommended by SECCOM
 
 ## Usage
 
