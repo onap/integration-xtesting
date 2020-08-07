@@ -171,3 +171,13 @@ class OnapSecurityKubeHunter(SecurityTesting):
                     kube_hunter_cmd.append(j.address)
         self.cmd = kube_hunter_cmd
         self.error_string = "Vulnerabilties detected."
+
+
+class OnapSecurityVersions(SecurityTesting):
+    """Check that Java and Python are available only in versions recommended by SECCOM."""
+    def __init__(self, **kwargs):
+        if "case_name" not in kwargs:
+            kwargs.get("case_name", 'versions')
+        super(OnapSecurityVersions, self).__init__(**kwargs)
+        self.cmd = ['/check_versions.sh', 'onap', '-r', '/check_versions/recommended_versions.yaml']
+        self.error_string = "Not recommended versions found"

@@ -72,3 +72,13 @@ tiers:
                     Check k8s CVE.
                 run:
                     name: 'kube_hunter'
+            -
+                case_name: versions
+                project_name: security
+                criteria: 100
+                blocking: false
+                description: >-
+                    Check that Java and Python are available only in versions
+                    recommended by SECCOM
+                run:
+                    name: 'versions'
