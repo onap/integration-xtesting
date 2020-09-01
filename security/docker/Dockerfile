@@ -30,7 +30,6 @@ ARG ONAP_TESTS_TAG=master
 ADD https://storage.googleapis.com/kubernetes-release/release/${KUBERNETES_VERSION}/bin/linux/amd64/kubectl /usr/local/bin/kubectl
 
 COPY scripts/check_security_root.sh /check_security_root.sh
-COPY scripts/root_pods_xfail.txt /root_pods_xfail.txt
 COPY scripts/check_unlimitted_pods.sh /check_unlimitted_pods.sh
 COPY scripts/check_cis_kubernetes.sh /check_cis_kubernetes.sh
 COPY scripts/check_versions.sh /check_versions.sh
@@ -51,8 +50,9 @@ RUN set -x && \
     wget https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm && \
     wget -O /check_for_nonssl_endpoints.sh https://git.onap.org/integration/plain/test/security/check_for_nonssl_endpoints.sh?h=$ONAP_TAG &&\
     wget -O /check_for_jdwp.sh https://git.onap.org/integration/plain/test/security/check_for_jdwp.sh?h=$ONAP_TAG &&\
-    wget -O /jdwp_xfail.txt https://git.onap.org/integration/plain/test/security/jdwp_xfail.txt?h=$ONAP_TAG &&\
-    wget -O /nonssl_xfail.txt https://git.onap.org/integration/plain/test/security/nonssl_xfail.txt?h=$ONAP_TAG &&\
+    wget -O /jdwp_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/jdwp_ports/jdwp_xfail.txt?h=$ONAP_TAG &&\
+    wget -O /nonssl_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/nonssl_endpoints/nonssl_xfail.txt?h=$ONAP_TAG &&\
+    wget -O /root_pods_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/root_pods/root_pods_xfail.txt?h=$ONAP_TAG &&\
     wget -O /check_versions/k8s_bin_versions_inspector.py https://git.onap.org/integration/plain/test/security/check_versions/src/k8s_bin_versions_inspector.py?h=$ONAP_TAG &&\
     wget -O /check_versions/requirements.txt https://git.onap.org/integration/plain/test/security/check_versions/env/requirements.txt?h=$ONAP_TAG &&\
     wget -O /check_versions/recommended_versions.yaml https://git.onap.org/integration/seccom/plain/recommended_versions.yaml?h=$ONAP_TAG &&\
