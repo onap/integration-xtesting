@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ea18c0e_fe4c931f",
+        "filename": "infra-healthcheck/docker/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5047
+      },
+      "writtenOn": "2020-09-01T14:13:09Z",
+      "side": 1,
+      "message": "I\u0027ll switch source of this package to include local changes and verify patch locally",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 82
+      },
+      "revId": "b13d1bd82ba265c8135db580fc4f4e330acdd67a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
