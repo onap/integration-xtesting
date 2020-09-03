@@ -62,7 +62,7 @@ RUN set -x && \
     chmod +x /check_*.sh && \
     pip3 install --upgrade pip && \
     pip3 install --no-cache-dir \
-        git+https://gitlab.com/Orange-OpenSource/lfn/onap/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=security && \
+        git+https://gerrit.onap.org/r/integration/xtesting@$ONAP_TESTS_TAG#subdirectory=security && \
     cd /kube-hunter && pip3 install -r /kube-hunter/requirements.txt && \
     pip3 install -r /check_versions/requirements.txt && \
     apk del .build-deps
