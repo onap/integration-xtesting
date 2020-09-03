@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f56d83df_94dfb505",
+        "filename": "infra-healthcheck/infra_healthcheck/k8stest.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 5097
+      },
+      "writtenOn": "2020-09-03T07:23:05Z",
+      "side": 1,
+      "message": "Isn\u0027t this instruction noop? There is no assignment operator here, what does it do beside returning case_name value to the place of the instruction call?\n\nBesides I guess there is no need for the above conditional (if) - dict\u0027s \"get\" operator will return default value given as it\u0027s second argument in case \u0027case_name\u0027 key is not present in kwargs.",
+      "revId": "8a318ad80b961c86e46d43fec766763fcac11305",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
