@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7600622_29b280b9",
+        "filename": "security/docker/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5047
+      },
+      "writtenOn": "2020-09-03T11:43:06Z",
+      "side": 1,
+      "message": "We might want to unify git sources in future (Gerrit vs CGit: git.onap.org)",
+      "range": {
+        "startLine": 65,
+        "startChar": 20,
+        "endLine": 65,
+        "endChar": 35
+      },
+      "revId": "d9df5c43d5ff74f934e2a117757b268256e7b813",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
