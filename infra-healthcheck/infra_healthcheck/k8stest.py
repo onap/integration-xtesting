@@ -109,8 +109,6 @@ class K8sTesting(testcase.TestCase):
 class OnapHelmTest(K8sTesting):
     """Kubernetes conformance test suite"""
     def __init__(self, **kwargs):
-        if "case_name" not in kwargs:
-            kwargs.get("case_name", 'onap-helm')
         super(OnapHelmTest, self).__init__(**kwargs)
         self.cmd = ['/check_onap_helm.sh']
         self.criteria_string = "Nb Failed Helm Charts"
@@ -119,9 +117,17 @@ class OnapHelmTest(K8sTesting):
 class OnapSecurityNodePortsIngress(K8sTesting):
     """Check that there is no NodePort without corresponding Ingress port."""
     def __init__(self, **kwargs):
-        if "case_name" not in kwargs:
-            kwargs.get("case_name", 'nodeport_ingress')
         super(OnapSecurityNodePortsIngress, self).__init__(**kwargs)
         self.cmd = ['python3', '/check_for_ingress_and_nodeports.py',
                     '--conf', '/root/.kube/config']
         self.criteria_string = "NodePort without corresponding Ingress found"
+
+class OnapSecurityNodePortsCerts(K8sTesting):
+    """Check the cerfificates fot he nodeports."""
+    def __init__(self, **kwargs):
+        super(OnapSecurityNodePortsCerts, self).__init__(**kwargs)
+        os.chdir('/usr/lib/python3.8/site-packages/check_certificates')
+        self.cmd = ['python3', 'check_certificates_validity.py',
+                    '--mode','nodeport','--namespace','onap','--dir',
+                    '/var/lib/xtesting/results/nodeport_check_certs']
+        self.criteria_string = ">>> Test Check certificates PASS"

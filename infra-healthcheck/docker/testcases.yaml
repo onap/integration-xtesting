@@ -39,3 +39,12 @@ tiers:
                     - DEPLOY_SCENARIO: 'ingress'
                 run:
                     name: 'nodeport_ingress'
+            -
+                case_name: nodeport_check_certs
+                project_name: integration
+                criteria: 100
+                blocking: false
+                description: >-
+                    Check certificates associated with node ports
+                run:
+                    name: 'nodeport_check_certs'
