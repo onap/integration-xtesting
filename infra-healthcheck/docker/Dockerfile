@@ -27,7 +27,7 @@ RUN set -x && \
     pip3 install --upgrade pip && \
     pip3 install --no-cache-dir -r upper-constraints.txt && \
     pip3 install --no-cache-dir \
-        git+https://gitlab.com/Orange-OpenSource/lfn/onap/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=infra-healthcheck && \
+        git+https://git.onap.org/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=infra-healthcheck && \
     pip3 install --no-cache-dir \
         git+https://git.onap.org/integration.git@$ONAP_TESTS_TAG#subdirectory=test/security/check_certificates && \
     apk del .build-deps
