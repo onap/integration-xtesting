@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b87bb1ba_b1d2622e",
+        "filename": "infra-healthcheck/infra_healthcheck/k8stest.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5097
+      },
+      "writtenOn": "2020-09-08T14:49:00Z",
+      "side": 1,
+      "message": "Haven\u0027t we recently discussed \"exists_ok\" argument to os.makedirs function? :-D",
+      "revId": "5918f6086eddca222b197592f985d06eb9e8f139",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
