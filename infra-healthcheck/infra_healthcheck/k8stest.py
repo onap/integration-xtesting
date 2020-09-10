@@ -50,8 +50,7 @@ class K8sTesting(testcase.TestCase):
         # create a log file
         result_folder = "/var/lib/xtesting/results/" + self.case_name + "/"
         file_name = result_folder + self.case_name + ".log"
-        if not os.path.exists(result_folder):
-            os.makedirs(result_folder)
+        os.makedirs(result_folder, exist_ok=True)
         log_file = open(file_name, "w")
         log_file.write(output)
         log_file.close()
@@ -74,14 +73,21 @@ class K8sTesting(testcase.TestCase):
                     # 2 possible Results
                     # * numeric nb pods, failed, duration
                     # * list of pods, charts,...
-                    if '[' in remark:
+                    # split and replace can be hazardous, depending
+                    # on result format change..
+                    try:
+                        if '[' in remark:
                         # it is a list
-                        str1 = remark.split(":", 1)[1].strip().replace(
-                            ']', '').replace('[', '')
-                        details[remark.split(":", 1)[0].strip()] = str1.split(",")
-                    else:
-                        details[remark.split(":", 1)[0].strip()] = int(
-                            remark.split(":", 1)[1].strip())
+                            str1 = remark.split(
+                                ":", 1)[1].strip().replace(
+                                    ']', '').replace('[', '')
+                            details[remark.split(
+                                ":", 1)[0].strip()] = str1.split(",")
+                        else:
+                            details[remark.split(":", 1)[0].strip()] = int(
+                                remark.split(":", 1)[1].strip())
+                    except:
+                        pass
 
             # if 1 pod/helm chart if Failed, the testcase is failed
             if int(details[self.criteria_string]) < 1:
