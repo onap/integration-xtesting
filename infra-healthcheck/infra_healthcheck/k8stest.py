@@ -16,10 +16,10 @@ from __future__ import division
 
 import logging
 import subprocess
-import os
 import time
 
 from xtesting.core import testcase
+
 
 class K8sTesting(testcase.TestCase):
     """Kubernetes test runner"""
@@ -48,9 +48,7 @@ class K8sTesting(testcase.TestCase):
             raise Exception(output)
 
         # create a log file
-        result_folder = "/var/lib/xtesting/results/" + self.case_name + "/"
-        file_name = result_folder + self.case_name + ".log"
-        os.makedirs(result_folder, exist_ok=True)
+        file_name = "/var/lib/xtesting/results/" + self.case_name + ".log"
         log_file = open(file_name, "w")
         log_file.write(output)
         log_file.close()
@@ -59,42 +57,26 @@ class K8sTesting(testcase.TestCase):
         details = {}
         lines = output.split('\n')
         success = False
-        str_remarks = ""
 
         for log in lines:
             if log.startswith(">>>"):
                 remarks.append(log.replace('>', ''))
-            else:
-                remarks.append(log)
+        for remark in remarks:
+            if ':' in remark:
+                # 2 possible Results
+                # * numeric nb pods, failed, duration
+                # * list of pods, charts,...
+                if '[' in remark:
+                    # it is a list
+                    str1 = remark.split(":", 1)[1].strip().replace(
+                        ']', '').replace('[', '')
+                    details[remark.split(":", 1)[0].strip()] = str1.split(",")
+                else:
+                    details[remark.split(":", 1)[0].strip()] = int(
+                        remark.split(":", 1)[1].strip())
 
-        if self.case_name == 'onap-helm':
-            for remark in remarks:
-                if ':' in remark:
-                    # 2 possible Results
-                    # * numeric nb pods, failed, duration
-                    # * list of pods, charts,...
-                    # split and replace can be hazardous, depending
-                    # on result format change..
-                    try:
-                        if '[' in remark:
-                        # it is a list
-                            str1 = remark.split(
-                                ":", 1)[1].strip().replace(
-                                    ']', '').replace('[', '')
-                            details[remark.split(
-                                ":", 1)[0].strip()] = str1.split(",")
-                        else:
-                            details[remark.split(":", 1)[0].strip()] = int(
-                                remark.split(":", 1)[1].strip())
-                    except:
-                        pass
-
-            # if 1 pod/helm chart if Failed, the testcase is failed
-            if int(details[self.criteria_string]) < 1:
-                success = True
-            elif("failed" not in str_remarks.join(remarks).lower()):
-                success = True
-        elif 'PASS' in remarks:
+        # if 1 pod/helm chart if Failed, the testcase is failed
+        if int(details[self.criteria_string]) < 1:
             success = True
 
         self.details = details
@@ -119,29 +101,12 @@ class K8sTesting(testcase.TestCase):
         return res
 
 
-class OnapHelmTest(K8sTesting):
-    """Kubernetes conformance test suite"""
-    def __init__(self, **kwargs):
-        super(OnapHelmTest, self).__init__(**kwargs)
-        self.cmd = ['/check_onap_helm.sh']
-        self.criteria_string = "Nb Failed Helm Charts"
-
-
 class OnapSecurityNodePortsIngress(K8sTesting):
     """Check that there is no NodePort without corresponding Ingress port."""
     def __init__(self, **kwargs):
+        if "case_name" not in kwargs:
+            kwargs.get("case_name", 'nodeport_ingress')
         super(OnapSecurityNodePortsIngress, self).__init__(**kwargs)
         self.cmd = ['python3', '/check_for_ingress_and_nodeports.py',
                     '--conf', '/root/.kube/config']
-        self.criteria_string = "NodePort without corresponding Ingress found"
-
-
-class OnapSecurityNodePortsCerts(K8sTesting):
-    """Check the cerfificates fot he nodeports."""
-    def __init__(self, **kwargs):
-        super(OnapSecurityNodePortsCerts, self).__init__(**kwargs)
-        os.chdir('/usr/lib/python3.8/site-packages/check_certificates')
-        self.cmd = ['python3', 'check_certificates_validity.py',
-                    '--mode','nodeport','--namespace','onap','--dir',
-                    '/var/lib/xtesting/results/nodeport_check_certs']
-        self.criteria_string = ">>> Test Check certificates PASS"
+        self.error_string = "NodePort without corresponding Ingress found"
