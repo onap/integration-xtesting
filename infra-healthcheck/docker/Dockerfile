@@ -11,7 +11,6 @@ ARG ONAP_TAG=master
 
 ADD https://storage.googleapis.com/kubernetes-release/release/${KUBERNETES_VERSION}/bin/linux/amd64/kubectl /usr/local/bin/kubectl
 
-COPY scripts/check_onap_helm.sh /check_onap_helm.sh
 COPY upper-constraints.txt .
 
 RUN set -x && \
@@ -23,7 +22,6 @@ RUN set -x && \
     wget https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm && \
     wget -O /check_for_ingress_and_nodeports.py https://git.onap.org/integration/plain/test/security/check_for_ingress_and_nodeports.py?h=$ONAP_TAG &&\
     chmod +x /usr/local/bin/helm && \
-    chmod +x /check_onap_*.sh && \
     pip3 install --upgrade pip && \
     pip3 install --no-cache-dir -r upper-constraints.txt && \
     pip3 install --no-cache-dir \
