@@ -19,6 +19,40 @@
     },
     {
       "key": {
+        "uuid": "817e0db3_1861fcf0",
+        "filename": "infra-healthcheck/infra_healthcheck/k8stest.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2020-09-14T15:00:07Z",
+      "side": 1,
+      "message": "I think this postprocessing shall be cleaned\nhistorically it corresponds to the uggly parsing of old specific tests.\n\nit is dangerous..and no more acurate.\nremove it..\n\nas you move onap-help upstream, the return code will be used (as it is in onap-k8s), \nfor the removing tests (certificate and nodeport_ingress) we usually consider the log - look for PASS or FAIL.",
+      "revId": "9c1622b5a15c140096c1947efec75e339015f4f3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a1b25fa_df7a306e",
+        "filename": "infra-healthcheck/infra_healthcheck/k8stest.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2020-09-14T15:00:07Z",
+      "side": 1,
+      "message": "this has been removed (not needed)",
+      "revId": "9c1622b5a15c140096c1947efec75e339015f4f3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2d7a2da_159e6377",
         "filename": "infra-healthcheck/infra_healthcheck/k8stest.py",
         "patchSetId": 1
