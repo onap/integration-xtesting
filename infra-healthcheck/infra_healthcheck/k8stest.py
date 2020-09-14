@@ -21,6 +21,7 @@ import time
 
 from xtesting.core import testcase
 
+
 class K8sTesting(testcase.TestCase):
     """Kubernetes test runner"""
 
@@ -48,9 +49,10 @@ class K8sTesting(testcase.TestCase):
             raise Exception(output)
 
         # create a log file
-        result_folder = "/var/lib/xtesting/results/" + self.case_name + "/"
-        file_name = result_folder + self.case_name + ".log"
+        result_folder = "{}/{}".format(self.dir_results, self.case_name)
+        file_name = "{}/{}.log".format(result_folder, self.case_name)
         os.makedirs(result_folder, exist_ok=True)
+		
         log_file = open(file_name, "w")
         log_file.write(output)
         log_file.close()
@@ -66,35 +68,11 @@ class K8sTesting(testcase.TestCase):
                 remarks.append(log.replace('>', ''))
             else:
                 remarks.append(log)
+        if 'PASS' in remarks:
+            success = True
 
-        if self.case_name == 'onap-helm':
-            for remark in remarks:
-                if ':' in remark:
-                    # 2 possible Results
-                    # * numeric nb pods, failed, duration
-                    # * list of pods, charts,...
-                    # split and replace can be hazardous, depending
-                    # on result format change..
-                    try:
-                        if '[' in remark:
-                        # it is a list
-                            str1 = remark.split(
-                                ":", 1)[1].strip().replace(
-                                    ']', '').replace('[', '')
-                            details[remark.split(
-                                ":", 1)[0].strip()] = str1.split(",")
-                        else:
-                            details[remark.split(":", 1)[0].strip()] = int(
-                                remark.split(":", 1)[1].strip())
-                    except:
-                        pass
-
-            # if 1 pod/helm chart if Failed, the testcase is failed
-            if int(details[self.criteria_string]) < 1:
-                success = True
-            elif("failed" not in str_remarks.join(remarks).lower()):
-                success = True
-        elif 'PASS' in remarks:
+        # if 1 pod/helm chart if Failed, the testcase is failed
+        if int(details[self.criteria_string]) < 1:
             success = True
 
         self.details = details
@@ -106,7 +84,6 @@ class K8sTesting(testcase.TestCase):
             self.result = 0
 
     def run(self, **kwargs):
-
         self.start_time = time.time()
         try:
             self.run_kubetest()
@@ -119,22 +96,13 @@ class K8sTesting(testcase.TestCase):
         return res
 
 
-class OnapHelmTest(K8sTesting):
-    """Kubernetes conformance test suite"""
-    def __init__(self, **kwargs):
-        super(OnapHelmTest, self).__init__(**kwargs)
-        self.cmd = ['/check_onap_helm.sh']
-        self.criteria_string = "Nb Failed Helm Charts"
-
-
 class OnapSecurityNodePortsIngress(K8sTesting):
     """Check that there is no NodePort without corresponding Ingress port."""
     def __init__(self, **kwargs):
         super(OnapSecurityNodePortsIngress, self).__init__(**kwargs)
         self.cmd = ['python3', '/check_for_ingress_and_nodeports.py',
                     '--conf', '/root/.kube/config']
-        self.criteria_string = "NodePort without corresponding Ingress found"
-
+        self.error_string = "NodePort without corresponding Ingress found"
 
 class OnapSecurityNodePortsCerts(K8sTesting):
     """Check the cerfificates fot he nodeports."""
