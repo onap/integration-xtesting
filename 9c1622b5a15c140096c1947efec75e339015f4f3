@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "5f6bb948_929cea51",
+        "filename": "infra-healthcheck/infra_healthcheck/k8stest.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 2319
+      },
+      "writtenOn": "2020-09-15T05:57:43Z",
+      "side": 1,
+      "message": "I\u0027ve a \"stupid\" copy/paste but maybe from wrong version...",
+      "parentUuid": "817e0db3_1861fcf0",
+      "revId": "9c1622b5a15c140096c1947efec75e339015f4f3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6a1b25fa_df7a306e",
         "filename": "infra-healthcheck/infra_healthcheck/k8stest.py",
         "patchSetId": 1
