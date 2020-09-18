@@ -95,8 +95,6 @@ class SecurityTesting(testcase.TestCase):
 class OnapSecurityDockerRootTest(SecurityTesting):
     """Test that the dockers launched as root."""
     def __init__(self, **kwargs):
-        if "case_name" not in kwargs:
-            kwargs.get("case_name", 'root_pods')
         super(OnapSecurityDockerRootTest, self).__init__(**kwargs)
         self.cmd = ['/check_security_root.sh', 'onap', '-l', '/root_pods_xfail.txt']
         self.error_string = "Pods launched with root users"
@@ -105,18 +103,14 @@ class OnapSecurityDockerRootTest(SecurityTesting):
 class OnapSecurityUnlimittedPodTest(SecurityTesting):
     """Check that no pod is launch without limits."""
     def __init__(self, **kwargs):
-        if "case_name" not in kwargs:
-            kwargs.get("case_name", 'unlimitted_pods')
         super(OnapSecurityUnlimittedPodTest, self).__init__(**kwargs)
-        self.cmd = ['/check_unlimitted_pods.sh']
+        self.cmd = ['/check_unlimitted_pods.sh', 'onap', '-l', '/unlimitted_pods_xfail.txt']
         self.error_string = "Pods lauched without limits"
 
 
 class OnapSecurityCisKubernetes(SecurityTesting):
     """Check that kubernetes install is CIS compliant"""
     def __init__(self, **kwargs):
-        if "case_name" not in kwargs:
-            kwargs.get("case_name", 'cis_kubernetes')
         super(OnapSecurityCisKubernetes, self).__init__(**kwargs)
         self.cmd = ['/check_cis_kubernetes.sh']
         self.error_string = "Kubernetes Deployment is not CIS compatible"
@@ -126,8 +120,6 @@ class OnapSecurityHttpPorts(SecurityTesting):
     """Check all ports exposed outside of kubernetes cluster looking for plain
        http endpoint."""
     def __init__(self, **kwargs):
-        if "case_name" not in kwargs:
-            kwargs.get("case_name", 'http_public_endpoints')
         super(OnapSecurityHttpPorts, self).__init__(**kwargs)
         self.cmd = ['/check_for_nonssl_endpoints.sh', 'onap', '-l', '/nonssl_xfail.txt']
         self.error_string = "Public http endpoints still found"
@@ -137,8 +129,6 @@ class OnapSecurityNonSSLPorts(SecurityTesting):
     """Check that all ports exposed outside of kubernetes cluster use SSL
        tunnels."""
     def __init__(self, **kwargs):
-        if "case_name" not in kwargs:
-            kwargs.get("case_name", 'nonssl_endpoints')
         super(OnapSecurityNonSSLPorts, self).__init__(**kwargs)
         self.cmd = ['/usr/local/bin/sslendpoints', '-xfail', '/nonssl_xfail.txt']
         self.error_string = "Public non-SSL endpoints still found"
@@ -147,8 +137,6 @@ class OnapSecurityNonSSLPorts(SecurityTesting):
 class OnapSecurityJdwpPorts(SecurityTesting):
     """Check that no jdwp ports are exposed."""
     def __init__(self, **kwargs):
-        if "case_name" not in kwargs:
-            kwargs.get("case_name", 'jdpw_ports')
         super(OnapSecurityJdwpPorts, self).__init__(**kwargs)
         self.cmd = ['/check_for_jdwp.sh', 'onap', '-l', '/jdwp_xfail.txt']
         self.error_string = "JDWP ports found"
@@ -157,8 +145,6 @@ class OnapSecurityJdwpPorts(SecurityTesting):
 class OnapSecurityKubeHunter(SecurityTesting):
     """Check k8s vulnerabilities."""
     def __init__(self, **kwargs):
-        if "case_name" not in kwargs:
-            kwargs.get("case_name", 'kube_hunter')
         super(OnapSecurityKubeHunter, self).__init__(**kwargs)
         config.load_kube_config(config_file='/root/.kube/config')
         client_kubernetes = client.CoreV1Api()
@@ -176,8 +162,6 @@ class OnapSecurityKubeHunter(SecurityTesting):
 class OnapSecurityVersions(SecurityTesting):
     """Check that Java and Python are available only in versions recommended by SECCOM."""
     def __init__(self, **kwargs):
-        if "case_name" not in kwargs:
-            kwargs.get("case_name", 'versions')
         super(OnapSecurityVersions, self).__init__(**kwargs)
         self.cmd = ['/check_versions.sh', 'onap', '-r', '/check_versions/recommended_versions.yaml']
         self.error_string = "Not recommended versions found"
