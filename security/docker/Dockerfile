@@ -53,6 +53,7 @@ RUN set -x && \
     wget -O /jdwp_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/jdwp_ports/jdwp_xfail.txt?h=$ONAP_TAG &&\
     wget -O /nonssl_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/nonssl_endpoints/nonssl_xfail.txt?h=$ONAP_TAG &&\
     wget -O /root_pods_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/root_pods/root_pods_xfail.txt?h=$ONAP_TAG &&\
+    wget -O /unlimitted_pods_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/unlimitted_pods/unlimitted_pods_xfail.txt?h=$ONAP_TAG &&\
     wget -O /check_versions/k8s_bin_versions_inspector.py https://git.onap.org/integration/plain/test/security/check_versions/src/k8s_bin_versions_inspector.py?h=$ONAP_TAG &&\
     wget -O /check_versions/requirements.txt https://git.onap.org/integration/plain/test/security/check_versions/env/requirements.txt?h=$ONAP_TAG &&\
     wget -O /check_versions/recommended_versions.yaml https://git.onap.org/integration/seccom/plain/recommended_versions.yaml?h=$ONAP_TAG &&\
