@@ -18,18 +18,6 @@ tiers:
                 run:
                     name: basic_vm
             -
-                case_name: freeradius_nbi
-                project_name: integration
-                enabled: true
-                criteria: 100
-                blocking: true
-                description: >-
-                    Onboard and instantiate a simple freeradius VM VNF
-                    through NBI
-                dependencies:
-                run:
-                    name: freeradius_nbi
-            -
                 case_name: clearwater_ims
                 project_name: integration
                 enabled: true
