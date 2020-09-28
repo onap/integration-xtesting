@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e46988b_5f218e70",
+        "filename": "smoke-usecases-pythonsdk/docker/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5622
+      },
+      "writtenOn": "2020-09-28T07:28:09Z",
+      "side": 1,
+      "message": "Hello Morgan, it is not requested having it in requirements of pythonsdk-tests",
+      "revId": "9434beec35ef9fd1fa64ef10d34c0abc393f499d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
