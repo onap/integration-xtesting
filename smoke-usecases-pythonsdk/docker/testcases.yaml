@@ -28,3 +28,25 @@ tiers:
                 dependencies:
                 run:
                     name: clearwater_ims
+            -
+                case_name: basic_network
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Onboard and instantiate a basic network (ONAP VL)
+                dependencies:
+                run:
+                    name: basic_network
+            -
+                case_name: basic_cnf
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Onboard and instantiate a basic cnf (nginx in k8s namespace)
+                dependencies:
+                run:
+                    name: basic_cnf
