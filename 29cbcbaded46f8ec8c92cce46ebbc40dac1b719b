@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0980bfd4_e508843b",
+        "filename": "smoke-usecases-pythonsdk/docker/testcases.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5622
+      },
+      "writtenOn": "2020-10-16T16:20:56Z",
+      "side": 1,
+      "message": "It is created in k8s namespace",
+      "range": {
+        "startLine": 49,
+        "startChar": 66,
+        "endLine": 49,
+        "endChar": 70
+      },
+      "revId": "29cbcbaded46f8ec8c92cce46ebbc40dac1b719b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
