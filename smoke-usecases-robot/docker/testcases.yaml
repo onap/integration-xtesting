@@ -91,3 +91,39 @@ tiers:
                             - hvves
                         variablefile:
                             - '/share/config/robot_properties.py'
+            -
+                case_name: Ves_Collector
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    Suite for checking handling events by VES Collector
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/ves.robot
+                        include:
+                            - vescollector
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+            -
+                case_name: CMPv2
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    Suite for checking CMPv2 Usecase functionality
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/cmpv2.robot
+                        include:
+                            - CMPv2
+                        variablefile:
+                            - '/share/config/robot_properties.py'
