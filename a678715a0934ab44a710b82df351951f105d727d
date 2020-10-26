@@ -1,0 +1,9 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Sylvain Desbureaux <sylvain.desbureaux@orange.com>
+Code-Review+2: Thierry Hardy <thierry.hardy@orange.com>
+Code-Review+1: Krzysztof Kuzmicki <krzysztof.kuzmicki@nokia.com>
+Submitted-by: Krzysztof Kuzmicki <krzysztof.kuzmicki@nokia.com>
+Submitted-at: Mon, 26 Oct 2020 08:58:09 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/xtesting/+/114076
+Project: integration/xtesting
+Branch: refs/heads/master
