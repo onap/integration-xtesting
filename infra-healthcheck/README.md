@@ -9,11 +9,15 @@ It includes 2 tests:
 
 - onap-k8s: list pods, deployments, events, cm, ... For any faulty pod, it
   collects the logs and the describe. The success criteria is 100% of the pods
-  are up&running
+  are up and running
 - onap-helm: list the helm charts. The success criteria is all the helm charts
   are completed.
 - nodeport_ingress: check that we have a 1:1 corresdpondance between nodeports
   and ingress (run only when the env variable DEPLOY_SCENARIO includes ingress)
+
+Please note that you will find another test (onap-k8s-teardown) in CI. It is exactly
+the same than onap-k8s (status of the onap cluster) executed at the end of the
+CI, after all the other tests. it allows to collect the logs of the components.
 
 ## Usage
 
@@ -39,7 +43,7 @@ You can run this docker by typing:
 ```
 docker run -v <the kube config>:/root/.kube/config -v
 <result directory>:/var/lib/xtesting/results
-nexus3.onap.org:10001/onap/xtesting-infra-healthcheck:latest
+nexus3.onap.org:10003/onap/xtesting-infra-healthcheck:latest
 ```
 
 Options:
@@ -58,7 +62,7 @@ environment variables:
   - INSTALLER_TYPE: precise how your ONAP has been installed (e.g. kubespray-oom,
     rke-oom)
   - BUILD_TAG: a unique tag of your CI system. It can be usefull to get all the
-    tests of one CI run. It uses the regex (dai|week)ly-(.+?)-[0-9]\* to find the 
+    tests of one CI run. It uses the regex (dai|week)ly-(.+?)-\[0-9]\* to find the
     version (e.g. daily-elalto-123456789).
   - DEPLOY_SCENARIO: your scenario deployment. ingress test run only if the
     scenario includes 'ingress'
@@ -74,7 +78,7 @@ The command becomes:
 docker run -v <the kube config>:/root/.kube/config -v
 -v <the user home dir>/.helm/plugins/deploy/cache/onap/logs:/onap_helm_logs
 <result directory>:/var/lib/xtesting/results
-nexus3.onap.org:10001/onap/xtesting-infra-healthcheck:latest:latest
+nexus3.onap.org:10003/onap/xtesting-infra-healthcheck:latest:latest
 /bin/bash -c "run_tests -r -t all"
 ```
 
@@ -86,6 +90,6 @@ nexus3.onap.org:10001/onap/xtesting-infra-healthcheck:latest:latest
 +------------------+-------------+-------------------+----------+--------+
 | onap-k8s         | integration | infra-healthcheck | 00:06    | PASS   |
 | onap-helm        | integration | infra-healthcheck | 00:01    | PASS   |
-| nodeport_ingress |  security  |  security          | 00:01    | FAIL   |
+| nodeport_ingress |  security   |  security         | 00:01    | FAIL   |
 +------------------+-------------+-------------------+----------+--------+
 ```
