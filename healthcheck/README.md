@@ -8,13 +8,9 @@ It includes 4 tests:
 
 * core: robot basic healthcheck of the components AAI, dmaap, portal, SDC, SDNC,
   SO
-* small: robot basic healthcheck of the components AAI, dmaap, portal, SDC, SDNC,
-  SO, AAF, APPC, CLI, LOG, MSB, Mulicloud, VID
-* medium: robot basic healthcheck of the components AAI, dmaap, portal, SDC, SDNC,
-  SO, AAF, APPC, CLI, LOG, MSB, Mulicloud, VID, CDS, CLAMP, Dcaegen2, OOF,
-  Policy, UUI
-* full: all the components
+* full: robot basic healthcheck covering all the components
 * healthdist: test the onboarding and the distribution of the vFW
+* postinstall: postinstallation tests including dmaap message routaer ACL update
 
 ## Usage
 
@@ -65,6 +61,63 @@ following variables:
 By default (in scripts/cmd.sh), the -r option is enabled in the job template.
 It means that xtesting will try to push the results to the DB.
 If the parameters are not set, an error will be displayed (DB not reachable)
+
+### Example
+
+For the core test, the job description (test-core.yaml) shall look as follows:
+
+```
+apiVersion: batch/v1
+kind: Job
+metadata:
+    name: integration-onap-core
+    namespace: onap
+spec:
+    template:
+        spec:
+            containers:
+            -   env:
+                -   name: INSTALLER_TYPE
+                    value: oom
+                -   name: DEPLOY_SCENARIO
+                    value: onap-nofeature-noha
+                -   name: NODE_NAME
+                    value: onap_daily_pod4_master-ONAP-oom
+                -   name: TEST_DB_URL
+                    value: http://testresults.opnfv.org/onap/api/v1/results
+                -   name: BUILD_TAG
+                    value: gitlab_ci-functest-kubespray-baremetal-daily-master-209039216-onap
+                -   name: TAG
+                    value: core
+                image: nexus3.onap.org:10003/onap/xtesting-healthcheck:master
+                imagePullPolicy: Always
+                name: functest-onap
+                volumeMounts:
+                -   mountPath: /etc/localtime
+                    name: localtime
+                    readOnly: true
+                -   mountPath: /share/config
+                    name: robot-eteshare
+                -   mountPath: /var/lib/xtesting/results/
+                    name: robot-save-results
+            restartPolicy: Never
+            volumes:
+            -   hostPath:
+                    path: /etc/localtime
+                name: localtime
+            -   configMap:
+                    defaultMode: 493
+                    name: onap-robot-eteshare-configmap
+                name: robot-eteshare
+            -   hostPath:
+                    path: /dockerdata-nfs/onap/integration/xtesting-healthcheck/core
+                name: robot-save-results
+```
+
+This job can be simply run using the command:
+```
+kubectl apply -f test-core.yaml
+```
 
 ### Output
 

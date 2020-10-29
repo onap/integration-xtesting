@@ -5,9 +5,10 @@
 The tests are:
 
 - pnf_registrate
-- vfw_cl
 - 5gbulkpm
 - hv-ves
+- vescollector
+- cmpv2
 
 ## Usage
 
@@ -15,8 +16,9 @@ The robot scripts have been planned to be launched from the cluster.
 The easiest way to run the test consists in creating a kubernetes job.
 You can run it as a sandalone dockers but the endpoints must be adapted
 to be reachable.
+The robot code is under the ONAP testsuite repository.
 
-### Configuration
+### Example
 
 An example of job test.yaml can be found hereafter:
 
@@ -43,7 +45,7 @@ spec:
                     value: gitlab_ci-functest-kubespray-baremetal-daily-master-559950989
                 -   name: TAG
                     value: 5gbulkpm
-                image: nexus3.onap.org:10001/onap/xtesting-smoke-usecases-robot:latest
+                image: nexus3.onap.org:10003/onap/xtesting-smoke-usecases-robot:latest
                 imagePullPolicy: Always
                 name: functest-onap
                 volumeMounts:
