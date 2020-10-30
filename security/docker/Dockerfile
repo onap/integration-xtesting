@@ -12,7 +12,7 @@ RUN GO111MODULE=on CGO_ENABLED=0 go install -a -ldflags "-w"
 
 FROM golang:1.13 AS build_onap
 WORKDIR /opt/onap
-RUN git clone https://git.onap.org/integration --depth 1
+RUN git clone https://github.com/onap/integration.git --depth 1
 WORKDIR /opt/onap/integration/test/security/sslendpoints
 RUN CGO_ENABLED=0 go install -a -ldflags '-w -s -extldflags "-static"'
 
@@ -48,22 +48,22 @@ RUN set -x && \
     mkdir /check_versions && \
     adduser kubectl -Du 2342 -h /config && \
     wget https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm && \
-    wget -O /check_for_nonssl_endpoints.sh https://git.onap.org/integration/plain/test/security/check_for_nonssl_endpoints.sh?h=$ONAP_TAG &&\
-    wget -O /check_for_jdwp.sh https://git.onap.org/integration/plain/test/security/check_for_jdwp.sh?h=$ONAP_TAG &&\
-    wget -O /jdwp_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/jdwp_ports/jdwp_xfail.txt?h=$ONAP_TAG &&\
-    wget -O /nonssl_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/nonssl_endpoints/nonssl_xfail.txt?h=$ONAP_TAG &&\
-    wget -O /root_pods_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/root_pods/root_pods_xfail.txt?h=$ONAP_TAG &&\
-    wget -O /unlimitted_pods_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/unlimitted_pods/unlimitted_pods_xfail.txt?h=$ONAP_TAG &&\
-    wget -O /check_versions/k8s_bin_versions_inspector.py https://git.onap.org/integration/plain/test/security/check_versions/src/k8s_bin_versions_inspector.py?h=$ONAP_TAG &&\
-    wget -O /check_versions/requirements.txt https://git.onap.org/integration/plain/test/security/check_versions/env/requirements.txt?h=$ONAP_TAG &&\
-    wget -O /check_versions/recommended_versions.yaml https://git.onap.org/integration/seccom/plain/recommended_versions.yaml?h=$ONAP_TAG &&\
+    wget -O /check_for_nonssl_endpoints.sh https://raw.githubusercontent.com/onap/integration/master/test/security/check_for_ingress_and_nodeports.py &&\
+    wget -O /check_for_jdwp.sh https://raw.githubusercontent.com/onap/integration/master/test/security/check_for_jdwp.sh &&\
+    wget -O /jdwp_xfail.txt https://raw.githubusercontent.com/onap/integration-seccom/master/waivers/jdwp_ports/jdwp_xfail.txt &&\
+    wget -O /nonssl_xfail.txt https://raw.githubusercontent.com/onap/integration-seccom/master/waivers/nonssl_endpoints/nonssl_xfail.txt &&\
+    wget -O /root_pods_xfail.txt https://raw.githubusercontent.com/onap/integration-seccom/master/waivers/root_pods/root_pods_xfail.txt &&\
+    wget -O /unlimitted_pods_xfail.txt  https://raw.githubusercontent.com/onap/integration-seccom/master/waivers/unlimitted_pods/unlimitted_pods_xfail.txt &&\
+    wget -O /check_versions/k8s_bin_versions_inspector.py https://raw.githubusercontent.com/onap/integration/master/test/security/check_versions/src/k8s_bin_versions_inspector.py &&\
+    wget -O /check_versions/requirements.txt https://raw.githubusercontent.com/onap/integration/master/test/security/check_versions/env/requirements.txt &&\
+    wget -O /check_versions/recommended_versions.yaml https://raw.githubusercontent.com/onap/integration-seccom/master/recommended_versions.yaml &&\
     chmod +x /usr/local/bin/helm && \
     chmod +x /usr/local/bin/kube-bench && \
     chmod +x /usr/local/bin/sslendpoints && \
     chmod +x /check_*.sh && \
     pip3 install --upgrade pip && \
     pip3 install --no-cache-dir \
-        git+https://git.onap.org/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=security && \
+        git+https://github.com/onap/integration-xtesting.git@$ONAP_TESTS_TAG#subdirectory=security && \
     cd /kube-hunter && pip3 install -r /kube-hunter/requirements.txt && \
     pip3 install -r /check_versions/requirements.txt && \
     apk del .build-deps

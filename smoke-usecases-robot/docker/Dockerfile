@@ -24,10 +24,10 @@ RUN apk --no-cache add --update openssl chromium chromium-chromedriver && \
     chmod +x /usr/local/bin/kubectl && \
     pip3 install --upgrade pip && \
     pip3 install --no-cache-dir \
-    git+https://git.onap.org/testsuite/heatbridge.git@$ONAP_TAG#egg=heatbridge\&subdirectory=heatbridge  \
-    git+https://git.onap.org/testsuite/python-testing-utils.git@$ONAP_TAG#egg=robotframework-onap\&subdirectory=robotframework-onap && \
-    git clone --depth 1 https://git.onap.org/testsuite -b $ONAP_TAG /var/opt/ONAP && \
-    git clone --depth 1 https://git.onap.org/demo -b $ONAP_TAG /src/demo && \
+    git+https://github.com/onap/testsuite-heatbridge.git@$ONAP_TAG#egg=heatbridge\&subdirectory=heatbridge  \
+    git+https://github.com/onap/testsuite-python-testing-utils.git@$ONAP_TAG#egg=robotframework-onap\&subdirectory=robotframework-onap && \
+    git clone --depth 1 https://github.com/onap/testsuite.git -b $ONAP_TAG /var/opt/ONAP && \
+    git clone --depth 1 https://github.com/onap/demo.git -b $ONAP_TAG /src/demo && \
     pip install \
         -chttps://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=$OPENSTACK_TAG \
         pip==$PIP_TAG && \

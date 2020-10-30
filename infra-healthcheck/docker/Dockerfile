@@ -20,14 +20,14 @@ RUN set -x && \
     chmod +x /usr/local/bin/kubectl && \
     adduser kubectl -Du 2342 -h /config && \
     wget https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm && \
-    wget -O /check_for_ingress_and_nodeports.py https://git.onap.org/integration/plain/test/security/check_for_ingress_and_nodeports.py?h=$ONAP_TAG &&\
+    wget -O /check_for_ingress_and_nodeports.py https://raw.githubusercontent.com/onap/integration/master/test/security/check_for_ingress_and_nodeports.py &&\
     chmod +x /usr/local/bin/helm && \
     pip3 install --upgrade pip && \
     pip3 install --no-cache-dir -r upper-constraints.txt && \
     pip3 install --no-cache-dir \
-        git+https://git.onap.org/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=infra-healthcheck && \
+        git+https://github.com/onap/integration-xtesting.git@$ONAP_TESTS_TAG#subdirectory=infra-healthcheck && \
     pip3 install --no-cache-dir \
-        git+https://git.onap.org/integration.git@$ONAP_TESTS_TAG#subdirectory=test/security/check_certificates && \
+        git+https://github.com/onap/integration.git@$ONAP_TESTS_TAG#subdirectory=test/security/check_certificates && \
     apk del .build-deps
 
 COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml

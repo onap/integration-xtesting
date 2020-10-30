@@ -11,7 +11,7 @@ RUN apk add --no-cache python3 git && \
     pip3 install --no-cache-dir \
         git+https://gitlab.com/Orange-OpenSource/lfn/onap/python-onapsdk.git@develop && \
     pip3 install --no-cache-dir \
-        git+https://gerrit.onap.org/r/testsuite/pythonsdk-tests@$ONAP_TESTS_TAG && \
+        git+https://github.com/onap/testsuite-pythonsdk-tests.git@$ONAP_TESTS_TAG && \
     apk del .build-deps
 
 COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
