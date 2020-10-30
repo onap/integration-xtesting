@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bcc2d2f_673ba59c",
+        "filename": "smoke-usecases-robot/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 4543
+      },
+      "writtenOn": "2020-10-30T13:48:37Z",
+      "side": 0,
+      "message": "there are also: basic_vm, basic_network and basic_cnf",
+      "range": {
+        "startLine": 8,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 8
+      },
+      "revId": "a678715a0934ab44a710b82df351951f105d727d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "662e139c_318e5093",
+        "filename": "infra-healthcheck/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4543
+      },
+      "writtenOn": "2020-10-30T13:48:37Z",
+      "side": 1,
+      "message": "\"\\\" not needed",
+      "range": {
+        "startLine": 12,
+        "startChar": 7,
+        "endLine": 12,
+        "endChar": 9
+      },
+      "revId": "445789c427ead4696cf07ced6cea1d7f5489315e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24124a55_a92570a5",
+        "filename": "infra-healthcheck/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4543
+      },
+      "writtenOn": "2020-10-30T13:48:37Z",
+      "side": 1,
+      "message": "\"not ein the CI\" there must be some other sentence i think",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 14
+      },
+      "revId": "445789c427ead4696cf07ced6cea1d7f5489315e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "049f1120_e8e0a976",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4543
+      },
+      "writtenOn": "2020-10-30T13:48:37Z",
+      "side": 1,
+      "message": "where we can find them?",
+      "range": {
+        "startLine": 21,
+        "startChar": 59,
+        "endLine": 21,
+        "endChar": 76
+      },
+      "revId": "445789c427ead4696cf07ced6cea1d7f5489315e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05fb36eb_5817b3dd",
+        "filename": "smoke-usecases-pythonsdk/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 4543
+      },
+      "writtenOn": "2020-10-30T13:48:37Z",
+      "side": 1,
+      "message": "can you please also describe which params should be in openstack.yaml or maybe example of that file?",
+      "range": {
+        "startLine": 164,
+        "startChar": 77,
+        "endLine": 164,
+        "endChar": 81
+      },
+      "revId": "445789c427ead4696cf07ced6cea1d7f5489315e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01696fc6_af70539d",
+        "filename": "smoke-usecases-robot/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4543
+      },
+      "writtenOn": "2020-10-30T13:48:37Z",
+      "side": 1,
+      "message": "it would be nice to have link here",
+      "revId": "445789c427ead4696cf07ced6cea1d7f5489315e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
