@@ -42,6 +42,13 @@ echo "--------------------  ONAP Security tests   ----------------------------"
 echo "--------------------  Test root user in pods   -------------------------"
 echo "------------------------------------------------------------------------"
 
+# Display the waivers
+if [ -f $XL_FILE_PATH ] && [ -s $XL_FILE_PATH ]; then
+  echo  -e "--------------------\e[0;31m WARNING \e[0;m XFail List    ----------------------------"
+  cat $WL_FILE_PATH
+  echo "------------------------------------------------------------------------"
+fi
+
 code=0
 
 # get the pod list
