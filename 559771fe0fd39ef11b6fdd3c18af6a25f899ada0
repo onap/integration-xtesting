@@ -1,0 +1,9 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Grzegorz Lis <grzegorz.lis@nokia.com>
+Code-Review+1: Morgan Richomme <morgan.richomme@orange.com>
+Code-Review+2: Bartek Grzybowski <b.grzybowski@partner.samsung.com>
+Submitted-by: Bartek Grzybowski <b.grzybowski@partner.samsung.com>
+Submitted-at: Tue, 03 Nov 2020 07:54:46 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/xtesting/+/114395
+Project: integration/xtesting
+Branch: refs/heads/master
