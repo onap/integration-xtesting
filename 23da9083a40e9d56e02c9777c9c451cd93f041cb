@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4442d88_6101513a",
+        "filename": "security/scripts/check_security_root.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2020-11-04T14:59:21Z",
+      "side": 1,
+      "message": "I think -s is enough\nit tests if the file exists AND is not empty\nso need of the -f as far as I remember my bash",
+      "revId": "23da9083a40e9d56e02c9777c9c451cd93f041cb",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ceb31922_f249b8f2",
+        "filename": "security/scripts/check_unlimitted_pods.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2020-11-04T14:59:21Z",
+      "side": 1,
+      "message": "same comment",
+      "revId": "23da9083a40e9d56e02c9777c9c451cd93f041cb",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
