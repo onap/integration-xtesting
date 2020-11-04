@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e2e6d86_2a817baa",
+        "filename": "security/scripts/check_security_root.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2020-11-04T10:27:33Z",
+      "side": 1,
+      "message": "use XFail list rather than white/black list\nit means that the components in the list Fail as eXpected",
+      "revId": "f18485f3ca791616b5a573b7a1623af583ed451c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
