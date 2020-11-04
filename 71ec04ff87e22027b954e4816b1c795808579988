@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e2761f5_ed19bcbb",
+        "filename": "infra-healthcheck/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5097
+      },
+      "writtenOn": "2020-11-04T13:53:17Z",
+      "side": 1,
+      "message": "What is the deal here with \"master\" tag?",
+      "range": {
+        "startLine": 46,
+        "startChar": 54,
+        "endLine": 46,
+        "endChar": 60
+      },
+      "revId": "71ec04ff87e22027b954e4816b1c795808579988",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
