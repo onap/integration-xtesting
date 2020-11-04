@@ -46,6 +46,30 @@
       "revId": "71ec04ff87e22027b954e4816b1c795808579988",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7758a8f6_77e6478b",
+        "filename": "infra-healthcheck/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5097
+      },
+      "writtenOn": "2020-11-04T14:49:35Z",
+      "side": 1,
+      "message": "It\u0027s good as long as someone doesn\u0027t use image name without the tag and won\u0027t get what he/she expected :\u003e",
+      "parentUuid": "b868b0dd_a125024a",
+      "range": {
+        "startLine": 46,
+        "startChar": 54,
+        "endLine": 46,
+        "endChar": 60
+      },
+      "revId": "71ec04ff87e22027b954e4816b1c795808579988",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
