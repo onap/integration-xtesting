@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2ab59b2_9f4932fc",
+        "filename": "security/scripts/check_security_root.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 4965
+      },
+      "writtenOn": "2020-11-04T09:57:20Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "e847fe21e2474e396e97dc1ffedb92293b23d82d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a2c29d3_be49d4a6",
+        "filename": "security/scripts/check_unlimitted_pods.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 4965
+      },
+      "writtenOn": "2020-11-04T09:57:20Z",
+      "side": 1,
+      "message": "whitesapce + double newline",
+      "revId": "e847fe21e2474e396e97dc1ffedb92293b23d82d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
