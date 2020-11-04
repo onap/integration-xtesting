@@ -22,6 +22,30 @@
       "revId": "71ec04ff87e22027b954e4816b1c795808579988",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b868b0dd_a125024a",
+        "filename": "infra-healthcheck/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2020-11-04T14:29:47Z",
+      "side": 1,
+      "message": "because builds done by LF jobs are based on the branch name...I asked to get a translation master to latest as master is very unusual for docker versions...\nbut they refused...so I have to stick to the branch name\nof course on gitlab.com any docker produced in master branch had a latest tag...",
+      "parentUuid": "6e2761f5_ed19bcbb",
+      "range": {
+        "startLine": 46,
+        "startChar": 54,
+        "endLine": 46,
+        "endChar": 60
+      },
+      "revId": "71ec04ff87e22027b954e4816b1c795808579988",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
