@@ -43,7 +43,7 @@ You can run this docker by typing:
 ```
 docker run -v <the kube config>:/root/.kube/config -v
 <result directory>:/var/lib/xtesting/results
-nexus3.onap.org:10003/onap/xtesting-infra-healthcheck:latest
+nexus3.onap.org:10003/onap/xtesting-infra-healthcheck:master
 ```
 
 Options:
@@ -75,10 +75,10 @@ environment variables:
 The command becomes:
 
 ```
-docker run -v <the kube config>:/root/.kube/config -v
+docker run -v <the kube config>:/root/.kube/config
 -v <the user home dir>/.helm/plugins/deploy/cache/onap/logs:/onap_helm_logs
-<result directory>:/var/lib/xtesting/results
-nexus3.onap.org:10003/onap/xtesting-infra-healthcheck:latest:latest
+-v <result directory>:/var/lib/xtesting/results
+nexus3.onap.org:10003/onap/xtesting-infra-healthcheck:master
 /bin/bash -c "run_tests -r -t all"
 ```
 
