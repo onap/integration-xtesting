@@ -1,0 +1,8 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+2: Morgan Richomme <morgan.richomme@orange.com>
+Code-Review+1: Amy Zwarico <az9121@att.com>
+Submitted-by: Morgan Richomme <morgan.richomme@orange.com>
+Submitted-at: Thu, 05 Nov 2020 07:44:44 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/xtesting/+/114520
+Project: integration/xtesting
+Branch: refs/heads/master
