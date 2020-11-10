@@ -221,7 +221,7 @@ docker run
 --add-host="sdc.workflow.plugin.simpledemo.onap.org:<your ONAP IP>"
 --add-host="sdc.dcae.plugin.simpledemo.onap.org:<your ONAP IP>"
 --add-host="msb.api.simpledemo.onap.org:<your ONAP IP>"
-nexus3.onap.org:10003/onap/xtesting-smoke-usecases-pythonsdk:latest /bin/sh -c "run_tests -t basic_vm"
+nexus3.onap.org:10003/onap/xtesting-smoke-usecases-pythonsdk:master /bin/sh -c "run_tests -t basic_vm"
 ```
 
 Unkike the other xtesting docker, 1 docker = 1 use case, the target -t all is
@@ -234,12 +234,15 @@ docker run -it
 -v <your local env>:/var/lib/xtesting/conf/env_file
 -v <cloud.yaml file corresponding to your VNF tenant>/root/.config/openstack.yaml
 -v <kube config file corresponding to your k8s cluster>/root/.kube/config
--v <service definition yaml matching your environment>:/usr/lib/python3.8/site-packages/onaptests/templates/vnf-services/ubuntu16test-service.yaml
 -v <result directory>:/var/lib/xtesting/results
-nexus3.onap.org:10003/onap/xtesting-smoke-usecases-pythonsdk:latest sh
+nexus3.onap.org:10003/onap/xtesting-smoke-usecases-pythonsdk:master sh
 ```
 
 Inside the docker you can edit the /etc/hosts and indicate the different hosts).
+You can also edit the configuration file
+/usr/lib/python3.8/site-packages/onaptests/templates/vnf-services/ubuntu16test-service.yaml.
+You can also edit the tester and test settings in
+/usr/lib/python3.8/site-packages/onaptests.
 Then you can run the test with the following command:
 
 ```

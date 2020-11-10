@@ -45,7 +45,7 @@ You can run this docker by typing:
 ```
 docker run -v <the kube config>:/root/.kube/config -v
 <result directory>:/var/lib/xtesting/results
-nexus3.onap.org:10003/onap/xtesting-security:latest
+nexus3.onap.org:10003/onap/xtesting-security:master
 ```
 
 Options:
@@ -72,9 +72,42 @@ The command becomes:
 ```
 docker run -v <the kube config>:/root/.kube/config -v
 <result directory>:/var/lib/xtesting/results
-nexus3.onap.org:10003/onap/xtesting-security:latest
-/bin/bash -c "run_tests -r -t all
+nexus3.onap.org:10003/onap/xtesting-security:master
+/bin/bash -c "run_tests -r -t all"
 ```
+
+Note that you can run only a subset of the tests and decide if you report the
+results to the test BD or not.
+The following commands are correct:
+
+```
+docker run -v <the kube config>:/root/.kube/config -v
+<result directory>:/var/lib/xtesting/results
+nexus3.onap.org:10003/onap/xtesting-security:master
+/bin/bash -c "run_tests -t root_pods"
+```
+
+You can also run the docker in interactive mode, so you can run the tests from
+inside the docker and directly modify the code of the test if you want.
+
+```
+docker run -it -v <the kube config>:/root/.kube/config -v
+<result directory>:/var/lib/xtesting/results
+nexus3.onap.org:10003/onap/xtesting-security:master bash
+```
+
+In this case you will get the bash prompt, you can run the test by typing in
+the console
+
+```
+# run_tests -t unlimitted_pods
+```
+
+The code of the tests is in the docker. For python test, have a look at
+/usr/lib/python3.8/site-packages, for security tests they are usually located
+at /. See the Dockerfile for more information.
+
+
 
 ### Output
 
