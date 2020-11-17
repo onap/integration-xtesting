@@ -48,3 +48,16 @@ tiers:
                     Check certificates associated with node ports
                 run:
                     name: 'nodeport_check_certs'
+            -
+                case_name: onap-chart
+                project_name: integration
+                criteria: 100
+                blocking: false
+                description: >-
+                    This test case verifies that the ONAP pods are all Running
+                    and shows the pods, deployments, svc and events for a
+                    particular chart (SO, CLAMP, ...)
+                dependencies:
+                    - DEPLOY_SCENARIO: 'gating_component'
+                run:
+                    name: 'onap_chart'

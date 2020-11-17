@@ -13,3 +13,4 @@ kubernetes # Apache-2.0
 colorama # BSD
 kubernetes_status
 helm_onap_status
+chart_status
