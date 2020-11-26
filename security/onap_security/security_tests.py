@@ -130,7 +130,7 @@ class OnapSecurityNonSSLPorts(SecurityTesting):
        tunnels."""
     def __init__(self, **kwargs):
         super(OnapSecurityNonSSLPorts, self).__init__(**kwargs)
-        self.cmd = ['/usr/local/bin/sslendpoints', '-xfail', '/nonssl_xfail.txt']
+        self.cmd = ['/usr/local/bin/sslendpoints', '-namespace', 'onap', '-xfail', '/nonssl_xfail.txt']
         self.error_string = "Public non-SSL endpoints still found"
 
 
