@@ -2,8 +2,8 @@ FROM opnfv/xtesting
 
 ARG KUBERNETES_VERSION="v1.15.11"
 ARG HELM_VERSION="v2.16.6"
-ARG ONAP_TESTS_TAG=master
-ARG ONAP_TAG=master
+ARG ONAP_TESTS_TAG=guilin
+ARG ONAP_TAG=guilin
 
 # Install kubectl
 # Note: Latest version may be found on:
