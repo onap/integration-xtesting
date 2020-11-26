@@ -2,7 +2,7 @@ FROM opnfv/xtesting
 
 MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
 
-ARG ONAP_TESTS_TAG=master
+ARG ONAP_TESTS_TAG=guilin
 
 RUN apk add --no-cache python3 git && \
     apk add --no-cache --virtual .build-deps libffi-dev python3-dev \
