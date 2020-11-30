@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75b26605_5e6811fd",
+        "filename": "infra-healthcheck/docker/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4965
+      },
+      "writtenOn": "2020-11-30T11:09:01Z",
+      "side": 1,
+      "message": "https://get.helm.sh/helm-v3.3.4-linux-amd64.tar.gz ?",
+      "revId": "23d579f61103c289f83694425cfcd60da6c6c235",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
