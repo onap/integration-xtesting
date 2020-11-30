@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6b3b32ad_1069855f",
+        "filename": "benchmarking/docker/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2020-11-30T09:01:33Z",
+      "side": 0,
+      "message": "this is just a removal of the file..\nas they were no test in benchmarking docker for guilin\nI deleted the dockers without tests",
+      "parentUuid": "e5ff06a6_b3da4292",
+      "revId": "9e626d69b71d27daee985ba140730b367b0f71c7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf1e5c08_e328310b",
         "filename": "candidate-usecases/docker/Dockerfile",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-11-30T08:33:44Z",
       "side": 0,
       "message": "This is the old onap-tests project!",
+      "revId": "9e626d69b71d27daee985ba140730b367b0f71c7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "474ac352_4e42be64",
+        "filename": "candidate-usecases/docker/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2020-11-30T09:01:33Z",
+      "side": 0,
+      "message": "same\n\nall is red..I deleted this docker because it was not used",
+      "parentUuid": "cf1e5c08_e328310b",
       "revId": "9e626d69b71d27daee985ba140730b367b0f71c7",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
