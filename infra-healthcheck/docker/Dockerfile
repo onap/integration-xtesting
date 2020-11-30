@@ -2,6 +2,7 @@ FROM opnfv/xtesting
 
 ARG KUBERNETES_VERSION="v1.15.11"
 ARG HELM_VERSION="v2.16.6"
+ARG HELM3_VERSION="v3.3.4"
 ARG ONAP_TESTS_TAG=master
 ARG ONAP_TAG=master
 
@@ -20,6 +21,7 @@ RUN set -x && \
     chmod +x /usr/local/bin/kubectl && \
     adduser kubectl -Du 2342 -h /config && \
     wget https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm && \
+    wget https://get.helm.sh/helm-${HELM3_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm3 && \
     wget -O /check_for_ingress_and_nodeports.py https://git.onap.org/integration/plain/test/security/check_for_ingress_and_nodeports.py?h=$ONAP_TAG &&\
     chmod +x /usr/local/bin/helm && \
     pip3 install --upgrade pip && \
