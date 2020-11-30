@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5ff06a6_b3da4292",
+        "filename": "benchmarking/docker/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 5622
+      },
+      "writtenOn": "2020-11-30T08:33:44Z",
+      "side": 0,
+      "message": "Strange to use master for a guilin branch?",
+      "revId": "9e626d69b71d27daee985ba140730b367b0f71c7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf1e5c08_e328310b",
+        "filename": "candidate-usecases/docker/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5622
+      },
+      "writtenOn": "2020-11-30T08:33:44Z",
+      "side": 0,
+      "message": "This is the old onap-tests project!",
+      "revId": "9e626d69b71d27daee985ba140730b367b0f71c7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
