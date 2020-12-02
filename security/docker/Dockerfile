@@ -19,7 +19,6 @@ RUN CGO_ENABLED=0 go install -a -ldflags '-w -s -extldflags "-static"'
 FROM opnfv/xtesting AS run
 
 ARG KUBERNETES_VERSION="v1.15.2"
-ARG HELM_VERSION="v2.14.1"
 ARG ONAP_TAG=master
 ARG ONAP_TESTS_TAG=master
 
@@ -47,7 +46,6 @@ RUN set -x && \
     git clone --depth 1 https://github.com/aquasecurity/kube-hunter.git /kube-hunter && \
     mkdir /check_versions && \
     adduser kubectl -Du 2342 -h /config && \
-    wget https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm && \
     wget -O /check_for_nonssl_endpoints.sh https://git.onap.org/integration/plain/test/security/check_for_nonssl_endpoints.sh?h=$ONAP_TAG &&\
     wget -O /check_for_jdwp.sh https://git.onap.org/integration/plain/test/security/check_for_jdwp.sh?h=$ONAP_TAG &&\
     wget -O /jdwp_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/jdwp_ports/jdwp_xfail.txt?h=$ONAP_TAG &&\
@@ -57,7 +55,6 @@ RUN set -x && \
     wget -O /check_versions/k8s_bin_versions_inspector.py https://git.onap.org/integration/plain/test/security/check_versions/src/k8s_bin_versions_inspector.py?h=$ONAP_TAG &&\
     wget -O /check_versions/requirements.txt https://git.onap.org/integration/plain/test/security/check_versions/env/requirements.txt?h=$ONAP_TAG &&\
     wget -O /check_versions/recommended_versions.yaml https://git.onap.org/integration/seccom/plain/recommended_versions.yaml?h=$ONAP_TAG &&\
-    chmod +x /usr/local/bin/helm && \
     chmod +x /usr/local/bin/kube-bench && \
     chmod +x /usr/local/bin/sslendpoints && \
     chmod +x /check_*.sh && \
