@@ -1,0 +1,9 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Catherine Lefevre <cl664y@att.com>
+Code-Review+1: Bartek Grzybowski <b.grzybowski@partner.samsung.com>
+Code-Review+2: Christophe Closset <christophe.closset@intl.att.com>
+Submitted-by: Christophe Closset <christophe.closset@intl.att.com>
+Submitted-at: Wed, 02 Dec 2020 15:56:35 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/xtesting/+/115987
+Project: integration/xtesting
+Branch: refs/heads/master
