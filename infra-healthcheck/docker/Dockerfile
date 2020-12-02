@@ -22,6 +22,7 @@ RUN set -x && \
     wget https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm && \
     wget -O /check_for_ingress_and_nodeports.py https://git.onap.org/integration/plain/test/security/check_for_ingress_and_nodeports.py?h=$ONAP_TAG &&\
     chmod +x /usr/local/bin/helm && \
+    chmod +x /usr/local/bin/helm3 && \
     pip3 install --upgrade pip && \
     pip3 install --no-cache-dir -r upper-constraints.txt && \
     pip3 install --no-cache-dir \
