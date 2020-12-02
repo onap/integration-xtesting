@@ -50,32 +50,29 @@ class SecurityTesting(testcase.TestCase):
             raise Exception(output)
 
         # create a log file
-        file_name = "/var/lib/xtesting/results/" + self.case_name + ".log"
-        log_file = open(file_name, "w")
-        log_file.write(output)
-        log_file.close()
+        file_name = "{0}/{1}.log".format(self.res_dir, self.case_name)
+        try:
+            with open(file_name, 'w') as log_file:
+                log_file.write(output)
+        except Exception as exc:
+            print(exc)
+
 
         # we consider the command return code for success criteria
         if process.returncode is None:
-            success = False
-            details = self.error_string
+            self.result = 0
             if (self.case_name == 'kube_hunter' and
                     "No vulnerabilities were found" in output):
-                success = True
+                self.result = 100
+            else:
+                self.details = {'error': self.error_string}
         elif process.returncode != 0:
-            success = False
-            details = self.error_string
-        else:
-            success = True
-            details = "Test PASS"
-
-        self.details = details
-        self.__logger.info("details: %s", details)
-
-        if success:
-            self.result = 100
-        else:
             self.result = 0
+            self.details = {'error': self.error_string}
+        else:
+            self.result = 100
+
+        self.__logger.info("details: %s", self.details)
 
     def run(self, **kwargs):
         """Generic Run."""
