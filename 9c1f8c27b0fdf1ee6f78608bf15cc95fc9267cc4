@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0717b1a2_b419289d",
+        "filename": "security/docker/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5097
+      },
+      "writtenOn": "2020-12-02T09:47:45Z",
+      "side": 1,
+      "message": "This needs removal as well.",
+      "revId": "9c1f8c27b0fdf1ee6f78608bf15cc95fc9267cc4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
