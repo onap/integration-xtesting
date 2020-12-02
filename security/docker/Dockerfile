@@ -19,7 +19,6 @@ RUN CGO_ENABLED=0 go install -a -ldflags '-w -s -extldflags "-static"'
 FROM opnfv/xtesting AS run
 
 ARG KUBERNETES_VERSION="v1.15.2"
-ARG HELM_VERSION="v2.14.1"
 ARG ONAP_TAG=master
 ARG ONAP_TESTS_TAG=master
 
@@ -47,7 +46,6 @@ RUN set -x && \
     git clone --depth 1 https://github.com/aquasecurity/kube-hunter.git /kube-hunter && \
     mkdir /check_versions && \
     adduser kubectl -Du 2342 -h /config && \
-    wget https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm && \
     wget -O /check_for_nonssl_endpoints.sh https://git.onap.org/integration/plain/test/security/check_for_nonssl_endpoints.sh?h=$ONAP_TAG &&\
     wget -O /check_for_jdwp.sh https://git.onap.org/integration/plain/test/security/check_for_jdwp.sh?h=$ONAP_TAG &&\
     wget -O /jdwp_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/jdwp_ports/jdwp_xfail.txt?h=$ONAP_TAG &&\
