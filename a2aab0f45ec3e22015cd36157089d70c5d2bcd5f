@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05171734_f61bce0e",
+        "filename": "infra-healthcheck/docker/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 2679
+      },
+      "writtenOn": "2020-12-03T08:53:35Z",
+      "side": 1,
+      "message": "not defined in the file\nARG HELM3_VERSION\u003d\"v3.3.4\"",
+      "range": {
+        "startLine": 23,
+        "startChar": 34,
+        "endLine": 23,
+        "endChar": 50
+      },
+      "revId": "a2aab0f45ec3e22015cd36157089d70c5d2bcd5f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
