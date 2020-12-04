@@ -50,3 +50,16 @@ tiers:
                 dependencies:
                 run:
                     name: basic_cnf
+            -
+                case_name: basic_cds
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    First basic test on CDS, including the creation of a Nodeport to expose
+                    the CDS blueprint processor, bootstrap CDS blueprintprocessor, upload data
+                    dictionnaire and enrich CBA file
+                dependencies:
+                run:
+                    name: basic_cds
