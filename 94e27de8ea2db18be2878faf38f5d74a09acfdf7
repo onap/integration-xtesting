@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90ea9ae8_e3199544",
+        "filename": ".gitlint",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2319
+      },
+      "writtenOn": "2020-12-11T13:49:23Z",
+      "side": 1,
+      "message": "that means that ALL your titles must be like:\n[SOMETHING] My title\n[SOMTHEING][ELSE] Other Title\n\nfyi \"[SOME-THING] A title\" would fail here",
+      "revId": "94e27de8ea2db18be2878faf38f5d74a09acfdf7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
