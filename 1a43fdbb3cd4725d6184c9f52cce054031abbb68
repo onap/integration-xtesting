@@ -1,0 +1,8 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Morgan Richomme <morgan.richomme@orange.com>
+Code-Review+2: Marcin Przybysz <marcin.przybysz@nokia.com>
+Submitted-by: Marcin Przybysz <marcin.przybysz@nokia.com>
+Submitted-at: Tue, 15 Dec 2020 13:22:26 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/xtesting/+/116003
+Project: integration/xtesting
+Branch: refs/heads/guilin
