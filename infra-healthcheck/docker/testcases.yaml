@@ -61,3 +61,14 @@ tiers:
                     - DEPLOY_ENVIRONMENT: 'gating_component'
                 run:
                     name: 'onap_chart'
+            -
+                case_name: internal_check_certs
+                project_name: integration
+                criteria: 100
+                blocking: false
+                description: >-
+                    Check certificates associated with internal ports
+                dependencies:
+                    - TEST_ENVIRONMENT: 'internal_job'
+                run:
+                    name: 'internal_check_certs'
