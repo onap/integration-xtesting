@@ -108,3 +108,13 @@ class OnapSecurityNodePortsCerts(K8sTesting):
                     '--mode','nodeport','--namespace','onap','--dir',
                     '/var/lib/xtesting/results/nodeport_check_certs']
         self.criteria_string = ">>> Test Check certificates PASS"
+
+class OnapSecurityInternalPortsCerts(K8sTesting):
+    """Check the cerfificates for the internal ports."""
+    def __init__(self, **kwargs):
+        super(OnapSecurityInternalPortsCerts, self).__init__(**kwargs)
+        os.chdir('/usr/lib/python3.8/site-packages/check_certificates')
+        self.cmd = ['python3', 'check_certificates_validity.py',
+                    '--mode','internal','--namespace','onap','--dir',
+                    '/var/lib/xtesting/results/internal_check_certs']
+        self.criteria_string = ">>> Test Check certificates PASS"
