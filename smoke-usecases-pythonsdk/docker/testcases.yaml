@@ -63,3 +63,17 @@ tiers:
                 dependencies:
                 run:
                     name: basic_cds
+            -
+                case_name: basic_onboard
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Subset of basic_vm that performs only the onbaording part. A random service
+                    name is created to be sure that all the onboard oiperations are performed
+                    The main intereste is for stability tests, we can distinguish onboarding only and full tests.
+                    First basic test on CDS, including the creation of a Nodeport to expose
+                dependencies:
+                run:
+                    name: basic_onboard
