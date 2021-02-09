@@ -4,7 +4,11 @@ MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
 
 ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
+<<<<<<< HEAD   (450cdd Merge "[INFRA] Make helm3 runnable" into guilin)
 ARG ONAP_TAG=guilin
+=======
+ARG ONAP_TAG=master
+>>>>>>> CHANGE (ad7325 [INT] Use PIP 20.1 version)
 ARG PIP_TAG=20.1
 ARG KUBERNETES_VERSION="v1.15.11"
 
