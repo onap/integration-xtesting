@@ -6,9 +6,11 @@ ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
 ARG ONAP_TAG=guilin
 ARG PIP_TAG=20.1
+
 ARG KUBERNETES_VERSION="v1.15.11"
 
 ENV TAG all
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
 # Install kubectl
 # Note: Latest version may be found on:
