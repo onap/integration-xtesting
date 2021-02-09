@@ -4,6 +4,8 @@ MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
 
 ARG ONAP_TESTS_TAG=guilin
 
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
+
 RUN apk add --no-cache python3 git && \
     apk add --no-cache --virtual .build-deps libffi-dev python3-dev \
         gcc openssl-dev linux-headers musl-dev && \

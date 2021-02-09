@@ -3,10 +3,11 @@ FROM opnfv/xtesting:jerma
 ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
 ARG ONAP_TAG=guilin
-ARG PIP_TAG=19.3.1
+ARG PIP_TAG=21.0.1
 
 ENV PYTHONPATH $PYTHONPATH:/src/testing-utils/robotframework-onap/eteutils
 ENV TAG all
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
 COPY requirements.txt requirements.txt
 RUN apk --no-cache add --update openssl chromium chromium-chromedriver && \
