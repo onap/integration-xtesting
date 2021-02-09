@@ -3,7 +3,7 @@ FROM opnfv/xtesting:jerma
 ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
 ARG ONAP_TAG=master
-ARG PIP_TAG=21.0.1
+ARG PIP_TAG=20.1
 
 ENV PYTHONPATH $PYTHONPATH:/src/testing-utils/robotframework-onap/eteutils
 ENV TAG all
