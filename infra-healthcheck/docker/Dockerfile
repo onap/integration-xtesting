@@ -6,6 +6,8 @@ ARG HELM3_VERSION="v3.3.4"
 ARG ONAP_TESTS_TAG=master
 ARG ONAP_TAG=master
 
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
+
 # Install kubectl
 # Note: Latest version may be found on:
 # https://aur.archlinux.org/packages/kubectl-bin/
