@@ -4,11 +4,17 @@ MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
 
 ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
+<<<<<<< HEAD   (450cdd Merge "[INFRA] Make helm3 runnable" into guilin)
 ARG ONAP_TAG=guilin
 ARG PIP_TAG=20.1
+=======
+ARG ONAP_TAG=master
+ARG PIP_TAG=21.0.1
+>>>>>>> CHANGE (4afbdf Fix xtesting docker build crypto issue)
 ARG KUBERNETES_VERSION="v1.15.11"
 
 ENV TAG all
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
 # Install kubectl
 # Note: Latest version may be found on:

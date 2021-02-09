@@ -2,11 +2,17 @@ FROM opnfv/xtesting:jerma
 
 ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
+<<<<<<< HEAD   (450cdd Merge "[INFRA] Make helm3 runnable" into guilin)
 ARG ONAP_TAG=guilin
 ARG PIP_TAG=19.3.1
+=======
+ARG ONAP_TAG=master
+ARG PIP_TAG=21.0.1
+>>>>>>> CHANGE (4afbdf Fix xtesting docker build crypto issue)
 
 ENV PYTHONPATH $PYTHONPATH:/src/testing-utils/robotframework-onap/eteutils
 ENV TAG all
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
 COPY requirements.txt requirements.txt
 RUN apk --no-cache add --update openssl chromium chromium-chromedriver && \
