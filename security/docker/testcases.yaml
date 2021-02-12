@@ -81,6 +81,6 @@ tiers:
                     Check that Java and Python are available only in versions
                     recommended by SECCOM
                 dependencies:
-                    - DEPLOY_SCENARIO: 'weekly'
+                    - NODE_NAME: 'weekly'
                 run:
                     name: 'versions'
