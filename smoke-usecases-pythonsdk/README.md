@@ -207,7 +207,7 @@ If you specify all the hosts
 ```
 docker run
 -v <your local env>:/var/lib/xtesting/conf/env_file
--v <cloud.yaml file corresponding to your VNF tenant>/root/.config/openstack.yaml
+-v <cloud.yaml file corresponding to your VNF tenant>/root/.config/openstack/clouds.yaml
 -v <kube config file corresponding to your k8s cluster>/root/.kube/config
 -v <service definition yaml matching your environment>:/usr/lib/python3.8/site-packages/onaptests/templates/vnf-services/ubuntu16test-service.yaml
 -v <result directory>:/var/lib/xtesting/results
@@ -232,7 +232,7 @@ Note you can run also the docker interactivly
 ```
 docker run -it
 -v <your local env>:/var/lib/xtesting/conf/env_file
--v <cloud.yaml file corresponding to your VNF tenant>/root/.config/openstack.yaml
+-v <cloud.yaml file corresponding to your VNF tenant>/root/.config/openstack/clouds.yaml
 -v <kube config file corresponding to your k8s cluster>/root/.kube/config
 -v <result directory>:/var/lib/xtesting/results
 nexus3.onap.org:10003/onap/xtesting-smoke-usecases-pythonsdk:master sh
