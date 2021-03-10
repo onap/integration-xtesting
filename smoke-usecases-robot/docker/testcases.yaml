@@ -127,3 +127,22 @@ tiers:
                             - CMPv2
                         variablefile:
                             - '/share/config/robot_properties.py'
+            -
+                case_name: dcaemod
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    Suite for checking DCAEMOD functionality including Generic mechanism to attach
+                    K8S ConfigMaps to DCAE apps
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/dcaemod.robot
+                        include:
+                            - dcaemod
+                        variablefile:
+                            - '/share/config/robot_properties.py'

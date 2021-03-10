@@ -9,6 +9,7 @@ The tests are:
 - hv-ves
 - vescollector
 - cmpv2
+- dcaemod
 
 ## Usage
 
