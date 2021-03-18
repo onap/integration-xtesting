@@ -125,13 +125,15 @@ The different needed volumes are:
 - The local result directory path: to store the results in your local
   environement. It shall corresponds to the internal result docker path
   /var/lib/xtesting/results
-- The kubernetes .kube/config configuration for use cases interacting with kubernetes
-  (basic_cnf)
 - The openstack cloud.yaml for use cases interacting with Openstack
   infrastructures (basic_vm, basic_network)
 - The customization of your service. You can overwrite the model datas by the
   values matching your environement. In this case you need to replace the default
   service configuration file
+- The kubernetes .kube/config configuration for use cases interacting with kubernetes
+  (basic_cnf)
+- The target kubernetes .kube/config configuration for basic_cnf, it shall be in the
+  templates/artifacts directory of onaptests
 
 An example of clouds.yaml
 
@@ -200,15 +202,15 @@ t+w+EC9/kBKq+1VKdmsXUXAcjEvjovVL8l1BrX3BY0R8D imported-openssh-key"
           ]
 ```
 
-### Command
+### Commands
 
 If you specify all the hosts
 
 ```
 docker run
--v <your local env>:/var/lib/xtesting/conf/env_file
--v <cloud.yaml file corresponding to your VNF tenant>/root/.config/openstack/clouds.yaml
--v <kube config file corresponding to your k8s cluster>/root/.kube/config
+--env-file <your local env>
+-v <cloud.yaml file corresponding to your VNF tenant>:/root/.config/openstack/clouds.yaml
+-v <kube config file corresponding to your k8s cluster>:/root/.kube/config
 -v <service definition yaml matching your environment>:/usr/lib/python3.8/site-packages/onaptests/templates/vnf-services/ubuntu16test-service.yaml
 -v <result directory>:/var/lib/xtesting/results
 --add-host="portal.api.simpledemo.onap.org:<your ONAP IP>"
@@ -224,16 +226,37 @@ docker run
 nexus3.onap.org:10003/onap/xtesting-smoke-usecases-pythonsdk:master /bin/sh -c "run_tests -t basic_vm"
 ```
 
-Unkike the other xtesting docker, 1 docker = 1 use case, the target -t all is
+```
+docker run
+--env-file <your local env>
+-v <cloud.yaml file corresponding to your VNF tenant>:/root/.config/openstack/clouds.yaml
+-v <kube config file corresponding to your onap k8s cluster>:/root/.kube/config
+-v <kube config file corresponding to your target k8s cluster>:/src/onaptests/src/onaptests/templates/artifacts/config
+-v <service definition yaml matching your environment>:/usr/lib/python3.8/site-packages/onaptests/templates/vnf-services/ubuntu16test-service.yaml
+-v <result directory>:/var/lib/xtesting/results
+--add-host="portal.api.simpledemo.onap.org:<your ONAP IP>"
+--add-host="vid.api.simpledemo.onap.org:<your ONAP IP>"
+--add-host="sdc.api.fe.simpledemo.onap.org:<your ONAP IP>"
+--add-host="sdc.api.be.simpledemo.onap.org:<your ONAP IP>"
+--add-host="aai.api.sparky.simpledemo.onap.org:<your ONAP IP>"
+--add-host="so.api.simpledemo.onap.org:<your ONAP IP>"
+--add-host="sdnc.api.simpledemo.onap.org:<your ONAP IP>"
+--add-host="sdc.workflow.plugin.simpledemo.onap.org:<your ONAP IP>"
+--add-host="sdc.dcae.plugin.simpledemo.onap.org:<your ONAP IP>"
+--add-host="msb.api.simpledemo.onap.org:<your ONAP IP>"
+nexus3.onap.org:10003/onap/xtesting-smoke-usecases-pythonsdk:master /bin/sh -c "run_tests -t basic_cnf"
+```
+
+Unkike the other xtesting dockers, 1 docker = 1 use case, the target -t all is
 not usable.
 
 Note you can run also the docker interactivly
 
 ```
 docker run -it
--v <your local env>:/var/lib/xtesting/conf/env_file
--v <cloud.yaml file corresponding to your VNF tenant>/root/.config/openstack/clouds.yaml
--v <kube config file corresponding to your k8s cluster>/root/.kube/config
+-env-file <your local env>
+-v <cloud.yaml file corresponding to your VNF tenant>:/root/.config/openstack/clouds.yaml
+-v <kube config file corresponding to your k8s cluster>:/root/.kube/config
 -v <result directory>:/var/lib/xtesting/results
 nexus3.onap.org:10003/onap/xtesting-smoke-usecases-pythonsdk:master sh
 ```
