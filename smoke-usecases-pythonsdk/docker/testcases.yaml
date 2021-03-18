@@ -77,3 +77,14 @@ tiers:
                 dependencies:
                 run:
                     name: basic_onboard
+            -
+                case_name: pnf_macro
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Instantiate a PNF using macro flow. It requires the use of the pnf simulator.
+                dependencies:
+                run:
+                    name: pnf_macro
