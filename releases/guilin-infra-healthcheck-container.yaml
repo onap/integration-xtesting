@@ -1,7 +1,7 @@
 distribution_type: 'container'
 container_release_tag: 'guilin'
 project: 'xtesting'
-log_dir: 'integration-xtesting-infra-healthcheck-docker-merge-guilin/128/'
+log_dir: 'integration-xtesting-infra-healthcheck-docker-merge-guilin/138/'
 ref: 1efda7623bc4d9a87567c86a57e42e1ad354f0f1
 containers:
     - name: 'xtesting-infra-healthcheck'
