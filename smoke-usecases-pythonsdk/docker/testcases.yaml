@@ -88,3 +88,15 @@ tiers:
                 dependencies:
                 run:
                     name: pnf_macro
+            -
+                case_name: basic_clamp
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Onboard and enrich a model with TCA. Create a loop using
+                    clamp. Distribute the loop to Policy and DCAE.
+                dependencies:
+                run:
+                    name: basic_clamp
