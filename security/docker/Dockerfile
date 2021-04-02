@@ -18,9 +18,9 @@ RUN CGO_ENABLED=0 go install -a -ldflags '-w -s -extldflags "-static"'
 
 FROM opnfv/xtesting AS run
 
-ARG KUBERNETES_VERSION="v1.15.2"
-ARG ONAP_TAG=master
-ARG ONAP_TESTS_TAG=master
+ARG KUBERNETES_VERSION="v1.19.7"
+ARG ONAP_TAG=honolulu
+ARG ONAP_TESTS_TAG=honolulu
 
 # Install kubectl
 # Note: Latest version may be found on:
