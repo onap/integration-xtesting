@@ -2,7 +2,11 @@ FROM opnfv/xtesting
 
 MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
 
+<<<<<<< HEAD   (5cf015 [HONOLULU] set honolulu version for honolulu xtesting docker)
 ARG ONAP_TESTS_TAG=honolulu
+=======
+ARG ONAP_TESTS_TAG=master
+>>>>>>> CHANGE (12e1aa [CLAMP] Fix path for schema_details.json)
 ARG ONAPSDK_PYTHON_PATH=/src/onapsdk
 
 ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
