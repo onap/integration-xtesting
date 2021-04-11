@@ -3,7 +3,7 @@ FROM opnfv/xtesting
 MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
 
 ARG ONAP_TESTS_TAG=master
-ARG ONAPSDK_PYTHON_PATH=/usr/lib/python3.8/site-packages/onapsdk
+ARG ONAPSDK_PYTHON_PATH=/usr/lib/python3.8/site-packages/src/onapsdk
 
 ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
