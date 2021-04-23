@@ -61,7 +61,7 @@ NODE_NAME=onap_daily_pod4_master-ONAP-oom
 BUILD_TAG=gitlab_ci-functest-kubespray-baremetal-daily-master-209039216-onap
 DEBUG=True
 OS_TEST_CLOUD=onap-master-daily-vnfs-ci
-ONAP_PYTHON_SDK_SETTINGS=onaptests.configuration.ubuntu16_nomulticloud_settings
+ONAP_PYTHON_SDK_SETTINGS=onaptests.configuration.basic_vm_settings
 ```
 
 The generic configuration file settings.py can be also specified to overwritte
@@ -113,11 +113,11 @@ REPORTING_FILE_PATH = "/var/lib/xtesting/results/reporting.html"
 K8S_REGION_TYPE = "k8s"
 ```
 
-You can specify the log level, the log file, and the path for the reporting page.
+You can specify the log level, the log file and the path for the reporting page.
 
 You may then indicate several volumes when launching the xtesting docker.
-Please note it can be run from anyplace assuming that the configuration and the
-connectivity are properly set. You then need to hav access to ONAP endpoints, you
+Please note it can be run from any place assuming that the configuration and the
+connectivity are properly set. You then need to have access to ONAP endpoints, you
 can either copy a /etc/hosts in the docker or add the hosts in the docker command.
 
 The different needed volumes are:
@@ -160,20 +160,18 @@ The data will be preloaded to overwrite the default model values.
 
 ```
 ---
-ubuntu16test:
-    tosca_file_from_SDC: service-Ubuntu16tha-template
-    version: "1.0"
+basic_vm:
     vnfs:
-        - vnf_name: ubuntu16test
-          heat_files_to_upload: onaptests/templates/heat-files/ubuntu16/ubuntu16.zip
+        - vnf_name: basic_vm
+          heat_files_to_upload: onaptests/templates/heat-files/ubuntu20/ubuntu20agent.zip
           vnf_parameters: [
-              {"name": "ubuntu16_image_name",
-               "value": "ubuntu-16.04-daily"
+              {"name": "ubuntu20_image_name",
+               "value": "ubuntu-agent"
               },
-              {"name": "ubuntu16_key_name",
+              {"name": "ubuntu20_key_name",
                "value": "cleouverte"
               },
-              {"name": "ubuntu16_pub_key",
+              {"name": "ubuntu20_pub_key",
                "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAA\
 BAQDY15cdBmIs2XOpe4EiFCsaY6bmUmK/GysMoLl4UG51JCfJwvwoWCoA+6mDIbymZxhxq9IGx\
 ilp/yTA6WQ9s/5pBag1cUMJmFuda9PjOkXl04jgqh5tR6I+GZ97AvCg93KAECis5ubSqw1xOCj4\
@@ -181,20 +179,20 @@ utfEUtPoF1OuzqM/lE5mY4N6VKXn+fT7pCD6cifBEs6JHhVNvs5OLLp/tO8Pa3kKYQOdyS0xc3r\
 h+t2lrzvKUSWGZbX+dLiFiEpjsUL3tDqzkEMNUn4pdv69OJuzWHCxRWPfdrY9Wg0j3mJesP29EBh\
 t+w+EC9/kBKq+1VKdmsXUXAcjEvjovVL8l1BrX3BY0R8D imported-openssh-key"
               },
-              {"name": "ubuntu16_flavor_name",
-               "value": "m1.small"
+              {"name": "ubuntu20_flavor_name",
+               "value": "m1.smaller"
               },
               {"name": "VM_name",
-               "value": "ubuntu16test-VM-01"
+               "value": "ubuntu20agent-VM-01"
               },
               {"name": "vnf_id",
-               "value": "ubuntu16test-VNF-instance"
+               "value": "ubuntu20agent-VNF-instance"
               },
               {"name": "vf_module_id",
-               "value": "ubuntu16test-vfmodule-instance"
+               "value": "ubuntu20agent-vfmodule-instance"
               },
               {"name": "vnf_name",
-               "value": "ubuntu16test-VNF"
+               "value": "ubuntu20agent-VNF"
               },
               {"name": "admin_plane_net_name",
                "value": "admin"
@@ -211,7 +209,7 @@ docker run
 --env-file <your local env>
 -v <cloud.yaml file corresponding to your VNF tenant>:/root/.config/openstack/clouds.yaml
 -v <kube config file corresponding to your k8s cluster>:/root/.kube/config
--v <service definition yaml matching your environment>:/usr/lib/python3.8/site-packages/onaptests/templates/vnf-services/ubuntu16test-service.yaml
+-v <service definition yaml matching your environment>:/usr/lib/python3.8/site-packages/onaptests/templates/vnf-services/basic_vm-service.yaml
 -v <result directory>:/var/lib/xtesting/results
 --add-host="portal.api.simpledemo.onap.org:<your ONAP IP>"
 --add-host="vid.api.simpledemo.onap.org:<your ONAP IP>"
@@ -232,7 +230,7 @@ docker run
 -v <cloud.yaml file corresponding to your VNF tenant>:/root/.config/openstack/clouds.yaml
 -v <kube config file corresponding to your onap k8s cluster>:/root/.kube/config
 -v <kube config file corresponding to your target k8s cluster>:/src/onaptests/src/onaptests/templates/artifacts/config
--v <service definition yaml matching your environment>:/usr/lib/python3.8/site-packages/onaptests/templates/vnf-services/ubuntu16test-service.yaml
+-v <service definition yaml matching your environment>:/usr/lib/python3.8/site-packages/onaptests/templates/vnf-services/basic_vm-service.yaml
 -v <result directory>:/var/lib/xtesting/results
 --add-host="portal.api.simpledemo.onap.org:<your ONAP IP>"
 --add-host="vid.api.simpledemo.onap.org:<your ONAP IP>"
@@ -250,7 +248,7 @@ nexus3.onap.org:10003/onap/xtesting-smoke-usecases-pythonsdk:master /bin/sh -c "
 Unkike the other xtesting dockers, 1 docker = 1 use case, the target -t all is
 not usable.
 
-Note you can run also the docker interactivly
+Note you can also run the docker interactively
 
 ```
 docker run -it
@@ -263,7 +261,7 @@ nexus3.onap.org:10003/onap/xtesting-smoke-usecases-pythonsdk:master sh
 
 Inside the docker you can edit the /etc/hosts and indicate the different hosts).
 You can also edit the configuration file
-/usr/lib/python3.8/site-packages/onaptests/templates/vnf-services/ubuntu16test-service.yaml.
+/usr/lib/python3.8/site-packages/onaptests/templates/vnf-services/basic_vm-service.yaml
 You can also edit the tester and test settings in
 /usr/lib/python3.8/site-packages/onaptests.
 Then you can run the test with the following command:
