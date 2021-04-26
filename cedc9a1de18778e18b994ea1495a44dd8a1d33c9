@@ -1,0 +1,7 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+2: Lasse Kaihlavirta <l.kaihlavirt@partner.samsung.com>
+Submitted-by: Bartek Grzybowski <b.grzybowski@partner.samsung.com>
+Submitted-at: Mon, 26 Apr 2021 08:26:39 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/xtesting/+/120829
+Project: integration/xtesting
+Branch: refs/heads/honolulu
