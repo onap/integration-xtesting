@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebfa9663_4fb953c2",
+        "filename": "releases/1.7.0-container.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 481
+      },
+      "writtenOn": "2021-05-07T00:17:52Z",
+      "side": 1,
+      "message": "I only see honolulu, latest and master. But not guilin",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 23
+      },
+      "revId": "bcd196294baac30361aacf4e9f9d188e3dacc619",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
