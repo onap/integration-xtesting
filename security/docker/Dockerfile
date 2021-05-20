@@ -18,7 +18,7 @@ RUN CGO_ENABLED=0 go install -a -ldflags '-w -s -extldflags "-static"'
 
 FROM opnfv/xtesting AS run
 
-ARG KUBERNETES_VERSION="v1.19.7"
+ARG KUBERNETES_VERSION="v1.19.9"
 ARG ONAP_TAG=honolulu
 ARG ONAP_TESTS_TAG=honolulu
 
