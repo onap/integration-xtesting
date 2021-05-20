@@ -1,6 +1,10 @@
 FROM opnfv/xtesting
 
+<<<<<<< HEAD   (cedc9a [DOC] Update readme for smoke-usecases-pythonsdk)
 ARG KUBERNETES_VERSION="v1.19.7"
+=======
+ARG KUBERNETES_VERSION="v1.19.9"
+>>>>>>> CHANGE (cd5520 [DEPENDENCIES] Update kubecl version)
 ARG HELM_VERSION="v2.16.6"
 ARG HELM3_VERSION="v3.3.4"
 ARG ONAP_TESTS_TAG=honolulu

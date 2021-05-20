@@ -6,7 +6,11 @@ ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
 ARG ONAP_TAG=honolulu
 ARG PIP_TAG=20.1
+<<<<<<< HEAD   (cedc9a [DOC] Update readme for smoke-usecases-pythonsdk)
 ARG KUBERNETES_VERSION="v1.19.7"
+=======
+ARG KUBERNETES_VERSION="v1.19.9"
+>>>>>>> CHANGE (cd5520 [DEPENDENCIES] Update kubecl version)
 
 ENV TAG all
 ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
