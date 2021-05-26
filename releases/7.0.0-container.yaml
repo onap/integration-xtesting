@@ -1,0 +1,16 @@
+distribution_type: 'container'
+container_release_tag: '7.0.0'
+project: 'integration-xtesting'
+log_dir: 'integration-xtesting-infra-healthcheck-docker-merge-guilin/'
+ref: 1efda7623bc4d9a87567c86a57e42e1ad354f0f1
+containers:
+    - name: 'xtesting-infra-healthcheck'
+      version: 'guilin'
+    - name: 'xtesting-healthcheck'
+      version: 'guilin'
+    - name: 'xtesting-smoke-usecases-pythonsdk'
+      version: 'guilin'
+    - name: 'xtesting-smoke-usecases-robot'
+      version: 'guilin'
+    - name: 'xtesting-security'
+      version: 'guilin'
