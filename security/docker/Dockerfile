@@ -62,7 +62,8 @@ RUN set -x && \
     pip3 install --no-cache-dir \
         git+https://git.onap.org/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=security && \
     cd /kube-hunter && pip3 install -r /kube-hunter/requirements.txt && \
-    pip3 install -r /check_versions/requirements.txt && \
+    pip3 install --no-cache-dir \
+        git+https://gitlab.com/Orange-OpenSource/lfn/onap/integration/onap-version-status.git && \
     apk del .build-deps
 
 COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
