@@ -102,3 +102,17 @@ tiers:
                 dependencies:
                 run:
                     name: basic_clamp
+            -
+                case_name: basic_vm_macro_stability
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Onboard and instantiate a simple ubuntu20.04 VM
+                    using macro bpmn. Unlike basic_vm_macro, we consider
+                    a model including an already enriched CBA so no
+                    interaction with CDS is required.
+                dependencies:
+                run:
+                    name: basic_vm_stability

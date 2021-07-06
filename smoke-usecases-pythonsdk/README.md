@@ -17,6 +17,12 @@ The tests are:
   GR-API (A la Carte SO BPMN) and K8s module. The components used are SDC, SO,
   AAI, SDNC, MultiCloud.
 - basic_network: onboarding/distribution/deployment of a Neutron network
+- basic_vm_macro; same than basic_vm but using the macro BPMN
+- pnf_macro: instantiation of a pnf using Macro mode including a pnf simulator
+- basic_onboard: onboard a model in SDC
+- basic_CDS: check the CBA enrichment feature
+- basic_clamp: design and deploy a loop using clamp (integrated in SDC), at the end
+  designed loop shall be deployed in Policy and DCAE (TCA pod created)
 
 ## Usage
 
