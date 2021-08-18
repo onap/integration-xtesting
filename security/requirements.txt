@@ -2,12 +2,12 @@
 # of appearance. Changing the order has an impact on the overall integration
 # process, which may cause wedges in the gate later.
 coverage!=4.4 # Apache-2.0
-mock # BSD
+# mock # BSD
 nose # LGPL
-flake8>=2.5.4 # MIT
-pylint>=2.1 # GPLv2
-yamllint
-bashate # Apache-2.0
+# flake8>=2.5.4 # MIT
+# pylint>=2.1 # GPLv2
+# yamllint
+# bashate # Apache-2.0
 xtesting
 Kubernetes
 colorama
