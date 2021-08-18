@@ -1,4 +1,4 @@
-FROM opnfv/xtesting
+FROM opnfv/xtesting:wallaby
 
 MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
 
