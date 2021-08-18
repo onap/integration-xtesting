@@ -16,7 +16,7 @@ RUN git clone https://git.onap.org/integration --depth 1
 WORKDIR /opt/onap/integration/test/security/sslendpoints
 RUN CGO_ENABLED=0 go install -a -ldflags '-w -s -extldflags "-static"'
 
-FROM opnfv/xtesting AS run
+FROM opnfv/xtesting:wallaby AS run
 
 ARG KUBERNETES_VERSION="v1.19.9"
 ARG ONAP_TAG=master
