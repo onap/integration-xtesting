@@ -1,4 +1,4 @@
-FROM opnfv/xtesting
+FROM opnfv/xtesting:wallaby
 
 ARG KUBERNETES_VERSION="v1.19.9"
 ARG HELM_VERSION="v2.16.6"
