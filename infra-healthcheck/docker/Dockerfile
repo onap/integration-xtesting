@@ -1,4 +1,4 @@
-FROM opnfv/xtesting
+FROM opnfv/xtesting:wallaby
 
 ARG KUBERNETES_VERSION="v1.19.9"
 ARG HELM_VERSION="v2.16.6"
@@ -22,11 +22,12 @@ RUN set -x && \
         gcc python3-dev musl-dev openssl-dev libffi-dev && \
     chmod +x /usr/local/bin/kubectl && \
     adduser kubectl -Du 2342 -h /config && \
-    wget https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm && \
+    wget https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm && \
     wget https://get.helm.sh/helm-${HELM3_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm3 && \
     wget -O /check_for_ingress_and_nodeports.py https://git.onap.org/integration/plain/test/security/check_for_ingress_and_nodeports.py?h=$ONAP_TAG &&\
     chmod +x /usr/local/bin/helm && \
     chmod +x /usr/local/bin/helm3 && \
+    rm -rf /usr/lib/python3.8/site-packages/PyYAML* && \
     pip3 install --upgrade pip && \
     pip3 install --no-cache-dir -r upper-constraints.txt && \
     pip3 install --no-cache-dir \
