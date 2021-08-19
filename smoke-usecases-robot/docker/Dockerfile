@@ -5,8 +5,7 @@ MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
 ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
 ARG ONAP_TAG=master
-ARG PIP_TAG=20.1
-ARG KUBERNETES_VERSION="v1.19.9"
+ARG KUBERNETES_VERSION="v1.19.11"
 
 ENV TAG all
 ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
@@ -30,8 +29,7 @@ RUN apk --no-cache add --update openssl chromium chromium-chromedriver && \
     git clone --depth 1 https://git.onap.org/testsuite -b $ONAP_TAG /var/opt/ONAP && \
     git clone --depth 1 https://git.onap.org/demo -b $ONAP_TAG /src/demo && \
     pip install \
-        -chttps://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=$OPENSTACK_TAG \
-        pip==$PIP_TAG && \
+        -chttps://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=$OPENSTACK_TAG && \
     pip install \
         -chttps://git.opnfv.org/functest/plain/upper-constraints.txt?h=$OPNFV_TAG \
         -rrequirements.txt && \
