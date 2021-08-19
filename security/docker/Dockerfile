@@ -1,16 +1,16 @@
-FROM golang:1.13 AS build_yq
+FROM golang:1.17 AS build_yq
 WORKDIR /go/src/github.com/mikefarah/
 RUN git clone https://github.com/mikefarah/yq.git --depth 1
 WORKDIR /go/src/github.com/mikefarah/yq
 RUN CGO_ENABLED=0 go install -a -ldflags '-w -s -extldflags "-static"'
 
-FROM golang:1.13 AS build_aqua
+FROM golang:1.17 AS build_aqua
 WORKDIR /go/src/github.com/aquasecurity/
 RUN git clone https://github.com/aquasecurity/kube-bench.git --depth 1
 WORKDIR /go/src/github.com/aquasecurity/kube-bench
 RUN GO111MODULE=on CGO_ENABLED=0 go install -a -ldflags "-w"
 
-FROM golang:1.13 AS build_onap
+FROM golang:1.17 AS build_onap
 WORKDIR /opt/onap
 RUN git clone https://git.onap.org/integration --depth 1
 WORKDIR /opt/onap/integration/test/security/sslendpoints
@@ -18,7 +18,7 @@ RUN CGO_ENABLED=0 go install -a -ldflags '-w -s -extldflags "-static"'
 
 FROM opnfv/xtesting:wallaby AS run
 
-ARG KUBERNETES_VERSION="v1.19.9"
+ARG KUBERNETES_VERSION="v1.19.11"
 ARG ONAP_TAG=master
 ARG ONAP_TESTS_TAG=master
 

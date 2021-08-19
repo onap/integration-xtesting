@@ -1,5 +1,3 @@
-FROM opnfv/xtesting:jerma
-
 MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
 
 ARG OPENSTACK_TAG=master
