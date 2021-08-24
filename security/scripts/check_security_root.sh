@@ -68,7 +68,7 @@ while IFS= read -r line; do
        sed -i "/$line/d" $FILTERED_PODS_LIST
    fi
    # tmp ugly workaround to exlude dep (temporary dcae dockers)
-   if grep -e dep-$wl_name <<< "$line" > /dev/null ;then
+   if grep -e "^dep.*dcae-tcagen2" <<< "$line" > /dev/null ;then
        sed -i "/$line/d" $FILTERED_PODS_LIST
    fi
   done < $WL_RAW_FILE_PATH
