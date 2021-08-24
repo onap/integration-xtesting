@@ -62,24 +62,24 @@ while IFS= read -r line; do
   # for each line we test if it is in the white list with a regular expression
   while IFS= read -r wl_line; do
    wl_name=$(echo $wl_line | awk {'print $1'})
-   if grep -e $K8S_NAMESPACE-$wl_name <<< "$line" > /dev/null ;then
-       # Found in white list, exclude it
-       sed -i "/$line/d" $FILTERED_PODS_LIST
-   fi
+    if grep -e $K8S_NAMESPACE-$wl_name <<< "$line" > /dev/null ;then
+      # Found in white list, exclude it
+      sed -i "/$line/d" $FILTERED_PODS_LIST
+    fi
    # tmp ugly workaround to exlude dep (temporary dcae dockers)
-   if grep -e dep-$wl_name <<< "$line" > /dev/null ;then
-       sed -i "/$line/d" $FILTERED_PODS_LIST
-   fi
+    if grep -e "^dep.*dcae-tcagen2" <<< "$line" > /dev/null ;then
+      sed -i "/$line/d" $FILTERED_PODS_LIST
+    fi
   done < $WL_RAW_FILE_PATH
 done < $FILTERED_PODS_LIST
 
 
 if [ -s $FILTERED_PODS_LIST ]
 then
-   code=1
-   nb_errors=`cat $FILTERED_PODS_LIST | wc -l`
-   echo "Test FAIL: $nb_errors pod(s) launched without limit"
-   cat $FILTERED_PODS_LIST
+  code=1
+  nb_errors=`cat $FILTERED_PODS_LIST | wc -l`
+  echo "Test FAIL: $nb_errors pod(s) launched without limit"
+  cat $FILTERED_PODS_LIST
 else
   echo "Test PASS: No pod launched without limit"
 fi
