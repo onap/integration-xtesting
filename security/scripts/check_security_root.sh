@@ -55,7 +55,7 @@ code=0
 for pod in `kubectl get pod -n $K8S_NAMESPACE| grep "Running" | grep -v functest | grep -v integration | awk '{print $1}'` ;do
   list=`kubectl top pod $pod --containers -n onap |grep -v "POD"|awk '{print $1":"$2}'`;
   for po in $list; do
-    contname=`echo $po|cut -d':' -f2`;uid=`kubectl exec $pod --container $contname -n $K8S_NAMESPACE id|sed -r "s/^uid=(.*) gid.*$/\1/"`;echo "POD: $pod container: $contname uid: $uid";
+    contname=`echo $po|cut -d':' -f2`;uid=`kubectl exec $pod --container $contname -n $K8S_NAMESPACE -- id|sed -r "s/^uid=(.*) gid.*$/\1/"`;echo "POD: $pod container: $contname uid: $uid";
   done;
 done  | grep root > $FILTERED_PODS_LIST
 
