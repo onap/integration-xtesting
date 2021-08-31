@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49451ac3_4355bc68",
+        "filename": "security/scripts/check_unlimitted_pods.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 5097
+      },
+      "writtenOn": "2021-08-31T13:20:57Z",
+      "side": 1,
+      "message": "I believe you missed the indentation fix here as well B-)",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 3
+      },
+      "revId": "978b2e5a8a00e2d9439afd65ab9c487b50a6357b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
