@@ -1,0 +1,11 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Amy Zwarico <az9121@att.com>
+Code-Review+1: Vijay Venkatesh Kumar <vv770d@att.com>
+Code-Review+1: Krzysztof Opasiak <k.opasiak@samsung.com>
+Code-Review+2: Bartek Grzybowski <b.grzybowski@partner.samsung.com>
+Code-Review+1: Pawel Pawlak <p.pawlak@f5.com>
+Submitted-by: Morgan Richomme <morgan.richomme@orange.com>
+Submitted-at: Wed, 01 Sep 2021 09:34:46 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/xtesting/+/123510
+Project: integration/xtesting
+Branch: refs/heads/master
