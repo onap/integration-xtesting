@@ -1,0 +1,165 @@
+---
+tiers:
+    -
+        name: smoke-usecases
+        order: 1
+        description: >-
+            ONAP E2E tests
+        testcases:
+            -
+                case_name: pnf-registrate
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    Registrate PNF
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/pnf-registration.robot
+                        include:
+                            - pnf_registrate
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+            -
+                case_name: vfw-cl
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    vFW closed loop use case
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/vfwcl.robot
+                        include:
+                            - vfwc
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+            -
+                case_name: 5gbulkpm
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    Test 5G Bulk PM Usecase functionality (inventory and
+                    deployment api from DCAEGEN, data router and bus
+                    controller)
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/usecases/5gbulkpm.robot
+                        include:
+                            - 5gbulkpm
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+            -
+                case_name: hv-ves
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    HV VES (High Volume) VES collector has been proposed, based
+                    on a need to process high-volumes of data generated
+                    frequently by a large number of NFs. The driving use-case
+                    is the 5G RAN, where it is expected that up to 10k NF
+                    instances report the data, per DCAE platform deployment.
+                    The network traffic generated in simulations - based on
+                    4G BTS Real-Time PM data has shown, that GPB serialization
+                    is 2-3 times more effective, than JSON serialization
+                    utilized in VES collector. HV-VES 'Sunny Scenario' Robot
+                    Framework test - message is sent to the collector and Kafka
+                    topic is checked if the message has been published. Content
+                    is decoded and checked.
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/hvves-ci.robot
+                        include:
+                            - hvves
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+            -
+                case_name: ves-collector
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    Suite for checking handling events by VES Collector
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/ves.robot
+                        include:
+                            - vescollector
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+            -
+                case_name: cmpv2
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    Suite for checking CMPv2 Usecase functionality
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/cmpv2.robot
+                        include:
+                            - CMPv2
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+            -
+                case_name: dcaemod
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    Suite for checking DCAEMOD functionality including Generic mechanism to attach
+                    K8S ConfigMaps to DCAE apps
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /var/opt/ONAP/robot/testsuites/dcaemod.robot
+                        include:
+                            - dcaemod
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+            -
+                case_name: cps-healthcheck
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    Execute CPS healtcheck
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /cps/csit/tests/actuator/actuator.robot
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+
