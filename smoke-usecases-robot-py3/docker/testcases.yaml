@@ -162,3 +162,6 @@ tiers:
                             - /cps/csit/tests/actuator/actuator.robot
                         variablefile:
                             - '/share/config/robot_properties.py'
+                        variable:
+                            - CPS_HOST:'cps-core'
+                            - MANAGEMENT_PORT: '8081'
