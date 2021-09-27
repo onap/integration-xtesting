@@ -17,6 +17,13 @@ The tests are:
   GR-API (A la Carte SO BPMN) and K8s module. The components used are SDC, SO,
   AAI, SDNC, MultiCloud.
 - basic_network: onboarding/distribution/deployment of a Neutron network
+- basic_vm_macro: same as basic_vm but using the macro BPMN
+- basic_vm_macro_stability: same as basic_vm_macro but using a pre-enriched CBA
+- pnf_macro: instantiation of a pnf using Macro mode including a pnf simulator
+- basic_onboard: onboard a model in SDC
+- basic_CDS: check the CBA enrichment feature
+- basic_clamp: design and deploy a loop using clamp (integrated in SDC), at the end
+  designed loop shall be deployed in Policy and DCAE (TCA pod created)
 
 ## Usage
 
@@ -39,29 +46,29 @@ There are optional and mandatory env variables
 
 Mandatory:
 
-- OS_TEST_CLOUD: it specifies the Openstack cloud you
+- OS\_TEST\_CLOUD: it specifies the Openstack cloud you
   are using (declared in the clouds.yaml)
-- ONAP_PYTHON_SDK_SETTINGS: the configuration to be considered for the tests.
+- ONAP\_PYTHON\_SDK\_SETTINGS: the configuration to be considered for the tests.
   See pythonsdk-tests README for details
 
 Optional:
 
-- INSTALLER_TYPE: the name of the installer (used for results)
-- TEST_DB_URL: the url of the DB you want to push the results
-- NODE_NAME: the name of the lab or CI chain (used for results)
-- BUILD_TAG: an id used for CI to group tests in a CI run
+- INSTALLER\_TYPE: the name of the installer (used for results)
+- TEST\_DB\_URL: the url of the DB you want to push the results
+- NODE\_NAME: the name of the lab or CI chain (used for results)
+- BUILD\_TAG: an id used for CI to group tests in a CI run
 - DEBUG: by default xtesting logs are not enables
 
 An example of env file is given herefater:
 
 ```
-INSTALLER_TYPE=oom
-TEST_DB_URL=http://testresults.opnfv.org/onap/api/v1/results
-NODE_NAME=onap_daily_pod4_master-ONAP-oom
-BUILD_TAG=gitlab_ci-functest-kubespray-baremetal-daily-master-209039216-onap
+INSTALLER\_TYPE=oom
+TEST\_DB\_URL=http://testresults.opnfv.org/onap/api/v1/results
+NODE\_NAME=onap\_daily\_pod4\_master-ONAP-oom
+BUILD\_TAG=gitlab\_ci-functest-kubespray-baremetal-daily-master-209039216-onap
 DEBUG=True
-OS_TEST_CLOUD=onap-master-daily-vnfs-ci
-ONAP_PYTHON_SDK_SETTINGS=onaptests.configuration.basic_vm_settings
+OS\_TEST\_CLOUD=onap-master-daily-vnfs-ci
+ONAP\_PYTHON\_SDK\_SETTINGS=onaptests.configuration.basic\_vm\_settings
 ```
 
 The generic configuration file settings.py can be also specified to overwritte
@@ -126,13 +133,13 @@ The different needed volumes are:
   environement. It shall corresponds to the internal result docker path
   /var/lib/xtesting/results
 - The openstack cloud.yaml for use cases interacting with Openstack
-  infrastructures (basic_vm, basic_network)
+  infrastructures (basic\_vm, basic\_network)
 - The customization of your service. You can overwrite the model datas by the
   values matching your environement. In this case you need to replace the default
   service configuration file
 - The kubernetes .kube/config configuration for use cases interacting with kubernetes
-  (basic_cnf)
-- The target kubernetes .kube/config configuration for basic_cnf, it shall be in the
+  (basic\_cnf)
+- The target kubernetes .kube/config configuration for basic\_cnf, it shall be in the
   templates/artifacts directory of onaptests
 
 An example of clouds.yaml
@@ -154,7 +161,7 @@ clouds:
         region_name: RegionOne
 ```
 
-A example of basic_vm customization is provided hereafter. You can customize
+A example of basic\_vm customization is provided hereafter. You can customize
 this file according to your cloud environment (key, flavor name,..).
 The data will be preloaded to overwrite the default model values.
 
@@ -261,7 +268,7 @@ nexus3.onap.org:10003/onap/xtesting-smoke-usecases-pythonsdk:master sh
 
 Inside the docker you can edit the /etc/hosts and indicate the different hosts).
 You can also edit the configuration file
-/usr/lib/python3.8/site-packages/onaptests/templates/vnf-services/basic_vm-service.yaml
+/usr/lib/python3.8/site-packages/onaptests/templates/vnf-services/basic\_vm-service.yaml
 You can also edit the tester and test settings in
 /usr/lib/python3.8/site-packages/onaptests.
 Then you can run the test with the following command:
