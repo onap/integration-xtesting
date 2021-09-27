@@ -1,0 +1,8 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: aditya puthuparambil <aditya.puthuparambil@bell.ca>
+Code-Review+2: Michal Jagiello <michal.jagiello@t-mobile.pl>
+Submitted-by: Michal Jagiello <michal.jagiello@t-mobile.pl>
+Submitted-at: Mon, 27 Sep 2021 13:05:34 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/xtesting/+/124491
+Project: integration/xtesting
+Branch: refs/heads/master
