@@ -7,6 +7,7 @@ ARG OPNFV_TAG=master
 ARG ONAP_TAG=master
 ARG PIP_TAG=20.1
 ARG KUBERNETES_VERSION="v1.19.9"
+ARG HELM_VERSION="v3.3.4"
 
 ENV TAG all
 ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
@@ -16,6 +17,7 @@ ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 # https://aur.archlinux.org/packages/kubectl-bin/
 
 ADD https://storage.googleapis.com/kubernetes-release/release/${KUBERNETES_VERSION}/bin/linux/amd64/kubectl /usr/local/bin/kubectl
+ADD https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 get_helm.sh
 
 COPY requirements.txt requirements.txt
 RUN apk --no-cache add --update openssl chromium chromium-chromedriver && \
@@ -45,7 +47,9 @@ RUN apk --no-cache add --update openssl chromium chromium-chromedriver && \
     ln -s /usr/lib/python3.7/site-packages/heatbridge /usr/lib/python3.7/site-packages/HeatBridge && \
     rm -r requirements.txt /var/opt/ONAP/.git /src/demo && \
     cd / && ln -s /var/opt/ONAP/robot/ /robot && \
-    apk del .build-deps
+    apk del .build-deps && \
+    chmod 700 get_helm.sh && \
+    ./get_helm.sh --version $HELM_VERSION
 
 COPY docker/testcases.yaml /usr/lib/python3.7/site-packages/xtesting/ci/testcases.yaml
 COPY scripts/cmd.sh /
