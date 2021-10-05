@@ -1,4 +1,6 @@
-FROM opnfv/xtesting:wallaby
+ARG PYTHONSDK_VERSION=pythonsdk-release
+
+FROM opnfv/xtesting:wallaby as pythonsdk-release
 
 MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
 
@@ -17,5 +19,9 @@ RUN apk add --no-cache python3 git && \
     wget -O $ONAPSDK_PYTHON_PATH/clamp/schema_details.json https://gitlab.com/Orange-OpenSource/lfn/onap/python-onapsdk/-/raw/develop/src/onapsdk/clamp/schema_details.json && \
     apk del .build-deps
 
+FROM pythonsdk-release as pythonsdk-develop
+RUN pip3 install --no-cache-dir git+https://gitlab.com/Orange-OpenSource/lfn/onap/python-onapsdk@develop#onapsdk
+
+FROM ${PYTHONSDK_VERSION} as final
 COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
 CMD ["run_tests", "-t", "all"]
