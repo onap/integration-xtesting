@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a47c6f09_0c2c8551",
+        "filename": "smoke-usecases-pythonsdk/docker/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2021-10-05T12:45:12Z",
+      "side": 1,
+      "message": "would it not be better to use a multi From rather than a if in the docker file\nhttps://stackoverflow.com/questions/43654656/dockerfile-if-else-condition-with-external-arguments\n\nI added Cedric in copy to get his feedback",
+      "revId": "678d0fed030dbc478f31c5bf505ae13692e486c1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
