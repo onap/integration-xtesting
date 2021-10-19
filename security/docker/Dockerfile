@@ -4,12 +4,6 @@ RUN git clone https://github.com/mikefarah/yq.git --depth 1
 WORKDIR /go/src/github.com/mikefarah/yq
 RUN CGO_ENABLED=0 go install -a -ldflags '-w -s -extldflags "-static"'
 
-FROM golang:1.17 AS build_aqua
-WORKDIR /go/src/github.com/aquasecurity/
-RUN git clone https://github.com/aquasecurity/kube-bench.git --depth 1
-WORKDIR /go/src/github.com/aquasecurity/kube-bench
-RUN GO111MODULE=on CGO_ENABLED=0 go install -a -ldflags "-w"
-
 FROM golang:1.17 AS build_onap
 WORKDIR /opt/onap
 RUN git clone https://git.onap.org/integration --depth 1
@@ -33,8 +27,6 @@ COPY scripts/check_unlimitted_pods.sh /check_unlimitted_pods.sh
 COPY scripts/check_cis_kubernetes.sh /check_cis_kubernetes.sh
 COPY scripts/check_versions.sh /check_versions.sh
 COPY --from=build_yq /go/bin/yq /usr/local/bin/yq
-COPY --from=build_aqua /go/bin/kube-bench /usr/local/bin/kube-bench
-COPY --from=build_aqua /go/src/github.com/aquasecurity/kube-bench/cfg/ /cfg/
 COPY --from=build_onap /go/bin/sslendpoints /usr/local/bin/sslendpoints
 
 RUN set -x && \
@@ -55,11 +47,9 @@ RUN set -x && \
     wget -O /check_versions/k8s_bin_versions_inspector.py https://git.onap.org/integration/plain/test/security/check_versions/src/k8s_bin_versions_inspector.py?h=$ONAP_TAG &&\
     wget -O /check_versions/requirements.txt https://git.onap.org/integration/plain/test/security/check_versions/env/requirements.txt?h=$ONAP_TAG &&\
     wget -O /check_versions/recommended_versions.yaml https://git.onap.org/integration/seccom/plain/recommended_versions.yaml?h=$ONAP_TAG &&\
-    chmod +x /usr/local/bin/kube-bench && \
     chmod +x /usr/local/bin/sslendpoints && \
     chmod +x /check_*.sh && \
     rm -rf /usr/lib/python3.8/site-packages/PyYAML* && \
-    pip3 install --upgrade pip && \
     pip3 install --no-cache-dir \
         git+https://git.onap.org/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=security && \
     cd /kube-hunter && pip3 install -r /kube-hunter/requirements.txt && \
