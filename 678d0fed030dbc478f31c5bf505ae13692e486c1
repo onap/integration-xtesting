@@ -16,6 +16,24 @@
       "revId": "678d0fed030dbc478f31c5bf505ae13692e486c1",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2814cabb_35b7ee82",
+        "filename": "smoke-usecases-pythonsdk/docker/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 6079
+      },
+      "writtenOn": "2021-10-20T12:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a47c6f09_0c2c8551",
+      "revId": "678d0fed030dbc478f31c5bf505ae13692e486c1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
