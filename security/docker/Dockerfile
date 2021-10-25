@@ -2,12 +2,14 @@ FROM golang:1.17 AS build_yq
 WORKDIR /go/src/github.com/mikefarah/
 RUN git clone https://github.com/mikefarah/yq.git --depth 1
 WORKDIR /go/src/github.com/mikefarah/yq
+RUN go mod tidy
 RUN CGO_ENABLED=0 go install -a -ldflags '-w -s -extldflags "-static"'
 
 FROM golang:1.17 AS build_onap
 WORKDIR /opt/onap
 RUN git clone https://git.onap.org/integration --depth 1
 WORKDIR /opt/onap/integration/test/security/sslendpoints
+RUN go mod tidy
 RUN CGO_ENABLED=0 go install -a -ldflags '-w -s -extldflags "-static"'
 
 FROM opnfv/xtesting:wallaby AS run
