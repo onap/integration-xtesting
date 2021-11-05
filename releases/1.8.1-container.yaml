@@ -1,0 +1,18 @@
+distribution_type: 'container'
+container_release_tag: '1.8.1'
+project: 'integration-xtesting'
+log_dir: 'integration-xtesting-infra-healthcheck-docker-merge-honolulu/'
+ref: b273dfa6e5cd201aff061209eff27ef0f3828d51
+containers:
+    - name: 'xtesting-infra-healthcheck'
+      version: 'honolulu'
+    - name: 'xtesting-healthcheck'
+      version: 'honolulu'
+    - name: 'xtesting-smoke-usecases-pythonsdk'
+      version: 'honolulu'
+    - name: 'xtesting-smoke-usecases-robot'
+      version: 'honolulu'
+    - name: 'xtesting-security'
+      version: 'honolulu'
+    - name: 'xtesting-smoke-usecases-robot-py3'
+      version: 'honolulu'
