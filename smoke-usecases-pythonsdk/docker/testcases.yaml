@@ -116,3 +116,15 @@ tiers:
                 dependencies:
                 run:
                     name: basic_vm_stability
+            -
+                case_name: cds_resource_resolution
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    CDS resource resolution tests. It requires a CDS mock server
+                    automatically installed as tets prerequisite.
+                dependencies:
+                run:
+                    name: cds_resource_resolution
