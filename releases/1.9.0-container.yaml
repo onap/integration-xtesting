@@ -1,0 +1,18 @@
+distribution_type: 'container'
+container_release_tag: '1.9.0'
+project: 'integration-xtesting'
+log_dir: 'integration-xtesting-infra-healthcheck-docker-merge-istanbul/'
+ref: 55cbefdc693aebd98715ee4545d99c1ec5e0b490
+containers:
+    - name: 'xtesting-infra-healthcheck'
+      version: 'istanbul'
+    - name: 'xtesting-healthcheck'
+      version: 'istanbul'
+    - name: 'xtesting-smoke-usecases-pythonsdk'
+      version: 'istanbul'
+    - name: 'xtesting-smoke-usecases-robot'
+      version: 'istanbul'
+    - name: 'xtesting-security'
+      version: 'istanbul'
+    - name: 'xtesting-smoke-usecases-robot'-py3
+      version: 'istanbul'
