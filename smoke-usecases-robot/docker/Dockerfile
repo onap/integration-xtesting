@@ -2,9 +2,15 @@ FROM opnfv/xtesting:jerma
 
 MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
 
+<<<<<<< HEAD   (b273df [XTESTING] Fix opnfv/xtesting version to wallaby)
 ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
 ARG ONAP_TAG=honolulu
+=======
+ARG OPENSTACK_TAG=stable/wallaby
+ARG OPNFV_TAG=stable/jerma
+ARG ONAP_TAG=master
+>>>>>>> CHANGE (df4c6b [RELEASE] Fix Openstack and OPNFV upper constraints versions)
 ARG PIP_TAG=20.1
 ARG KUBERNETES_VERSION="v1.19.9"
 
