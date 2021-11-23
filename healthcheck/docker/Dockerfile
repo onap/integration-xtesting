@@ -1,9 +1,16 @@
 FROM opnfv/xtesting:jerma
 
+<<<<<<< HEAD   (b273df [XTESTING] Fix opnfv/xtesting version to wallaby)
 ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
 ARG ONAP_TAG=honolulu
 ARG PIP_TAG=20.1
+=======
+ARG OPENSTACK_TAG=stable/wallaby
+ARG PIP_TAG=20.1
+ARG OPNFV_TAG=stable/jerma
+ARG ONAP_TAG=master
+>>>>>>> CHANGE (75e883 [PYTHON] Fix python dep for healthcheck xtesting docker)
 
 ENV PYTHONPATH $PYTHONPATH:/src/testing-utils/robotframework-onap/eteutils
 ENV TAG all
