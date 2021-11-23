@@ -1,7 +1,13 @@
 FROM opnfv/xtesting:jerma
 
+<<<<<<< HEAD   (255e73 [INT] Fix xtesting docker build crypto issue)
 ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
+=======
+ARG OPENSTACK_TAG=stable/wallaby
+ARG PIP_TAG=20.1
+ARG OPNFV_TAG=stable/jerma
+>>>>>>> CHANGE (75e883 [PYTHON] Fix python dep for healthcheck xtesting docker)
 ARG ONAP_TAG=master
 ARG PIP_TAG=20.1
 
