@@ -154,3 +154,12 @@ class OnapSecurityKubeHunter(SecurityTesting):
                     kube_hunter_cmd.append(j.address)
         self.cmd = kube_hunter_cmd
         self.error_string = "Vulnerabilties detected."
+
+
+class OnapSecurityKubescape(SecurityTesting):
+    """Check that no jdwp ports are exposed."""
+    def __init__(self, **kwargs):
+        super(OnapSecurityKubescape, self).__init__(**kwargs)
+        # TODO replace cmd with a python launcher to execute, analyze and create reporting
+        self.cmd = ['kubescape', 'scan', 'framework', 'nsa', '--submit', '--include-namespaces', 'onap','-f','json''-o','/tmp/kubescape.json']
+        self.error_string = "Kubescape error"

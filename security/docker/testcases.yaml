@@ -84,3 +84,12 @@ tiers:
                     - NODE_NAME: 'weekly'
                 run:
                     name: 'versions'
+            -
+                case_name: kubescape
+                project_name: security
+                criteria: 100
+                blocking: false
+                description: >-
+                    Execute Kubescape test suite
+                run:
+                    name: 'kubescape'

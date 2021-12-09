@@ -49,6 +49,7 @@ RUN set -x && \
     wget -O /check_versions/k8s_bin_versions_inspector.py https://git.onap.org/integration/plain/test/security/check_versions/src/k8s_bin_versions_inspector.py?h=$ONAP_TAG &&\
     wget -O /check_versions/requirements.txt https://git.onap.org/integration/plain/test/security/check_versions/env/requirements.txt?h=$ONAP_TAG &&\
     wget -O /check_versions/recommended_versions.yaml https://git.onap.org/integration/seccom/plain/recommended_versions.yaml?h=$ONAP_TAG &&\
+    curl -s https://raw.githubusercontent.com/armosec/kubescape/master/install.sh | /bin/bash &&\
     chmod +x /usr/local/bin/sslendpoints && \
     chmod +x /check_*.sh && \
     rm -rf /usr/lib/python3.8/site-packages/PyYAML* && \
