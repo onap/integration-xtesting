@@ -128,3 +128,21 @@ tiers:
                 dependencies:
                 run:
                     name: cds_resource_resolution
+            -
+                case_name: basic_cnf_macro
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Basic CNF macro test. Unlike the Basic Cnf use case, here
+                    we utilize cnf-adapter orchestration path in SO, that does not
+                    require MSB and creates k8s-resources information in AAI.
+                    It has also VSP package that contains only helm package,
+                    in this case Apache server. We utilize here already enriched
+                    CBA and orchestration enables config-deploy process that
+                    performs validation of the state of the deployed Apache
+                    server and does the scaling of replica-count to 2 pods.
+                dependencies:
+                run:
+                    name: basic_cnf_macro
