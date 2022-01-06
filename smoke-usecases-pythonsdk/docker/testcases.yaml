@@ -128,3 +128,14 @@ tiers:
                 dependencies:
                 run:
                     name: cds_resource_resolution
+            -
+                case_name: basic_cnf_macro
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Basic CNF macro test
+                dependencies:
+                run:
+                    name: basic_cnf_macro
