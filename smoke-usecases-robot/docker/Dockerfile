@@ -4,7 +4,7 @@ MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
 
 ARG OPENSTACK_TAG=stable/wallaby
 ARG OPNFV_TAG=stable/jerma
-ARG ONAP_TAG=master
+ARG ONAP_TAG=istanbul
 ARG PIP_TAG=20.1
 ARG KUBERNETES_VERSION="v1.19.9"
 ARG HELM_VERSION="v3.3.4"
