@@ -5,6 +5,7 @@ ARG HELM_VERSION="v2.16.6"
 ARG HELM3_VERSION="v3.3.4"
 ARG ONAP_TESTS_TAG=istanbul
 ARG ONAP_TAG=istanbul
+ARG PIP_TAG=20.1
 
 ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
@@ -28,8 +29,8 @@ RUN set -x && \
     chmod +x /usr/local/bin/helm && \
     chmod +x /usr/local/bin/helm3 && \
     rm -rf /usr/lib/python3.8/site-packages/PyYAML* && \
-    pip3 install --upgrade pip && \
-    pip3 install --no-cache-dir -r upper-constraints.txt && \
+    pip3 install --no-cache-dir -r upper-constraints.txt \
+        pip==$PIP_TAG && \
     pip3 install --no-cache-dir \
         git+https://git.onap.org/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=infra-healthcheck && \
     pip3 install --no-cache-dir \

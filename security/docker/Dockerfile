@@ -21,6 +21,7 @@ FROM opnfv/xtesting:wallaby AS run
 ARG KUBERNETES_VERSION="v1.19.11"
 ARG ONAP_TAG=istanbul
 ARG ONAP_TESTS_TAG=istanbul
+ARG PIP_TAG=20.1
 
 # Install kubectl
 # Note: Latest version may be found on:
@@ -59,9 +60,9 @@ RUN set -x && \
     chmod +x /usr/local/bin/sslendpoints && \
     chmod +x /check_*.sh && \
     rm -rf /usr/lib/python3.8/site-packages/PyYAML* && \
-    pip3 install --upgrade pip && \
     pip3 install --no-cache-dir \
-        git+https://git.onap.org/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=security && \
+        git+https://git.onap.org/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=security \
+        pip==$PIP_TAG && \
     cd /kube-hunter && pip3 install -r /kube-hunter/requirements.txt && \
     pip3 install --no-cache-dir \
         git+https://gitlab.com/Orange-OpenSource/lfn/onap/integration/onap-version-status.git && \
