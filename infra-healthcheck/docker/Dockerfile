@@ -32,9 +32,11 @@ RUN set -x && \
     pip3 install --no-cache-dir -r upper-constraints.txt \
         pip==$PIP_TAG && \
     pip3 install --no-cache-dir \
-        git+https://git.onap.org/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=infra-healthcheck && \
+        git+https://git.onap.org/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=infra-healthcheck \
+        pip==$PIP_TAG && \
     pip3 install --no-cache-dir \
-        git+https://git.onap.org/integration.git@$ONAP_TESTS_TAG#subdirectory=test/security/check_certificates && \
+        git+https://git.onap.org/integration.git@$ONAP_TESTS_TAG#subdirectory=test/security/check_certificates \
+        pip==$PIP_TAG && \
     apk del .build-deps
 
 COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml

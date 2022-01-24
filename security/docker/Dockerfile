@@ -65,7 +65,8 @@ RUN set -x && \
         pip==$PIP_TAG && \
     cd /kube-hunter && pip3 install -r /kube-hunter/requirements.txt && \
     pip3 install --no-cache-dir \
-        git+https://gitlab.com/Orange-OpenSource/lfn/onap/integration/onap-version-status.git && \
+        git+https://gitlab.com/Orange-OpenSource/lfn/onap/integration/onap-version-status.git \
+        pip==$PIP_TAG && \
     apk del .build-deps
 
 COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
