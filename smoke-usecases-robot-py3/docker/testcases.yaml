@@ -163,5 +163,5 @@ tiers:
                         variablefile:
                             - '/share/config/robot_properties.py'
                         variable:
-                            - CPS_CORE_HOST:cps-core
-                            - CPS_CORE_MANAGEMENT_PORT:8081
+                            - CPS_HOST:cps-core
+                            - MANAGEMENT_PORT:8081
