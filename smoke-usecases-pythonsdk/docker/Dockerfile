@@ -17,7 +17,6 @@ RUN apk add --no-cache python3 git && \
         git+https://gerrit.onap.org/r/testsuite/pythonsdk-tests@$ONAP_TESTS_TAG && \
     mkdir -p $ONAPSDK_PYTHON_PATH/clamp && \
     wget -O $ONAPSDK_PYTHON_PATH/clamp/schema_details.json https://gitlab.com/Orange-OpenSource/lfn/onap/python-onapsdk/-/raw/develop/src/onapsdk/clamp/schema_details.json && \
-    pip3 install markupsafe==2.0.1 && \
     apk del .build-deps
 
 FROM pythonsdk-release as pythonsdk-develop
