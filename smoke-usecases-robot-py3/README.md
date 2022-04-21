@@ -5,6 +5,8 @@
 The tests are:
 
 - cps-healthcheck
+- cps-temporal-healthcheck
+- cps-ncmp-dmi-plugin-healthcheck
 
 ## Usage
 
