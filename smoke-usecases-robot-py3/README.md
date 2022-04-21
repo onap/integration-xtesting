@@ -5,6 +5,7 @@
 The tests are:
 
 - cps-healthcheck
+- cps-temporal-healthcheck
 
 ## Usage
 
