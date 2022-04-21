@@ -153,7 +153,7 @@ tiers:
                 criteria: 100
                 blocking: true
                 description: >-
-                    Execute CPS healtcheck
+                    Execute CPS healthcheck
                 dependencies:
                 run:
                     name: 'robotframework'
