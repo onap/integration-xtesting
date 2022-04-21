@@ -5,6 +5,8 @@
 The tests are:
 
 - cps-healthcheck
+- cps-temporal-healthcheck
+- dmi-plugin-healthcheck
 
 ## Usage
 
