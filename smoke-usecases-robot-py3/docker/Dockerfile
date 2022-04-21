@@ -22,6 +22,10 @@ RUN apk --no-cache add --update openssl && \
         openssl-dev libjpeg-turbo-dev && \
     git clone --depth 1 https://github.com/onap/cps.git -b $ONAP_TAG /cps  && \
     find /cps -mindepth 1 -name csit -prune -o -exec rm -rf {} + && \
+    git clone --depth 1 https://github.com/onap/cps-cps-temporal.git -b $ONAP_TAG /cps-cps-temporal  && \
+    find /cps-cps-temporal -mindepth 1 -name csit -prune -o -exec rm -rf {} + && \
+    git clone --depth 1 https://github.com/onap/cps-ncmp-dmi-plugin.git -b $ONAP_TAG /cps-ncmp-dmi-plugin  && \
+    find /cps-ncmp-dmi-plugin -mindepth 1 -name csit -prune -o -exec rm -rf {} + && \
     pip install --upgrade pip && \
     pip install --no-cache-dir \
     pip install \
