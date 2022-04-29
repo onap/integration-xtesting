@@ -165,3 +165,46 @@ tiers:
                         variable:
                             - CPS_CORE_HOST:cps-core
                             - CPS_CORE_MANAGEMENT_PORT:8081
+<<<<<<< HEAD   (2c7224 Create Jakarta images)
+=======
+
+            -
+                case_name: cps-temporal-healthcheck
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    Execute CPS temporal healthcheck
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /cps-cps-temporal/csit/tests/actuator/actuator.robot
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+                        variable:
+                            - CPS_TEMPORAL_HOST:cps-temporal
+                            - MANAGEMENT_PORT:8081
+
+            -
+                case_name: cps-dmi-plugin-healthcheck
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: true
+                description: >-
+                    Execute CPS ncmp dmi-plugin healthcheck
+                dependencies:
+                run:
+                    name: 'robotframework'
+                    args:
+                        suites:
+                            - /cps-ncmp-dmi-plugin/csit/tests/actuator/actuator.robot
+                        variablefile:
+                            - '/share/config/robot_properties.py'
+                        variable:
+                            - DMI_HOST:ncmp-dmi-plugin
+                            - DMI_MANAGEMENT_PORT:8081
+>>>>>>> CHANGE (1c24c7 [CPS] Fix dmi-plugin health check in CI)
