@@ -1,0 +1,8 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Bruno Sakoto <bruno.sakoto@bell.ca>
+Code-Review+2: Michal Jagiello <michal.jagiello@t-mobile.pl>
+Submitted-by: Michal Jagiello <michal.jagiello@t-mobile.pl>
+Submitted-at: Wed, 04 May 2022 06:31:25 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/xtesting/+/128991
+Project: integration/xtesting
+Branch: refs/heads/master
