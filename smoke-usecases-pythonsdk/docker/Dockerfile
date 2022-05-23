@@ -4,7 +4,7 @@ FROM opnfv/xtesting:wallaby as pythonsdk-release
 
 MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
 
-ARG ONAP_TESTS_TAG=master
+ARG ONAP_TESTS_TAG=jakarta
 ARG ONAPSDK_PYTHON_PATH=/src/onapsdk
 
 ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1

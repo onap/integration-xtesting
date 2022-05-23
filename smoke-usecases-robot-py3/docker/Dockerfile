@@ -4,7 +4,7 @@ MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
 
 ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
-ARG ONAP_TAG=master
+ARG ONAP_TAG=jakarta
 ARG PIP_TAG=21.2.4
 ARG KUBERNETES_VERSION="v1.19.9"
 

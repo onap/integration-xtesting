@@ -1,7 +1,7 @@
 FROM opnfv/xtesting:wallaby
 ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
-ARG ONAP_TAG=master
+ARG ONAP_TAG=jakarta
 ARG PIP_TAG=20.1
 
 ENV PYTHONPATH $PYTHONPATH:/src/testing-utils/robotframework-onap/eteutils
