@@ -1,11 +1,11 @@
-FROM golang:1.18 AS build_yq
+FROM golang:1.19 AS build_yq
 WORKDIR /go/src/github.com/mikefarah/
 RUN git clone https://github.com/mikefarah/yq.git --depth 1
 WORKDIR /go/src/github.com/mikefarah/yq
 RUN go mod tidy
 RUN CGO_ENABLED=0 go install -a -ldflags '-w -s -extldflags "-static"'
 
-FROM golang:1.18 AS build_onap
+FROM golang:1.19 AS build_onap
 WORKDIR /opt/onap
 RUN git clone https://git.onap.org/integration --depth 1
 WORKDIR /opt/onap/integration/test/security/sslendpoints
@@ -14,7 +14,7 @@ RUN CGO_ENABLED=0 go install -a -ldflags '-w -s -extldflags "-static"'
 
 FROM opnfv/xtesting:wallaby AS run
 
-ARG KUBERNETES_VERSION="v1.19.11"
+ARG KUBERNETES_VERSION="v1.23.8"
 ARG ONAP_TAG=master
 ARG ONAP_TESTS_TAG=master
 
