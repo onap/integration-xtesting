@@ -10,6 +10,7 @@ ENV TAG all
 ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
 COPY requirements.txt requirements.txt
+COPY upper-constraints.txt upper-constraints.txt
 RUN apk --no-cache add --update openssl chromium chromium-chromedriver && \
     apk --no-cache add --virtual .build-deps --update \
         python3-dev build-base linux-headers libffi-dev \
@@ -25,6 +26,7 @@ RUN apk --no-cache add --update openssl chromium chromium-chromedriver && \
         pip==$PIP_TAG && \
     pip install \
         -chttps://git.opnfv.org/functest/plain/upper-constraints.txt?h=$OPNFV_TAG \
+        -cupper-constraints.txt \
         -rrequirements.txt && \
     mkdir -p /var/opt/ONAP/demo/heat && cp -Rf /src/demo/heat/vFW /var/opt/ONAP/demo/heat/ && \
     mkdir -p /demo/service_mapping && cp -Rf /src/demo/service_mapping /demo/ && \
