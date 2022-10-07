@@ -8,6 +8,7 @@ ENV PYTHONPATH $PYTHONPATH:/src/testing-utils/robotframework-onap/eteutils
 ENV TAG all
 
 COPY requirements.txt requirements.txt
+COPY upper-constraints.txt upper-constraints.txt
 RUN apk --no-cache add --virtual .build-deps --update \
         python3-dev build-base linux-headers libffi-dev \
         openssl-dev libjpeg-turbo-dev && \
@@ -19,6 +20,7 @@ RUN apk --no-cache add --virtual .build-deps --update \
         pip==$PIP_TAG && \
     pip3 install \
         -chttps://git.opnfv.org/functest/plain/upper-constraints.txt?h=$OPNFV_TAG \
+        -cupper-constraints.txt \
         -rrequirements.txt \
         -e /src/testing-utils/robotframework-onap && \
     mkdir -p /var/opt/ONAP/demo/heat && cp -Rf /src/demo/heat/vFW /var/opt/ONAP/demo/heat/ && \
