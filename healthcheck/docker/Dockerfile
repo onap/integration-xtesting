@@ -17,8 +17,9 @@ RUN apk --no-cache add --update openssl chromium chromium-chromedriver && \
         openssl-dev libjpeg-turbo-dev && \
     pip3 install --upgrade pip && \
     pip3 install --no-cache-dir \
-    git+https://git.onap.org/testsuite/heatbridge.git@$ONAP_TAG#egg=heatbridge\&subdirectory=heatbridge  \
-    git+https://git.onap.org/testsuite/python-testing-utils.git@$ONAP_TAG#egg=robotframework-onap\&subdirectory=robotframework-onap && \
+        -cupper-constraints.txt \
+        git+https://git.onap.org/testsuite/heatbridge.git@$ONAP_TAG#egg=heatbridge\&subdirectory=heatbridge  \
+        git+https://git.onap.org/testsuite/python-testing-utils.git@$ONAP_TAG#egg=robotframework-onap\&subdirectory=robotframework-onap && \
     git clone --depth 1 https://git.onap.org/testsuite -b $ONAP_TAG /var/opt/ONAP && \
     git clone --depth 1 https://git.onap.org/demo -b $ONAP_TAG /src/demo && \
     pip install \
