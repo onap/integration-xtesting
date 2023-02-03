@@ -146,3 +146,16 @@ tiers:
                 dependencies:
                 run:
                     name: basic_cnf_macro
+
+            -
+                case_name: basic_cds
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Create CPS resources: dataspace, schemaset, anchor and node
+                    and delete them.
+                dependencies:
+                run:
+                    name: basic_cds
