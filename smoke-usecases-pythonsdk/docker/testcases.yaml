@@ -148,7 +148,7 @@ tiers:
                     name: basic_cnf_macro
 
             -
-                case_name: basic_cds
+                case_name: basic_cps
                 project_name: integration
                 enabled: true
                 criteria: 100
@@ -158,4 +158,4 @@ tiers:
                     and delete them.
                 dependencies:
                 run:
-                    name: basic_cds
+                    name: basic_cps
