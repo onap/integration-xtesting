@@ -46,8 +46,8 @@ RUN set -x && \
     wget -O /nonssl_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/nonssl_endpoints/nonssl_xfail.txt?h=$ONAP_TAG &&\
     wget -O /root_pods_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/root_pods/root_pods_xfail.txt?h=$ONAP_TAG &&\
     wget -O /unlimitted_pods_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/unlimitted_pods/unlimitted_pods_xfail.txt?h=$ONAP_TAG &&\
-    wget -O /check_versions/k8s_bin_versions_inspector.py https://git.onap.org/integration/plain/test/security/check_versions/src/k8s_bin_versions_inspector.py?h=$ONAP_TAG &&\
-    wget -O /check_versions/requirements.txt https://git.onap.org/integration/plain/test/security/check_versions/env/requirements.txt?h=$ONAP_TAG &&\
+    wget -O /check_versions/k8s_bin_versions_inspector.py https://git.onap.org/integration/plain/test/security/check_versions/versions/k8s_bin_versions_inspector.py?h=$ONAP_TAG &&\
+    wget -O /check_versions/requirements.txt https://git.onap.org/integration/plain/test/security/check_versions/requirements.txt?h=$ONAP_TAG &&\
     wget -O /check_versions/recommended_versions.yaml https://git.onap.org/integration/seccom/plain/recommended_versions.yaml?h=$ONAP_TAG &&\
     chmod +x /usr/local/bin/sslendpoints && \
     chmod +x /check_*.sh && \
@@ -56,7 +56,7 @@ RUN set -x && \
         git+https://git.onap.org/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=security && \
     cd /kube-hunter && pip3 install -r /kube-hunter/requirements.txt && \
     pip3 install --no-cache-dir \
-        git+https://gitlab.com/Orange-OpenSource/lfn/onap/integration/onap-version-status.git && \
+        git+https://git.onap.org/integration.git@$ONAP_TESTS_TAG#subdirectory=test/security/check_versions && \
     apk del .build-deps
 
 COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
