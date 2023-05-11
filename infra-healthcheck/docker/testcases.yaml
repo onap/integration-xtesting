@@ -18,6 +18,18 @@ tiers:
                 run:
                     name: 'onap_k8s'
             -
+                case_name: status
+                project_name: integration
+                criteria: 100
+                blocking: false
+                description: >-
+                    This test case verifies that the ONAP pods are all Running
+                    and shows the pods, deployments, svc and events.
+                    New version of onap-k8s test (which is deprecated and will
+                    be removed)
+                run:
+                    name: 'status'
+            -
                 case_name: onap-helm
                 project_name: integration
                 criteria: 100
