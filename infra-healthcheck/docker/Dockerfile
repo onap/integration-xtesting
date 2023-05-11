@@ -14,7 +14,8 @@ ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
 ADD https://storage.googleapis.com/kubernetes-release/release/${KUBERNETES_VERSION}/bin/linux/amd64/kubectl /usr/local/bin/kubectl
 
-COPY upper-constraints.txt .
+# COPY upper-constraints.txt .
+COPY . .
 
 RUN set -x && \
     apk --no-cache add --update curl ca-certificates && \
@@ -29,11 +30,12 @@ RUN set -x && \
     chmod +x /usr/local/bin/helm3 && \
     rm -rf /usr/lib/python3.8/site-packages/PyYAML* && \
     pip3 install --upgrade pip && \
-    pip3 install --no-cache-dir -r upper-constraints.txt && \
-    pip3 install --no-cache-dir \
-        git+https://git.onap.org/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=infra-healthcheck && \
+    pip3 install --no-cache-dir -r requirements.txt -c upper-constraints.txt && \
+    pip3 install --no-cache-dir -e . && \
     pip3 install --no-cache-dir \
         git+https://git.onap.org/integration.git@$ONAP_TESTS_TAG#subdirectory=test/security/check_certificates && \
+    pip3 install --ignore-installed --no-cache-dir \
+        git+https://git.onap.org/testsuite/pythonsdk-tests.git@$ONAP_TESTS_TAG && \
     apk del .build-deps
 
 COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
