@@ -16,7 +16,7 @@ tiers:
                     This test case verifies that the ONAP pods are all Running
                     and shows the pods, deployments, svc and events
                 run:
-                    name: 'onap_k8s'
+                    name: 'namespace_status'
             -
                 case_name: onap-helm
                 project_name: integration
