@@ -159,3 +159,14 @@ tiers:
                 dependencies:
                 run:
                     name: basic_cps
+            -
+                case_name: status
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Checks status of all k8s resources in the selected namespace.
+                dependencies:
+                run:
+                    name: status
