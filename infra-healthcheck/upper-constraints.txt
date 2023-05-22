@@ -1,2 +1,3 @@
+git+https://gitlab.com/Orange-OpenSource/lfn/tools/kubernetes-status.git#egg=kubernetes_status
 git+https://gitlab.com/Orange-OpenSource/lfn/tools/helm-onap-status.git#egg=helm_onap_status
 git+https://gitlab.com/Orange-OpenSource/lfn/tools/chart-status.git#egg=chart_status

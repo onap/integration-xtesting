@@ -19,19 +19,11 @@ import setuptools
 # In python < 2.7.4, a lazy loading of package `pbr` will break
 # setuptools if some other modules registered functions in `atexit`.
 # solution from: http://bugs.python.org/issue15881#msg170215
-
+try:
+    import multiprocessing  # noqa
+except ImportError:
+    pass
 
 setuptools.setup(
-    name="infra_healthcheck",
-    version="1",
-    packages=["infra_healthcheck"],
-    entry_points={
-        "xtesting.testcase": [
-            'onap_helm = helm_onap_status.status:Status',
-            'onap_chart = chart_status.status:Status',
-            'nodeport_ingress = infra_healthcheck.k8stest:OnapSecurityNodePortsIngress',
-            'nodeport_check_certs = infra_healthcheck.k8stest:OnapSecurityNodePortsCerts',
-            'internal_check_certs = infra_healthcheck.k8stest:OnapSecurityInternalPortsCerts'
-        ]
-    }
-)
+    setup_requires=['pbr>=2.0.0'],
+    pbr=True)
