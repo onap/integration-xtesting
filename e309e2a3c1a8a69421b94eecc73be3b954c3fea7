@@ -1,0 +1,7 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+2: Andreas Geissler <andreas-geissler@telekom.de>
+Submitted-by: Andreas Geissler <andreas-geissler@telekom.de>
+Submitted-at: Tue, 23 May 2023 11:00:36 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/xtesting/+/134599
+Project: integration/xtesting
+Branch: refs/heads/master
