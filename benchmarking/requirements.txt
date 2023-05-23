@@ -1,5 +1,5 @@
 selenium
-requests>=2.20.0
+requests==2.29.0
 robotframework-selenium2library
 robotframework-databaselibrary
 robotframework-extendedselenium2library
