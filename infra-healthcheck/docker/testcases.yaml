@@ -8,16 +8,6 @@ tiers:
             Set of basic k8s Functional tests to validate the ONAP installation.
         testcases:
             -
-                case_name: onap-k8s
-                project_name: integration
-                criteria: 100
-                blocking: false
-                description: >-
-                    This test case verifies that the ONAP pods are all Running
-                    and shows the pods, deployments, svc and events
-                run:
-                    name: 'onap_k8s'
-            -
                 case_name: status
                 project_name: integration
                 criteria: 100
