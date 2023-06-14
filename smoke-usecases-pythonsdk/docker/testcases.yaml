@@ -160,6 +160,17 @@ tiers:
                 run:
                     name: basic_cps
             -
+                case_name: basic_sdnc
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Test basic functionality of GR-API and Rests API of SDNC.
+                dependencies:
+                run:
+                    name: basic_sdnc
+            -
                 case_name: status
                 project_name: integration
                 enabled: true
