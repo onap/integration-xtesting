@@ -33,7 +33,7 @@ RUN set -x && \
     pip3 install --no-cache-dir -r requirements.txt -c upper-constraints.txt && \
     pip3 install --no-cache-dir -e . && \
     pip3 install --no-cache-dir \
-        git+https://git.onap.org/integration.git@$ONAP_TESTS_TAG#subdirectory=test/security/check_certificates && \
+        git+https://git.onap.org/integration.git@$ONAP_TAG#subdirectory=test/security/check_certificates && \
     pip3 install --ignore-installed --no-cache-dir \
         git+https://git.onap.org/testsuite/pythonsdk-tests.git@$ONAP_TESTS_TAG && \
     apk del .build-deps
