@@ -1,4 +1,4 @@
-FROM opnfv/xtesting:wallaby
+FROM python:3.11-alpine
 
 ARG KUBERNETES_VERSION="v1.19.11"
 ARG HELM_VERSION="v2.16.6"
@@ -18,7 +18,7 @@ ADD https://storage.googleapis.com/kubernetes-release/release/${KUBERNETES_VERSI
 COPY . .
 
 RUN set -x && \
-    apk --no-cache add --update curl ca-certificates && \
+    apk --no-cache add --update git curl ca-certificates && \
     apk --no-cache add --virtual .build-deps --update \
         gcc python3-dev musl-dev openssl-dev libffi-dev && \
     chmod +x /usr/local/bin/kubectl && \
@@ -28,17 +28,16 @@ RUN set -x && \
     wget -O /check_for_ingress_and_nodeports.py https://git.onap.org/integration/plain/test/security/check_for_ingress_and_nodeports.py?h=$ONAP_TAG &&\
     chmod +x /usr/local/bin/helm && \
     chmod +x /usr/local/bin/helm3 && \
-    rm -rf /usr/lib/python3.8/site-packages/PyYAML* && \
+    rm -rf /usr/local/lib/python3.11/site-packages/PyYAML* && \
     pip3 install --upgrade pip && \
-    pip3 install --no-cache-dir -r requirements.txt -c upper-constraints.txt && \
-    pip3 install --no-cache-dir -e . && \
-    pip3 install --no-cache-dir \
-        git+https://git.onap.org/integration.git@$ONAP_TAG#subdirectory=test/security/check_certificates && \
     pip3 install --ignore-installed --no-cache-dir \
-        git+https://git.onap.org/testsuite/pythonsdk-tests.git@$ONAP_TESTS_TAG && \
+        -r requirements.txt -c upper-constraints.txt \
+        -e . \
+        git+https://git.onap.org/testsuite/pythonsdk-tests.git@$ONAP_TESTS_TAG \
+        git+https://git.onap.org/integration.git@$ONAP_TAG#subdirectory=test/security/check_certificates && \
     apk del .build-deps
 
-COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
-COPY docker/logging.ini /usr/lib/python3.8/site-packages/xtesting/ci/logging.ini
-COPY docker/logging.debug.ini /usr/lib/python3.8/site-packages/xtesting/ci/logging.debug.ini
+COPY docker/testcases.yaml /usr/local/lib/python3.11/site-packages/xtesting/ci/testcases.yaml
+COPY docker/logging.ini /usr/local/lib/python3.11/site-packages/xtesting/ci/logging.ini
+COPY docker/logging.debug.ini /usr/local/lib/python3.11/site-packages/xtesting/ci/logging.debug.ini
 CMD ["run_tests", "-t", "all"]
