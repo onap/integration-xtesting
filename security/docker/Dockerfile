@@ -1,4 +1,4 @@
-FROM golang:1.20 AS build_yq
+FROM golang:1.21 AS build_yq
 WORKDIR /go/src/github.com/mikefarah/
 RUN git clone https://github.com/mikefarah/yq.git --depth 1
 WORKDIR /go/src/github.com/mikefarah/yq
