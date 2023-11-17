@@ -164,7 +164,7 @@ tiers:
                             - '/share/config/robot_properties.py'
                         variable:
                             - CPS_CORE_HOST:cps-core
-                            - CPS_CORE_PORT:8081
+                            - CPS_CORE_PORT:8080
 
             -
                 case_name: cps-temporal-healthcheck
@@ -204,4 +204,4 @@ tiers:
                             - '/share/config/robot_properties.py'
                         variable:
                             - DMI_HOST:ncmp-dmi-plugin
-                            - DMI_PORT:8081
+                            - DMI_PORT:8080
