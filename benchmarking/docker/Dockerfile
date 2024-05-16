@@ -16,7 +16,7 @@ RUN apk --no-cache add --virtual .build-deps --update \
     git clone --depth 1 https://git.onap.org/testsuite/python-testing-utils -b $ONAP_TAG /src/testing-utils && \
     git clone --depth 1 https://git.onap.org/demo -b $ONAP_TAG /src/demo && \
     pip3 install \
-        -chttps://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=$OPENSTACK_TAG \
+        -chttps://opendev.org/openstack/requirements/raw/branch/$OPENSTACK_TAG/upper-constraints.txt \
         pip==$PIP_TAG && \
     pip3 install \
         -chttps://git.opnfv.org/functest/plain/upper-constraints.txt?h=$OPNFV_TAG \
