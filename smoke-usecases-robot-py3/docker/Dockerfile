@@ -29,7 +29,7 @@ RUN apk --no-cache add --update openssl && \
     pip install --upgrade pip && \
     pip install --no-cache-dir \
     pip install \
-        -chttps://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=$OPENSTACK_TAG \
+        -chttps://opendev.org/openstack/requirements/raw/branch/$OPENSTACK_TAG/upper-constraints.txt \
         pip==$PIP_TAG && \
     pip install \
         -rrequirements.txt && \
