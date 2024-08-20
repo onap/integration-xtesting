@@ -1,6 +1,6 @@
 FROM opnfv/xtesting:jerma
 
-ARG OPENSTACK_TAG=yoga
+ARG OPENSTACK_TAG=stable/newton
 ARG PIP_TAG=20.1
 ARG OPNFV_TAG=stable/jerma
 ARG ONAP_TAG=master
@@ -14,7 +14,9 @@ COPY upper-constraints.txt upper-constraints.txt
 RUN apk --no-cache add --update openssl chromium chromium-chromedriver && \
     apk --no-cache add --virtual .build-deps --update \
         python3-dev build-base linux-headers libffi-dev \
-        openssl-dev libjpeg-turbo-dev && \
+        openssl-dev libjpeg-turbo-dev curl && \
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && \
+    . "$HOME/.cargo/env" && \
     pip3 install --upgrade pip && \
     pip3 install --no-cache-dir \
         -cupper-constraints.txt \
