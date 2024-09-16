@@ -25,9 +25,6 @@ RUN apk --no-cache add --update openssl chromium chromium-chromedriver && \
     git clone --depth 1 https://git.onap.org/testsuite -b $ONAP_TAG /var/opt/ONAP && \
     git clone --depth 1 https://git.onap.org/demo -b $ONAP_TAG /src/demo && \
     pip install \
-        -chttps://releases.openstack.org/constraints/upper/$OPENSTACK_TAG \
-        pip==$PIP_TAG && \
-    pip install \
         -chttps://git.opnfv.org/functest/plain/upper-constraints.txt?h=$OPNFV_TAG \
         -cupper-constraints.txt \
         -rrequirements.txt && \
