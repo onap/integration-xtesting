@@ -1,6 +1,6 @@
 FROM opnfv/xtesting:wallaby
 
-MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
+LABEL org.opencontainers.image.authors="Morgan Richomme <morgan.richomme@orange.com>"
 
 ARG OPENSTACK_TAG=master
 ARG OPNFV_TAG=master
@@ -19,19 +19,15 @@ COPY requirements.txt requirements.txt
 RUN apk --no-cache add --update openssl && \
     apk --no-cache add --virtual .build-deps --update \
         python3-dev build-base linux-headers libffi-dev \
-        openssl-dev libjpeg-turbo-dev && \
-    git clone --depth 1 https://github.com/onap/cps.git -b $ONAP_TAG /cps  && \
-    find /cps -mindepth 1 -name csit -prune -o -exec rm -rf {} + && \
-    git clone --depth 1 https://github.com/onap/cps-cps-temporal.git -b $ONAP_TAG /cps-cps-temporal  && \
-    find /cps-cps-temporal -mindepth 1 -name csit -prune -o -exec rm -rf {} + && \
-    git clone --depth 1 https://github.com/onap/cps-ncmp-dmi-plugin.git -b $ONAP_TAG /cps-ncmp-dmi-plugin  && \
-    find /cps-ncmp-dmi-plugin -mindepth 1 -name csit -prune -o -exec rm -rf {} + && \
-    pip install --upgrade pip && \
-    pip install --no-cache-dir \
-    pip install \
-        -chttps://opendev.org/openstack/requirements/raw/branch/$OPENSTACK_TAG/upper-constraints.txt \
-        pip==$PIP_TAG && \
-    pip install \
+        openssl-dev libjpeg-turbo-dev
+RUN git clone --depth 1 https://github.com/onap/cps.git -b $ONAP_TAG /cps  && \
+    find /cps -mindepth 1 -name csit -prune -o -exec rm -rf {} + 
+RUN git clone --depth 1 https://github.com/onap/cps-cps-temporal.git -b $ONAP_TAG /cps-cps-temporal  && \
+    find /cps-cps-temporal -mindepth 1 -name csit -prune -o -exec rm -rf {} + 
+RUN git clone --depth 1 https://github.com/onap/cps-ncmp-dmi-plugin.git -b $ONAP_TAG /cps-ncmp-dmi-plugin  && \
+    find /cps-ncmp-dmi-plugin -mindepth 1 -name csit -prune -o -exec rm -rf {} + 
+RUN pip install --upgrade pip
+RUN pip install \
         -rrequirements.txt && \
     rm -r requirements.txt && \
     cd / && ln -s /var/opt/ONAP/robot/ /robot && \
