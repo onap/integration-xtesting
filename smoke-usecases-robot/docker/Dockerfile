@@ -21,27 +21,22 @@ ADD https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 get_helm
 
 COPY requirements.txt requirements.txt
 COPY upper-constraints.txt upper-constraints.txt
+RUN git clone --depth 1 https://git.onap.org/testsuite -b $ONAP_TAG /var/opt/ONAP
+RUN git clone --depth 1 https://git.onap.org/demo -b $ONAP_TAG /src/demo
 RUN apk --no-cache add --update openssl chromium chromium-chromedriver && \
     apk --no-cache add --virtual .build-deps --update \
         python3-dev build-base linux-headers libffi-dev \
         openssl-dev libjpeg-turbo-dev curl && \
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && \
     . "$HOME/.cargo/env" && \
-    chmod +x /usr/local/bin/kubectl && \
-    pip3 install --upgrade pip && \
-    pip3 install --no-cache-dir \
-    git+https://git.onap.org/testsuite/heatbridge.git@$ONAP_TAG#egg=heatbridge\&subdirectory=heatbridge  \
-    git+https://git.onap.org/testsuite/python-testing-utils.git@$ONAP_TAG#egg=robotframework-onap\&subdirectory=robotframework-onap && \
-    git clone --depth 1 https://git.onap.org/testsuite -b $ONAP_TAG /var/opt/ONAP && \
-    git clone --depth 1 https://git.onap.org/demo -b $ONAP_TAG /src/demo && \
-    pip install \
-        -chttps://releases.openstack.org/constraints/upper/$OPENSTACK_TAG \
-        pip==$PIP_TAG && \
-    pip install \
-        -chttps://git.opnfv.org/functest/plain/upper-constraints.txt?h=$OPNFV_TAG \
+    chmod +x /usr/local/bin/kubectl
+RUN pip3 install -U pip wheel
+RUN pip3 install --no-cache-dir \
         -cupper-constraints.txt \
-        -rrequirements.txt && \
-    mkdir -p /var/opt/ONAP/demo/heat && cp -Rf /src/demo/heat/vFW /var/opt/ONAP/demo/heat/ && \
+        git+https://git.onap.org/testsuite/heatbridge.git@$ONAP_TAG#egg=heatbridge\&subdirectory=heatbridge  \
+        git+https://git.onap.org/testsuite/python-testing-utils.git@$ONAP_TAG#egg=robotframework-onap\&subdirectory=robotframework-onap \
+        -rrequirements.txt
+RUN mkdir -p /var/opt/ONAP/demo/heat && cp -Rf /src/demo/heat/vFW /var/opt/ONAP/demo/heat/ && \
     mkdir -p /var/opt/ONAP/demo/tosca && cp -Rf /src/demo/tosca/pNF /var/opt/ONAP/demo/tosca/ && \
     mkdir -p /demo/service_mapping && cp -Rf /src/demo/service_mapping /demo/ && \
     mkdir -p /var/opt/ONAP/demo/preload_data && cp -Rf /src/demo/preload_data /var/opt/ONAP/demo/ && \
