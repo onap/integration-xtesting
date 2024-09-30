@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c37ffd7_0fcfbe1f",
+        "filename": "smoke-usecases-robot/upper-constraints.txt",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6079
+      },
+      "writtenOn": "2024-09-30T05:02:37Z",
+      "side": 1,
+      "message": "NIT: Why so many libraries are listed here? Looks like pip freeze output",
+      "revId": "70033a5cb561a3f02a77c14017ee51460e16d877",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a"
+    }
+  ]
+}
