@@ -1,0 +1,8 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+2: Micha? Jagie??o <michal.jagiello@t-mobile.pl>
+Verified+1: ONAP Required GHA <releng+onap.required.gha@linuxfoundation.org>
+Submitted-by: Marek Szwa?kiewicz <marek.szwalkiewicz@external.t-mobile.pl>
+Submitted-at: Mon, 30 Sep 2024 11:30:41 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/xtesting/+/138942
+Project: integration/xtesting
+Branch: refs/heads/master
