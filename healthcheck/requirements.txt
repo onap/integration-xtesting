@@ -1,3 +1,4 @@
+robotframework==3.1.2
 selenium==4.8.3
 robotframework-seleniumlibrary
 robotframework-archivelibrary
