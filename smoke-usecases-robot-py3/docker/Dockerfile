@@ -21,14 +21,15 @@ RUN apk --no-cache add --update openssl && \
         python3-dev build-base linux-headers libffi-dev \
         openssl-dev libjpeg-turbo-dev
 RUN git clone --depth 1 https://github.com/onap/cps.git -b $ONAP_TAG /cps  && \
-    find /cps -mindepth 1 -name csit -prune -o -exec rm -rf {} + 
+    find /cps -mindepth 1 -name csit -prune -o -exec rm -rf {} +
 RUN git clone --depth 1 https://github.com/onap/cps-cps-temporal.git -b $ONAP_TAG /cps-cps-temporal  && \
-    find /cps-cps-temporal -mindepth 1 -name csit -prune -o -exec rm -rf {} + 
+    find /cps-cps-temporal -mindepth 1 -name csit -prune -o -exec rm -rf {} +
 RUN git clone --depth 1 https://github.com/onap/cps-ncmp-dmi-plugin.git -b $ONAP_TAG /cps-ncmp-dmi-plugin  && \
-    find /cps-ncmp-dmi-plugin -mindepth 1 -name csit -prune -o -exec rm -rf {} + 
+    find /cps-ncmp-dmi-plugin -mindepth 1 -name csit -prune -o -exec rm -rf {} +
+RUN git clone --depth 1 https://git.onap.org/testsuite -b $ONAP_TAG /var/opt/ONAP
 RUN pip install --upgrade pip
 RUN pip install \
-        -rrequirements.txt && \
+        -r requirements.txt && \
     rm -r requirements.txt && \
     cd / && ln -s /var/opt/ONAP/robot/ /robot && \
     apk del .build-deps
@@ -36,4 +37,3 @@ RUN pip install \
 COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
 COPY scripts/cmd.sh /
 CMD ["/cmd.sh"]
-
