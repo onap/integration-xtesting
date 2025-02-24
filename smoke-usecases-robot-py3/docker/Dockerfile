@@ -11,6 +11,9 @@ ARG KUBERNETES_VERSION="v1.19.9"
 ENV TAG all
 ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
+ARG PYTHON_UTILS_REPO=git.onap.org/testsuite/python-testing-utils.git
+ARG PYTHON_UTILS_TAG=master
+
 # Install kubectl
 # Note: Latest version may be found on:
 # https://aur.archlinux.org/packages/kubectl-bin/
@@ -33,6 +36,7 @@ RUN pip install \
     rm -r requirements.txt && \
     cd / && ln -s /var/opt/ONAP/robot/ /robot && \
     apk del .build-deps
+RUN pip install --no-cache-dir git+https://$PYTHON_UTILS_REPO@$PYTHON_UTILS_TAG#egg=robotframework-onap\&subdirectory=robotframework-onap
 
 COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
 COPY scripts/cmd.sh /
