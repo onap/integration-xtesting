@@ -30,6 +30,6 @@ RUN mkdir -p /var/opt/ONAP/demo/heat && cp -Rf /src/demo/heat/vFW /var/opt/ONAP/
     cd / && ln -s /var/opt/ONAP/robot/ /robot && \
     apk del .build-deps
 
-COPY docker/testcases.yaml /usr/lib/python3.7/site-packages/xtesting/ci/testcases.yaml
+COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
 COPY scripts/cmd.sh /
 CMD ["/cmd.sh"]
