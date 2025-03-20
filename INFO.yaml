@@ -31,11 +31,11 @@ repositories:
     - 'integration/xtesting'
 committers:
     - <<: *onap_integration_ptl
-    - name: 'Catherine Lefevre'
-      email: 'cl664y@att.com'
-      company: 'AT&T'
-      id: 'Katel34'
-      timezone: 'Europe/Belgium'
+    - name: 'Fiete Ostkamp'
+      email: 'fiete.ostkamp@telekom.de'
+      id: 'fostkamp'
+      company: 'Deutsche Telekom'
+      timezone: 'Europe/Berlin'
     - name: 'Krzysztof Kuzmicki'
       email: 'krzysztof.kuzmicki@nokia.com'
       company: 'nokia'
@@ -56,11 +56,6 @@ committers:
       company: 'T-Mobile'
       id: 'rajewluk'
       timezone: 'Europe/Warsaw'
-    - name: 'Fiachra Corcoran'
-      email: 'fiachra.corcoran@est.tech'
-      company: 'Ericsson'
-      id: 'efiacor'
-      timezone: 'Europe/Dublin'
 tsc:
     # yamllint disable rule:line-length
     approval: 'https://lists.onap.org/pipermail/onap-tsc'
