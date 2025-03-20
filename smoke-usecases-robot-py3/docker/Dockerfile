@@ -45,7 +45,8 @@ RUN pip install \
     cd / && ln -s /var/opt/ONAP/robot/ /robot && \
     apk del .build-deps && \
     chmod 700 get_helm.sh && \
-    ./get_helm.sh --version $HELM_VERSION
+    ./get_helm.sh --version $HELM_VERSION && \
+    chmod +x /usr/local/bin/kubectl
 RUN pip install --no-cache-dir git+https://$PYTHON_UTILS_REPO@$PYTHON_UTILS_TAG#egg=robotframework-onap\&subdirectory=robotframework-onap
 
 COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
