@@ -38,6 +38,14 @@ RUN git clone --depth 1 https://github.com/onap/cps-cps-temporal.git -b $ONAP_TA
 RUN git clone --depth 1 https://github.com/onap/cps-ncmp-dmi-plugin.git -b $ONAP_TAG /cps-ncmp-dmi-plugin  && \
     find /cps-ncmp-dmi-plugin -mindepth 1 -name csit -prune -o -exec rm -rf {} +
 RUN git clone --depth 1 https://git.onap.org/testsuite -b $ONAP_TAG /var/opt/ONAP
+RUN git clone --depth 1 https://git.onap.org/demo -b $ONAP_TAG /src/demo
+# demo folder is required by the pnf_registrate smoke usecase
+RUN mkdir -p /var/opt/ONAP/demo/heat && cp -Rf /src/demo/heat/vFW /var/opt/ONAP/demo/heat/ && \
+    mkdir -p /var/opt/ONAP/demo/tosca && cp -Rf /src/demo/tosca/pNF /var/opt/ONAP/demo/tosca/ && \
+    mkdir -p /demo/service_mapping && cp -Rf /src/demo/service_mapping /demo/ && \
+    mkdir -p /var/opt/ONAP/demo/preload_data && cp -Rf /src/demo/preload_data /var/opt/ONAP/demo/ && \
+    mkdir -p /app && cp /var/opt/ONAP/setup-hvves.sh /app/setup-hvves.sh && \
+    chmod +x /app/setup-hvves.sh
 RUN pip install --upgrade pip
 RUN pip install \
         -r requirements.txt && \
