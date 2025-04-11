@@ -1,4 +1,6 @@
-robotframework==3.1.1
+robotframework==3.1.2
 robotframework-requests>=0.8
 robotframework-jsonlibrary
 robotframework-sshlibrary
+robotframework-archivelibrary
+robotframework-seleniumlibrary==5.1.3
