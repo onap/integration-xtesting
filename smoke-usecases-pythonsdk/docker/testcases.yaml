@@ -171,6 +171,94 @@ tiers:
                 run:
                     name: basic_sdnc
             -
+                case_name: ves_publish
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Publish VES events.
+                dependencies:
+                run:
+                    name: ves_publish
+            -
+                case_name: aai_initial_data_setup
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    AAI initial data setup
+                dependencies:
+                run:
+                    name: aai_initial_data_setup
+            -
+                case_name: add_pnf_in_running_service
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Run PNF simulator and onboard and instantiate a service with PNF
+                dependencies:
+                run:
+                    name: add_pnf_in_running_service
+            -
+                case_name: instantiate_pnf_without_registration_event
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Instantiate PNF without using simulator and event sending
+                dependencies:
+                run:
+                    name: instantiate_pnf_without_registration_event
+            -
+                case_name: basic_prh
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Basic PNF registration handler test
+                dependencies:
+                run:
+                    name: basic_prh
+            -
+                case_name: check_time_sync
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Check synchronization of k8s nodes
+                dependencies:
+                run:
+                    name: check_time_sync
+            -
+                case_name: basic_kafka
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Basic Kafka testing
+                dependencies:
+                run:
+                    name: basic_kafka
+            -
+                case_name: basic_policy
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Store, deploy, undeploy, delete policies
+                dependencies:
+                run:
+                    name: basic_policy
+            -
                 case_name: status
                 project_name: integration
                 enabled: true
