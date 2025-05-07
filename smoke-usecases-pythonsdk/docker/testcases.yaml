@@ -215,6 +215,28 @@ tiers:
                 run:
                     name: instantiate_pnf_without_registration_event
             -
+                case_name: instantiate_service_without_resource
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Instantiate Service without any resource
+                dependencies:
+                run:
+                    name: instantiate_service_without_resource
+            -
+                case_name: add_delete_cnf_macro
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Instantiate a service with CNF, then add and delete CNF from the service
+                dependencies:
+                run:
+                    name: add_delete_cnf_macro
+            -
                 case_name: basic_prh
                 project_name: integration
                 enabled: true

@@ -19,9 +19,6 @@ RUN apk add --no-cache git && \
     pip3 install markupsafe==2.0.1 && \
     apk del .build-deps
 
-FROM pythonsdk-release as pythonsdk-develop
-RUN pip3 install --no-cache-dir git+https://gitlab.com/Orange-OpenSource/lfn/onap/python-onapsdk@develop#onapsdk
-
 FROM ${PYTHONSDK_VERSION} as final
 COPY docker/testcases.yaml /usr/local/lib/python3.11/site-packages/xtesting/ci/testcases.yaml
 CMD ["run_tests", "-t", "all"]
