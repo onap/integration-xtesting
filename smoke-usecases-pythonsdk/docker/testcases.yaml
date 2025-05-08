@@ -210,10 +210,21 @@ tiers:
                 criteria: 100
                 blocking: false
                 description: >-
-                    Instantiate PNF without using simulator and event sending
+                    Instantiate PNF without using simulator and without sending registration events
                 dependencies:
                 run:
                     name: instantiate_pnf_without_registration_event
+            -
+                case_name: pnf_with_ves_event
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Instantiate PNF without using simulator and sending registration events
+                dependencies:
+                run:
+                    name: pnf_with_ves_event
             -
                 case_name: instantiate_service_without_resource
                 project_name: integration
