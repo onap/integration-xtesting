@@ -1,0 +1,32 @@
+bashate
+colorama
+coverage
+deepdiff
+dnspython
+json5
+kubernetes
+mock
+nose
+openstacksdk
+oyaml
+pylint
+pytz
+pyyaml
+requests
+requests[socks]
+robotframework
+robotframework-archivelibrary
+robotframework-databaselibrary
+# robotframework-extendedselenium2library  # Deprecated, seleniumlibrary should cover all the functionality
+robotframework-ftplibrary
+robotframework-httplibrary
+robotframework-jsonlibrary
+robotframework-requests
+# robotframework-selenium2library  # Deprecated, seleniumlibrary should cover all the functionality
+robotframework-seleniumlibrary
+robotframework-sshlibrary
+selenium
+simplejson
+urllib3
+xtesting
+yamllint
