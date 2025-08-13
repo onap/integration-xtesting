@@ -54,7 +54,7 @@ RUN set -x && \
     rm -rf /usr/lib/python3.8/site-packages/PyYAML* && \
     pip3 install --no-cache-dir \
         git+https://git.onap.org/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=security && \
-    cd /kube-hunter && pip3 install -r /kube-hunter/requirements.txt && \
+    cd /kube-hunter && pip3 install -r /kube-hunter/requirements-dev.txt && \
     pip3 install --no-cache-dir \
         git+https://git.onap.org/integration.git@$ONAP_TESTS_TAG#subdirectory=test/security/check_versions && \
     apk del .build-deps
