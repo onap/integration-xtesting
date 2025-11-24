@@ -1,0 +1,18 @@
+distribution_type: 'container'
+container_release_tag: '8.0.0'
+project: 'integration-xtesting'
+log_dir: 'integration-xtesting-infra-healthcheck-docker-merge-master/'
+ref: 7191df8920bdeb2de9e315af71dcff04c04237fc
+containers:
+    - name: 'xtesting-infra-healthcheck'
+      version: 'master'
+    - name: 'xtesting-healthcheck'
+      version: 'master'
+    - name: 'xtesting-smoke-usecases-pythonsdk'
+      version: 'master'
+    - name: 'xtesting-smoke-usecases-robot'
+      version: 'master'
+    - name: 'xtesting-security'
+      version: 'master'
+    - name: 'xtesting-smoke-usecases-robot-py3'
+      version: 'master'
