@@ -1,0 +1,9 @@
+Verified+1: Lukasz Rajewski <lukasz.rajewski@t-mobile.pl>
+Code-Review+2: Lukasz Rajewski <lukasz.rajewski@t-mobile.pl>
+Verified+1: ONAP Bypass GHA <releng+onap.bypass.gha@linuxfoundation.org>
+Verified+1: ONAP Required GHA <releng+onap.required.gha@linuxfoundation.org>
+Submitted-by: Lukasz Rajewski <lukasz.rajewski@t-mobile.pl>
+Submitted-at: Mon, 26 Jan 2026 10:54:12 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/xtesting/+/143006
+Project: integration/xtesting
+Branch: refs/heads/master
