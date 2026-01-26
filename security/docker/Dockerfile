@@ -37,7 +37,7 @@ RUN set -x && \
     apk --no-cache add --virtual .build-deps --update \
         python3-dev linux-headers gcc  musl-dev && \
     chmod +x /usr/local/bin/kubectl && \
-    git clone --depth 1 https://github.com/aquasecurity/kube-hunter.git /kube-hunter && \
+    git clone https://github.com/aquasecurity/kube-hunter.git /kube-hunter && \
     mkdir /check_versions && \
     adduser kubectl -Du 2342 -h /config && \
     wget -O /check_for_nonssl_endpoints.sh https://git.onap.org/integration/plain/test/security/check_for_nonssl_endpoints.sh?h=$ONAP_TAG &&\
