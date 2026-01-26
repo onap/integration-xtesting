@@ -37,18 +37,18 @@ RUN set -x && \
     apk --no-cache add --virtual .build-deps --update \
         python3-dev linux-headers gcc  musl-dev && \
     chmod +x /usr/local/bin/kubectl && \
-    git clone --depth 1 https://github.com/aquasecurity/kube-hunter.git /kube-hunter && \
+    git clone https://github.com/aquasecurity/kube-hunter.git /kube-hunter && \
     mkdir /check_versions && \
     adduser kubectl -Du 2342 -h /config && \
-    wget -O /check_for_nonssl_endpoints.sh https://git.onap.org/integration/plain/test/security/check_for_nonssl_endpoints.sh?h=$ONAP_TAG &&\
-    wget -O /check_for_jdwp.sh https://git.onap.org/integration/plain/test/security/check_for_jdwp.sh?h=$ONAP_TAG &&\
-    wget -O /jdwp_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/jdwp_ports/jdwp_xfail.txt?h=$ONAP_TAG &&\
-    wget -O /nonssl_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/nonssl_endpoints/nonssl_xfail.txt?h=$ONAP_TAG &&\
-    wget -O /root_pods_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/root_pods/root_pods_xfail.txt?h=$ONAP_TAG &&\
-    wget -O /unlimitted_pods_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/unlimitted_pods/unlimitted_pods_xfail.txt?h=$ONAP_TAG &&\
-    wget -O /check_versions/k8s_bin_versions_inspector.py https://git.onap.org/integration/plain/test/security/check_versions/versions/k8s_bin_versions_inspector.py?h=$ONAP_TAG &&\
-    wget -O /check_versions/requirements.txt https://git.onap.org/integration/plain/test/security/check_versions/requirements.txt?h=$ONAP_TAG &&\
-    wget -O /check_versions/recommended_versions.yaml https://git.onap.org/integration/seccom/plain/recommended_versions.yaml?h=$ONAP_TAG &&\
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 3 -O /check_for_nonssl_endpoints.sh https://git.onap.org/integration/plain/test/security/check_for_nonssl_endpoints.sh?h=$ONAP_TAG &&\
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 3 -O /check_for_jdwp.sh https://git.onap.org/integration/plain/test/security/check_for_jdwp.sh?h=$ONAP_TAG &&\
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 3 -O /jdwp_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/jdwp_ports/jdwp_xfail.txt?h=$ONAP_TAG &&\
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 3 -O /nonssl_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/nonssl_endpoints/nonssl_xfail.txt?h=$ONAP_TAG &&\
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 3 -O /root_pods_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/root_pods/root_pods_xfail.txt?h=$ONAP_TAG &&\
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 3 -O /unlimitted_pods_xfail.txt https://git.onap.org/integration/seccom/plain/waivers/unlimitted_pods/unlimitted_pods_xfail.txt?h=$ONAP_TAG &&\
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 3 -O /check_versions/k8s_bin_versions_inspector.py https://git.onap.org/integration/plain/test/security/check_versions/versions/k8s_bin_versions_inspector.py?h=$ONAP_TAG &&\
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 3 -O /check_versions/requirements.txt https://git.onap.org/integration/plain/test/security/check_versions/requirements.txt?h=$ONAP_TAG &&\
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 3 -O /check_versions/recommended_versions.yaml https://git.onap.org/integration/seccom/plain/recommended_versions.yaml?h=$ONAP_TAG &&\
     chmod +x /usr/local/bin/sslendpoints && \
     chmod +x /check_*.sh && \
     rm -rf /usr/lib/python3.8/site-packages/PyYAML* && \
