@@ -16,3 +16,6 @@ pyyaml>=4.2b1
 json5==0.9.11
 pytz
 urllib3<2
+opentelemetry-distro
+opentelemetry-exporter-otlp
+opentelemetry-instrumentation-requests

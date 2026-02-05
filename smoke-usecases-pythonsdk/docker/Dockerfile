@@ -2,8 +2,6 @@ ARG PYTHONSDK_VERSION=pythonsdk-release
 
 FROM python:3.11-alpine as pythonsdk-release
 
-MAINTAINER Morgan Richomme <morgan.richomme@orange.com>
-
 ARG ONAP_TESTS_TAG=master
 ARG ONAPSDK_PYTHON_PATH=/src/onapsdk
 
@@ -17,6 +15,7 @@ RUN apk add --no-cache git && \
     mkdir -p $ONAPSDK_PYTHON_PATH/clamp && \
     wget -O $ONAPSDK_PYTHON_PATH/clamp/schema_details.json https://gitlab.com/Orange-OpenSource/lfn/onap/python-onapsdk/-/raw/develop/src/onapsdk/clamp/schema_details.json && \
     pip3 install markupsafe==2.0.1 && \
+    pip3 install opentelemetry-distro opentelemetry-exporter-otlp opentelemetry-instrumentation-requests && \
     apk del .build-deps
 
 FROM pythonsdk-release as pythonsdk-develop
