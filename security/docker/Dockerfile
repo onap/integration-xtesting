@@ -30,6 +30,7 @@ COPY scripts/check_cis_kubernetes.sh /check_cis_kubernetes.sh
 COPY scripts/check_versions.sh /check_versions.sh
 COPY --from=build_yq /go/bin/yq /usr/local/bin/yq
 COPY --from=build_onap /go/bin/sslendpoints /usr/local/bin/sslendpoints
+COPY upper-constraints.txt /upper-constraints.txt
 
 RUN set -x && \
     apk --no-cache add --update curl ca-certificates openssl procps util-linux \
@@ -54,7 +55,7 @@ RUN set -x && \
     rm -rf /usr/lib/python3.8/site-packages/PyYAML* && \
     pip3 install --no-cache-dir \
         git+https://git.onap.org/integration/xtesting.git@$ONAP_TESTS_TAG#subdirectory=security && \
-    cd /kube-hunter && pip3 install -r /kube-hunter/requirements.txt && \
+    cd /kube-hunter && pip3 install -c /upper-constraints.txt -r /kube-hunter/requirements.txt && \
     pip3 install --no-cache-dir \
         git+https://git.onap.org/integration.git@$ONAP_TESTS_TAG#subdirectory=test/security/check_versions && \
     apk del .build-deps
