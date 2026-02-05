@@ -16,6 +16,6 @@ pyyaml>=4.2b1
 json5==0.9.11
 pytz
 urllib3<2
-opentelemetry-distro
-opentelemetry-exporter-otlp
-opentelemetry-instrumentation-requests
+opentelemetry-distro==0.51b0 # 0.51b0 is still compatible with Python 3.8
+opentelemetry-instrumentation-requests==0.51b0 # 0.51b0 is still compatible with Python 3.8
+opentelemetry-exporter-otlp==1.33.0 # 1.33.0 is still compatible with Python 3.8
