@@ -1,26 +1,18 @@
-ARG PYTHONSDK_VERSION=pythonsdk-release
-
-FROM python:3.11-alpine as pythonsdk-release
+FROM python:3.11-alpine
 
 ARG ONAP_TESTS_TAG=master
 ARG ONAPSDK_PYTHON_PATH=/src/onapsdk
 
-ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
-
-RUN apk add --no-cache git && \
-    apk add --no-cache --virtual .build-deps gcc openssl-dev linux-headers musl-dev && \
-    pip3 install --upgrade pip && \
+RUN apk add --no-cache --virtual .build-deps \
+        git \
+        wget && \
+    pip3 install --upgrade --no-cache-dir pip && \
     pip3 install --ignore-installed --no-cache-dir \
         git+https://gerrit.onap.org/r/testsuite/pythonsdk-tests@$ONAP_TESTS_TAG && \
     mkdir -p $ONAPSDK_PYTHON_PATH/clamp && \
-    wget -O $ONAPSDK_PYTHON_PATH/clamp/schema_details.json https://gitlab.com/Orange-OpenSource/lfn/onap/python-onapsdk/-/raw/develop/src/onapsdk/clamp/schema_details.json && \
-    pip3 install markupsafe==2.0.1 && \
-    pip3 install opentelemetry-distro opentelemetry-exporter-otlp opentelemetry-instrumentation-requests && \
-    apk del .build-deps
+    wget -O $ONAPSDK_PYTHON_PATH/clamp/schema_details.json https://git.onap.org/integration/python-onapsdk/plain/src/onapsdk/clamp/schema_details.json && \
+    apk del .build-deps && \
+    rm -rf /root/.cache /tmp/* /var/cache/apk/*
 
-FROM pythonsdk-release as pythonsdk-develop
-RUN pip3 install --no-cache-dir git+https://gitlab.com/Orange-OpenSource/lfn/onap/python-onapsdk@develop#onapsdk
-
-FROM ${PYTHONSDK_VERSION} as final
 COPY docker/testcases.yaml /usr/local/lib/python3.11/site-packages/xtesting/ci/testcases.yaml
 CMD ["run_tests", "-t", "all"]
