@@ -31,7 +31,9 @@ RUN set -x && \
     rm -rf /usr/local/lib/python3.11/site-packages/PyYAML* && \
     pip3 install --upgrade pip && \
     pip3 install --ignore-installed --no-cache-dir \
-        -r requirements.txt -c upper-constraints.txt \
+        git+https://gitlab.com/Orange-OpenSource/lfn/tools/helm-onap-status.git#egg=helm_onap_status \
+        git+https://gitlab.com/Orange-OpenSource/lfn/tools/chart-status.git#egg=chart_status \
+        -r requirements.txt \
         -e . \
         git+https://git.onap.org/testsuite/pythonsdk-tests.git@$ONAP_TESTS_TAG \
         git+https://git.onap.org/integration.git@$ONAP_TAG#subdirectory=test/security/check_certificates && \
