@@ -19,6 +19,7 @@ import subprocess
 import os
 import time
 
+import check_certificates
 from xtesting.core import testcase
 
 class K8sTesting(testcase.TestCase):
@@ -103,7 +104,7 @@ class OnapSecurityNodePortsCerts(K8sTesting):
     """Check the cerfificates for the nodeports."""
     def __init__(self, **kwargs):
         super(OnapSecurityNodePortsCerts, self).__init__(**kwargs)
-        os.chdir('/usr/lib/python3.8/site-packages/check_certificates')
+        os.chdir(os.path.dirname(check_certificates.__file__))
         self.cmd = ['python3', 'check_certificates_validity.py',
                     '--mode','nodeport','--namespace','onap','--dir',
                     '/var/lib/xtesting/results/nodeport_check_certs']
@@ -113,7 +114,7 @@ class OnapSecurityInternalPortsCerts(K8sTesting):
     """Check the cerfificates for the internal ports."""
     def __init__(self, **kwargs):
         super(OnapSecurityInternalPortsCerts, self).__init__(**kwargs)
-        os.chdir('/usr/lib/python3.8/site-packages/check_certificates')
+        os.chdir(os.path.dirname(check_certificates.__file__))
         self.cmd = ['python3', 'check_certificates_validity.py',
                     '--mode','internal','--namespace','onap','--dir',
                     '/var/lib/xtesting/results/internal_check_certs']
