@@ -11,3 +11,4 @@ bashate # Apache-2.0
 xtesting
 kubernetes # Apache-2.0
 colorama # BSD
+pyOpenSSL>=25.0.0 # Apache-2.0 - must override onapsdk's old pin to fix cryptography compat
