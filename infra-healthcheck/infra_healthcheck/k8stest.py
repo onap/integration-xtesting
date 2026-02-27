@@ -68,7 +68,7 @@ class K8sTesting(testcase.TestCase):
                 remarks.append(log.replace('>', ''))
             else:
                 remarks.append(log)
-        if 'PASS' in remarks:
+        if any('PASS' in remark for remark in remarks):
             success = True
 
         self.details = details
