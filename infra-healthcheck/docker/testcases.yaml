@@ -15,16 +15,8 @@ tiers:
                 description: >-
                     This test case verifies that the ONAP pods are all Running
                     and shows the pods, deployments, svc and events.
-                run:
-                    name: 'status'
-            -
-                case_name: status-teardown
-                project_name: integration
-                criteria: 100
-                blocking: false
-                description: >-
-                    This test case verifies that the ONAP pods are all Running
-                    after test execution (teardown check).
+                    New version of onap-k8s test (which is deprecated and will
+                    be removed)
                 run:
                     name: 'status'
             -
