@@ -287,10 +287,26 @@ tiers:
                 criteria: 100
                 blocking: false
                 description: >-
-                    Store, deploy, undeploy, delete policies
+                    Store and deploy a policy, check it converges to SUCCESS in
+                    PAP, assert a Permit decision carrying the policy advice and
+                    a Deny decision for a non matching request, then undeploy
+                    and delete
                 dependencies:
                 run:
                     name: basic_policy
+            -
+                case_name: basic_acm
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Onboard, prime, instantiate and deploy an automation
+                    composition driving the policy participant, and check the
+                    resulting policy is deployed in PAP
+                dependencies:
+                run:
+                    name: basic_acm
             -
                 case_name: status
                 project_name: integration
