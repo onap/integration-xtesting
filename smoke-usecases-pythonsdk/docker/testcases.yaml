@@ -308,6 +308,20 @@ tiers:
                 run:
                     name: basic_acm
             -
+                case_name: basic_opa
+                project_name: integration
+                enabled: true
+                criteria: 100
+                blocking: false
+                description: >-
+                    Store a native OPA policy with its Rego module and data
+                    document, deploy it to the OPA PDP group and assert a Deny
+                    decision above the threshold and a Permit decision below it,
+                    then undeploy and delete
+                dependencies:
+                run:
+                    name: basic_opa
+            -
                 case_name: status
                 project_name: integration
                 enabled: true
