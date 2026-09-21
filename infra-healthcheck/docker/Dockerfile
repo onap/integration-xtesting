@@ -35,7 +35,7 @@ RUN set -x && \
         git+https://gitlab.com/Orange-OpenSource/lfn/tools/chart-status.git#egg=chart_status \
         -r requirements.txt \
         -e . \
-        git+https://git.onap.org/testsuite/pythonsdk-tests.git@$ONAP_TESTS_TAG \
+        git+https://gerrit.onap.org/r/testsuite/pythonsdk-tests@$ONAP_TESTS_TAG \
         git+https://git.onap.org/integration.git@$ONAP_TAG#subdirectory=test/security/check_certificates && \
     apk del .build-deps
 
