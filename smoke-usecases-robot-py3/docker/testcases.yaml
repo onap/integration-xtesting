@@ -16,7 +16,7 @@ tiers:
                     Registrate PNF
                 dependencies:
                 run:
-                    name: 'robotframework'
+                    name: 'robotframework_otel'
                     args:
                         suites:
                             - /var/opt/ONAP/robot/testsuites/pnf-registration.robot
@@ -34,7 +34,7 @@ tiers:
                     vFW closed loop use case
                 dependencies:
                 run:
-                    name: 'robotframework'
+                    name: 'robotframework_otel'
                     args:
                         suites:
                             - /var/opt/ONAP/robot/testsuites/vfwcl.robot
@@ -54,7 +54,7 @@ tiers:
                     controller)
                 dependencies:
                 run:
-                    name: 'robotframework'
+                    name: 'robotframework_otel'
                     args:
                         suites:
                             - /var/opt/ONAP/robot/testsuites/usecases/5gbulkpm.robot
@@ -83,7 +83,7 @@ tiers:
                     is decoded and checked.
                 dependencies:
                 run:
-                    name: 'robotframework'
+                    name: 'robotframework_otel'
                     args:
                         suites:
                             - /var/opt/ONAP/robot/testsuites/hvves-ci.robot
@@ -101,7 +101,7 @@ tiers:
                     Suite for checking handling events by VES Collector
                 dependencies:
                 run:
-                    name: 'robotframework'
+                    name: 'robotframework_otel'
                     args:
                         suites:
                             - /var/opt/ONAP/robot/testsuites/ves.robot
@@ -119,7 +119,7 @@ tiers:
                     Suite for checking CMPv2 Usecase functionality
                 dependencies:
                 run:
-                    name: 'robotframework'
+                    name: 'robotframework_otel'
                     args:
                         suites:
                             - /var/opt/ONAP/robot/testsuites/cmpv2.robot
@@ -138,7 +138,7 @@ tiers:
                     K8S ConfigMaps to DCAE apps
                 dependencies:
                 run:
-                    name: 'robotframework'
+                    name: 'robotframework_otel'
                     args:
                         suites:
                             - /var/opt/ONAP/robot/testsuites/dcaemod.robot
@@ -156,7 +156,7 @@ tiers:
                     Execute CPS healthcheck
                 dependencies:
                 run:
-                    name: 'robotframework'
+                    name: 'robotframework_otel'
                     args:
                         suites:
                             - /cps/csit/tests/actuator/actuator.robot
@@ -176,7 +176,7 @@ tiers:
                     Execute CPS temporal healthcheck
                 dependencies:
                 run:
-                    name: 'robotframework'
+                    name: 'robotframework_otel'
                     args:
                         suites:
                             - /cps-cps-temporal/csit/tests/actuator/actuator.robot
@@ -196,7 +196,7 @@ tiers:
                     Execute CPS ncmp dmi-plugin healthcheck
                 dependencies:
                 run:
-                    name: 'robotframework'
+                    name: 'robotframework_otel'
                     args:
                         suites:
                             - /cps-ncmp-dmi-plugin/csit/tests/actuator/actuator.robot
