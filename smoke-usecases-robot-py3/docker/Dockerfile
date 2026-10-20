@@ -56,6 +56,9 @@ RUN pip install \
     ./get_helm.sh --version $HELM_VERSION && \
     chmod +x /usr/local/bin/kubectl
 RUN pip install --no-cache-dir git+https://$PYTHON_UTILS_REPO@$PYTHON_UTILS_TAG#egg=robotframework-onap\&subdirectory=robotframework-onap
+COPY setup.py /src/onap-robot-tracing/setup.py
+COPY onap_robot_tracing /src/onap-robot-tracing/onap_robot_tracing
+RUN pip install --no-cache-dir /src/onap-robot-tracing
 
 COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
 COPY scripts/cmd.sh /
