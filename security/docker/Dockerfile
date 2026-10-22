@@ -1,6 +1,6 @@
-FROM golang:1.25 AS build_yq
+FROM golang:1.26 AS build_yq
 WORKDIR /go/src/github.com/mikefarah/
-RUN git clone https://github.com/mikefarah/yq.git --depth 1
+RUN git clone https://github.com/mikefarah/yq.git --depth 1 --branch v4.54.1
 WORKDIR /go/src/github.com/mikefarah/yq
 RUN go mod tidy
 RUN CGO_ENABLED=0 go install -a -ldflags '-w -s -extldflags "-static"'
