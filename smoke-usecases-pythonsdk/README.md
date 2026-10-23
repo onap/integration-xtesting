@@ -61,7 +61,7 @@ Optional:
 
 An example of env file is given herefater:
 
-```
+```text
 INSTALLER\_TYPE=oom
 TEST\_DB\_URL=http://testresults.opnfv.org/onap/api/v1/results
 NODE\_NAME=onap\_daily\_pod4\_master-ONAP-oom
@@ -74,7 +74,7 @@ ONAP\_PYTHON\_SDK\_SETTINGS=onaptests.configuration.basic\_vm\_settings
 The generic configuration file settings.py can be also specified to overwritte
 default values.
 
-```
+```python
 """Specific settings module."""  # pylint: disable=bad-whitespace
 
 ######################
@@ -144,7 +144,7 @@ The different needed volumes are:
 
 An example of clouds.yaml
 
-```
+```yaml
 clouds:
     onap-master-daily-vnfs-ci:
         auth:
@@ -165,7 +165,7 @@ A example of basic\_vm customization is provided hereafter. You can customize
 this file according to your cloud environment (key, flavor name,..).
 The data will be preloaded to overwrite the default model values.
 
-```
+```yaml
 ---
 basic_vm:
     vnfs:
@@ -211,7 +211,7 @@ t+w+EC9/kBKq+1VKdmsXUXAcjEvjovVL8l1BrX3BY0R8D imported-openssh-key"
 
 If you specify all the hosts
 
-```
+```bash
 docker run
 --env-file <your local env>
 -v <cloud.yaml file corresponding to your VNF tenant>:/root/.config/openstack/clouds.yaml
@@ -231,7 +231,7 @@ docker run
 nexus3.onap.org:10003/onap/xtesting-smoke-usecases-pythonsdk:master /bin/sh -c "run_tests -t basic_vm"
 ```
 
-```
+```bash
 docker run
 --env-file <your local env>
 -v <cloud.yaml file corresponding to your VNF tenant>:/root/.config/openstack/clouds.yaml
@@ -257,7 +257,7 @@ not usable.
 
 Note you can also run the docker interactively
 
-```
+```bash
 docker run -it
 -env-file <your local env>
 -v <cloud.yaml file corresponding to your VNF tenant>:/root/.config/openstack/clouds.yaml
@@ -273,7 +273,7 @@ You can also edit the tester and test settings in
 /usr/lib/python3.8/site-packages/onaptests.
 Then you can run the test with the following command:
 
-```
+```bash
 run_tests -t basic_vm
 ```
 
@@ -281,7 +281,7 @@ you can modify the env variable to run any of the use cases.
 
 ### Output
 
-```
+```text
 +-------------------+---------------------+------------------+----------------+
 |     TEST CASE     |       PROJECT       |     DURATION     |     RESULT     |
 +-------------------+---------------------+------------------+----------------+
@@ -294,7 +294,3 @@ you can modify the env variable to run any of the use cases.
 [1]: https://gitlab.com/Orange-OpenSource/lfn/onap/python-onapsdk "Python ONAP SDK repository"
 
 [2]: https://git.onap.org/testsuite/pythonsdk-tests/tree/ "Scenario consuming Python SDK"
-
-[3]: https://gitlab.com/Orange-OpenSource/lfn/onap/onap-tests/-/blob/master/onap_tests/onap-conf/onap-testing.yaml "onap-test configuration"
-
-[4]: https://gitlab.com/Orange-OpenSource/lfn/onap/xtesting-onap/-/tree/master/roles/xtesting-onap-vnf "File and templates of service descriptions"
