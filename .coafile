@@ -25,6 +25,7 @@ ignore =
 
 [md]
 bears = MarkdownBear
+list_indent = one
 ignore =
   .tox/**
 
