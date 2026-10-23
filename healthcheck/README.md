@@ -66,7 +66,7 @@ If the parameters are not set, an error will be displayed (DB not reachable)
 
 For the core test, the job description (test-core.yaml) shall look as follows:
 
-```
+```yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -116,13 +116,13 @@ spec:
 
 This job can be simply run using the command:
 
-```
+```bash
 kubectl apply -f test-core.yaml
 ```
 
 ### Output
 
-```
+```text
 +-------------------+------------------+------------------+----------------+
 |     TEST CASE     |     PROJECT      |     DURATION     |     RESULT     |
 +-------------------+------------------+------------------+----------------+

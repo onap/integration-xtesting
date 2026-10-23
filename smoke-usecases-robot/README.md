@@ -24,7 +24,7 @@ The robot code is under the ONAP testsuite repository
 
 An example of job test.yaml can be found hereafter:
 
-```
+```yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -78,7 +78,7 @@ In the example, we want to run the 5gbulkpm test.
 
 To run the job, just type:
 
-```
+```bash
   kubectl apply -f test.yaml
 ```
 
@@ -119,11 +119,11 @@ the test.
 >     In order to see all logs and not share them to *<http://testresults.opnfv.org/onap/api/v1/results>* please set:
 >     PM_LOG_LEVEL to TRACE and remove TEST_DB_URL environment variable
 >
-> ##### Example
+> #### Custom PM files example
 >
 > An example of job test.yaml can be found hereafter:
 >
-> ```
+> ```yaml
 > apiVersion: batch/v1
 > kind: Job
 > metadata:
