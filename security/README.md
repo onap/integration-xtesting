@@ -19,7 +19,7 @@ It includes 6 tests:
   aquasecurity)
 - versions: check that Java and Python are available only in versions
   recommended by SECCOM. This test is long and run only in Weekly CI chains\
-  (https://logs.onap.org/onap-integration/weekly).
+  (<https://logs.onap.org/onap-integration/weekly>).
 
 ## Usage
 
@@ -42,7 +42,7 @@ Optional:
 
 You can run this docker by typing:
 
-```
+```bash
 docker run -v <the kube config>:/root/.kube/config -v
 <result directory>:/var/lib/xtesting/results
 nexus3.onap.org:10003/onap/xtesting-security:master
@@ -69,7 +69,7 @@ environment variables:
 
 The command becomes:
 
-```
+```bash
 docker run -v <the kube config>:/root/.kube/config -v
 <result directory>:/var/lib/xtesting/results
 nexus3.onap.org:10003/onap/xtesting-security:master
@@ -80,7 +80,7 @@ Note that you can run only a subset of the tests and decide if you report the
 results to the test BD or not.
 The following commands are correct:
 
-```
+```bash
 docker run -v <the kube config>:/root/.kube/config -v
 <result directory>:/var/lib/xtesting/results
 nexus3.onap.org:10003/onap/xtesting-security:master
@@ -90,7 +90,7 @@ nexus3.onap.org:10003/onap/xtesting-security:master
 You can also run the docker in interactive mode, so you can run the tests from
 inside the docker and directly modify the code of the test if you want.
 
-```
+```bash
 docker run -it -v <the kube config>:/root/.kube/config -v
 <result directory>:/var/lib/xtesting/results
 nexus3.onap.org:10003/onap/xtesting-security:master bash
@@ -99,7 +99,7 @@ nexus3.onap.org:10003/onap/xtesting-security:master bash
 In this case you will get the bash prompt, you can run the test by typing in
 the console
 
-```
+```console
 # run_tests -t unlimitted_pods
 ```
 
@@ -109,7 +109,7 @@ at /. See the Dockerfile for more information.
 
 ### Output
 
-```
+```text
 +-----------------------+------------+------------+-----------+
 |       TEST CASE       |  PROJECT   |  DURATION  |  RESULT   |
 +-----------------------+------------+------------+-----------+

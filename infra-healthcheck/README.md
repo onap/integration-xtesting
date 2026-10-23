@@ -40,7 +40,7 @@ Optional:
 
 You can run this docker by typing:
 
-```
+```bash
 docker run -v <the kube config>:/root/.kube/config -v
 <result directory>:/var/lib/xtesting/results
 nexus3.onap.org:10003/onap/xtesting-infra-healthcheck:master
@@ -74,7 +74,7 @@ environment variables:
 
 The command becomes:
 
-```
+```bash
 docker run -v <the kube config>:/root/.kube/config
 -v <the user home dir>/.helm/plugins/deploy/cache/onap/logs:/onap_helm_logs
 -v <result directory>:/var/lib/xtesting/results
@@ -86,14 +86,14 @@ Note that you can run only a subset of the tests and decide if you report the
 results to the test BD or not.
 The following commands are correct:
 
-```
+```bash
 docker run -v <the kube config>:/root/.kube/config
 -v <result directory>:/var/lib/xtesting/results
 nexus3.onap.org:10003/onap/xtesting-infra-healthcheck:master
 /bin/bash -c "run_tests -t onap-k8s"
 ```
 
-```
+```bash
 docker run -v <the kube config>:/root/.kube/config
 -v <the user home dir>/.helm/plugins/deploy/cache/onap/logs:/onap_helm_logs
 -v <result directory>:/var/lib/xtesting/results
@@ -104,7 +104,7 @@ nexus3.onap.org:10003/onap/xtesting-infra-healthcheck:master
 You can also run the docker in interactive mode, so you can run the tests from
 inside the docker and directly modify the code of the test if you want.
 
-```
+```bash
 docker run -it -v <the kube config>:/root/.kube/config
 -v <the user home dir>/.helm/plugins/deploy/cache/onap/logs:/onap_helm_logs
 -v <result directory>:/var/lib/xtesting/results
@@ -114,7 +114,7 @@ nexus3.onap.org:10003/onap/xtesting-infra-healthcheck:master bash
 In this case you will get the bash prompt, you can run the test by typing in
 the console
 
-```
+```console
 # run_tests -t onap-k8s
 ```
 
@@ -123,7 +123,7 @@ The code of the tests is in the docker. For python test, have a look at
 
 ### Output
 
-```
+```text
 +------------------+-------------+-------------------+----------+--------+
 | TEST CASE        | PROJECT     | TIER              | DURATION | RESULT |
 +------------------+-------------+-------------------+----------+--------+
