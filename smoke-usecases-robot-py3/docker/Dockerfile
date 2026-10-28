@@ -31,12 +31,8 @@ RUN apk --no-cache add --update openssl && \
     apk --no-cache add --virtual .build-deps --update \
         python3-dev build-base linux-headers libffi-dev \
         openssl-dev libjpeg-turbo-dev
-RUN git clone --depth 1 https://github.com/onap/cps.git -b $ONAP_TAG /cps  && \
-    find /cps -mindepth 1 -name csit -prune -o -exec rm -rf {} +
 RUN git clone --depth 1 https://github.com/onap/cps-cps-temporal.git -b $ONAP_TAG /cps-cps-temporal  && \
     find /cps-cps-temporal -mindepth 1 -name csit -prune -o -exec rm -rf {} +
-RUN git clone --depth 1 https://github.com/onap/cps-ncmp-dmi-plugin.git -b $ONAP_TAG /cps-ncmp-dmi-plugin  && \
-    find /cps-ncmp-dmi-plugin -mindepth 1 -name csit -prune -o -exec rm -rf {} +
 RUN git clone --depth 1 https://git.onap.org/testsuite -b $ONAP_TAG /var/opt/ONAP
 RUN git clone --depth 1 https://git.onap.org/demo -b $ONAP_TAG /src/demo
 # demo folder is required by the pnf_registrate smoke usecase
@@ -61,5 +57,10 @@ COPY onap_robot_tracing /src/onap-robot-tracing/onap_robot_tracing
 RUN pip install --no-cache-dir /src/onap-robot-tracing
 
 COPY docker/testcases.yaml /usr/lib/python3.8/site-packages/xtesting/ci/testcases.yaml
+COPY tests /opt/xtesting/healthchecks
+RUN test -s /opt/xtesting/healthchecks/cps-healthcheck.robot && \
+    test -s /opt/xtesting/healthchecks/cps-dmi-plugin-healthcheck.robot && \
+    test -s /opt/xtesting/healthchecks/healthcheck.resource && \
+    test -s /cps-cps-temporal/csit/tests/actuator/actuator.robot
 COPY scripts/cmd.sh /
 CMD ["/cmd.sh"]

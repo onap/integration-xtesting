@@ -159,7 +159,7 @@ tiers:
                     name: 'robotframework_otel'
                     args:
                         suites:
-                            - /cps/csit/tests/actuator/actuator.robot
+                            - /opt/xtesting/healthchecks/cps-healthcheck.robot
                         variablefile:
                             - '/share/config/robot_properties.py'
                         variable:
@@ -199,7 +199,7 @@ tiers:
                     name: 'robotframework_otel'
                     args:
                         suites:
-                            - /cps-ncmp-dmi-plugin/csit/tests/actuator/actuator.robot
+                            - /opt/xtesting/healthchecks/cps-dmi-plugin-healthcheck.robot
                         variablefile:
                             - '/share/config/robot_properties.py'
                         variable:
